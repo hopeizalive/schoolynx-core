@@ -1,0 +1,30 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
+name: Java CI with Gradle
+
+on:
+  push:
+    branches:
+      - deployment
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:      
+      - name: Restart Server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 'schoolynx.com'
+          username: 'root'
+          password: '7Zr04AImrNCxuT36u4'
+          port: '22618'
+          script: sh deploy_schoolynx.sh    
