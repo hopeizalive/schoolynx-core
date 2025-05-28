@@ -27,4 +27,4 @@ jobs:
           username: 'root'
           password: '7Zr04AImrNCxuT36u4'
           port: '22618'
-          script: pwd;ls;sh deploy_schoolynx.sh    
+          script: pwd;ls;sh deploy_schoolnyx.sh    
