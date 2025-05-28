@@ -16,7 +16,7 @@ export const Navbar = () => {
         <div className="flex flex-wrap items-center justify-between py-4">
           <Link href="/" className="flex items-center">
             <span className="self-center text-2xl font-semibold whitespace-nowrap text-blue-600 dark:text-blue-400">
-            SchooLnyx
+            Schoolynx2
             </span>
           </Link>
           
