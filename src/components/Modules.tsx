@@ -76,7 +76,7 @@ const Modules = () => {
           </div>
         </div>
         {/* Second row: 4 cards left-aligned */}
-        <div className="flex gap-8 mb-10">
+        <div className="flex gap-8 mb-10 flex-col md:flex-row items-center">
           {modules.slice(2).map((mod, i) => (
             <div key={i} className="bg-white text-[#1a2d52] rounded-xl shadow-md p-6 flex flex-col items-center min-h-[260px] w-[320px] transition hover:scale-105 duration-200">
               {mod.icon}

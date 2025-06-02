@@ -17,49 +17,24 @@ const navItems: NavItem[] = [
   // Removed 'Coding Classes'
   {
     label: 'Product',
-    href: '#',
+    href: '/product',
     children: [
-      { label: 'Feature Tour', href: '#' },
-      { label: 'Mobile App', href: '#' },
-      { label: 'Multi-School', href: '#' },
-      { label: 'Student Information System', href: '#' },
-      { label: 'Integrations', href: '#' },
-      { label: '101 Reasons', href: '#' },
-      { label: 'Schoolynx Difference', href: '#' }, // Corrected typo from 'Differece'
-      { label: 'FAQ', href: '#' },
+      { label: 'Feature Tour', href: '/product/feature-tour' },
+      { label: 'FAQ', href: '/product/faq' },
     ],
   },
-  {
-    label: 'Partner',
-    href: '#',
-    children: [
-      { label: 'Why Partner', href: '#' },
-      { label: 'OEM Partner', href: '#' },
-    ],
-  },
-  { label: 'Pricing', href: '#' },
-  {
-    label: 'Resources',
-    href: '#',
-    children: [
-      { label: 'Blog', href: '#' },
-      { label: 'Case Studies', href: '#' },
-      { label: 'Ebook', href: '#' },
-    ],
-  },
+  
+  { label: 'Pricing', href: '/pricing' },
   {
     label: 'About',
-    href: '#',
+    href: '/about',
     children: [
-      { label: 'Our Story', href: '#' },
-      { label: 'Core Team', href: '#' },
-      { label: 'Our Customers', href: '#' },
-      { label: 'Media and Press', href: '#' },
-      { label: 'Awards and Recognition', href: '#' },
-      { label: 'Company Careers', href: '#' },
+      { label: 'Our Story', href: '/about/our-story' },
+      { label: 'Core Team', href: '/about/core-team' },
+      { label: 'Our Customers', href: '/about/our-customers' },
     ],
   },
-  { label: 'Contact', href: '#' },
+  { label: 'Contact', href: '/contact' },
   // Removed 'Support docs' and 'Services'
 ];
 
@@ -90,13 +65,13 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white fixed w-full z-30 top-0 left-0 border-b border-gray-200 shadow-sm">
+    <nav className="bg-white sticky w-full z-30 top-0 left-0 border-b border-gray-200 shadow-sm">
       <div className="max-w-[95%] mx-auto px-4">
-        <div className="flex flex-wrap items-center justify-between py-3">
+        <div className="flex flex-wrap items-center justify-between">
           <Link href="/" className="flex items-center">
           <Image
     src="/assets/logo.png" // Public folder se relative path
-    alt="Fedena Logo"
+    alt="Schoolynx Logo"
     width={80}
     height={80}
     className="mr-2"
@@ -156,7 +131,7 @@ export const Navbar = () => {
                     {item.children && <IoChevronDown className={`w-3 h-3 ml-0.5 transition-transform duration-200 ${openDropdown === item.label && isOpen ? 'rotate-180' : ''} md:group-hover:rotate-180`} />}
                   </button>
                   {item.children && (
-                    <div className={`absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg py-1 z-20 ring-1 ring-black ring-opacity-5 ${openDropdown === item.label ? 'block' : 'hidden'} md:group-hover:block`}>
+                    <div className={`absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-1 z-20 ring-1 ring-black ring-opacity-5 ${openDropdown === item.label ? 'block' : 'hidden'} md:group-hover:block`}>
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
