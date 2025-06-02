@@ -10,7 +10,7 @@ export const CTA = () => {
           Get Started for Free Today
           </h2>
           <p className="text-lg text-white mb-10 w-[60%] mx-auto">
-          Join millions of users who have shared that Fedena provides 99% of
+          Join millions of users who have shared that Schoolynx provides 99% of
           Customer Support Satisfaction.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

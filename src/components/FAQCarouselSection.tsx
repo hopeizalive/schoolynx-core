@@ -12,16 +12,16 @@ const faqs = [
           <li className="flex items-start gap-2"><span className="mt-1"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#34c759"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span>Students can <span className="font-semibold">download the study material</span> and watch the recorded lectures at the comfort of their home.</li>
         </ul>
         <div className="mt-6 text-base">
-          Learn more about online learning module in school ERP - <span className="text-[#f4473e] font-medium">Fedena Learn</span>
+          Learn more about online learning module in school ERP - <span className="text-[#f4473e] font-medium">Schoolynx Learn</span>
         </div>
       </>
     ),
   },
   {
-    question: 'Is Fedena School ERP secure for student data?',
+    question: 'Is Schoolynx School ERP secure for student data?',
     answer: (
       <>
-        <span>Yes, Fedena uses <span className="font-semibold text-[#1a2a49]">advanced encryption</span> and <span className="font-semibold text-[#f4473e]">role-based access</span> to keep all student and staff data safe and private.</span>
+        <span>Yes, Schoolynx uses <span className="font-semibold text-[#1a2a49]">advanced encryption</span> and <span className="font-semibold text-[#f4473e]">role-based access</span> to keep all student and staff data safe and private.</span>
         <ul className="mt-4 space-y-2">
           <li className="flex items-start gap-2"><span className="mt-1"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#34c759"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span>All data is stored on <span className="font-semibold">secure cloud servers</span>.</li>
           <li className="flex items-start gap-2"><span className="mt-1"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#34c759"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span>Access is <span className="font-semibold text-[#f4473e]">strictly controlled</span> by user roles and permissions.</li>
@@ -30,7 +30,7 @@ const faqs = [
     ),
   },
   {
-    question: 'Can parents track their childs progress using Fedena?',
+    question: 'Can parents track their childs progress using Schoolynx?',
     answer: (
       <>
         <span>Absolutely! Parents can <span className="font-semibold text-[#f4473e]">log in</span> to the parent portal and:</span>
@@ -44,7 +44,7 @@ const faqs = [
   {
     answer: (
       <>
-        <span>Yes, Fedena offers <span className="font-semibold text-[#f4473e]">integrated payment gateways</span> for secure and convenient online fee collection.</span>
+        <span>Yes, Schoolynx offers <span className="font-semibold text-[#f4473e]">integrated payment gateways</span> for secure and convenient online fee collection.</span>
         <ul className="mt-4 space-y-2">
           <li className="flex items-start gap-2"><span className="mt-1"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#34c759"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span>Parents can pay fees <span className="font-semibold text-[#f4473e]">anytime, anywhere</span>.</li>
           <li className="flex items-start gap-2"><span className="mt-1"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#34c759"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span>All transactions are <span className="font-semibold">secure and tracked</span> in the system.</li>
@@ -53,10 +53,10 @@ const faqs = [
     ),
   },
   {
-    question: 'Is Fedena customizable for different schools?',
+    question: 'Is Schoolynx customizable for different schools?',
     answer: (
       <>
-        <span>Yes, Fedena is <span className="font-semibold text-[#f4473e]">highly customizable</span> to fit the unique needs of any school or college.</span>
+        <span>Yes, Schoolynx is <span className="font-semibold text-[#f4473e]">highly customizable</span> to fit the unique needs of any school or college.</span>
         <ul className="mt-4 space-y-2">
           <li className="flex items-start gap-2"><span className="mt-1"></span>Modules and features can be <span className="font-semibold text-[#f4473e]">enabled or disabled</span> as needed.</li>
           <li className="flex items-start gap-2"><span className="mt-1"></span>Branding and reports can be <span className="font-semibold">customized</span> for your institution.</li>

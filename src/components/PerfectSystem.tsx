@@ -35,7 +35,7 @@ const features = [
       </svg>
     ),
     title: 'Online & On-site Customer Support',
-    desc: 'Along with online & on-site support, Fedena also offers on-demand & webinar-based training to their customers.',
+    desc: 'Along with online & on-site support, Schoolynx also offers on-demand & webinar-based training to their customers.',
   },
 ];
 

@@ -18,7 +18,7 @@ export default function IntegrationOptionsSection() {
         Various Integration Option to Enhance School Management Experience
       </h2>
       <p className="text-xl text-center max-w-3xl mb-12 text-[#1a2a49]">
-        Fedena has every feature your institution will ever need and offers upto 20 integrations that enhance the capability and functionality of the student management platform.
+        Schoolynx has every feature your institution will ever need and offers upto 20 integrations that enhance the capability and functionality of the student management platform.
       </p>
       <div className="flex flex-wrap justify-center gap-20 mb-12">
         {/* Biometric */}
@@ -58,7 +58,7 @@ export default function IntegrationOptionsSection() {
     
     <section className="py-12 bg-[#1a2d52] text-white w-full">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-10">
-       <h2 className="text-xl md:text-2xl text-center text-[white]"><strong>New! Fedena 4.0</strong> - 6 New features | 8 Enhancements</h2>
+       <h2 className="text-xl md:text-2xl text-center text-[white]"><strong>New! Schoolynx 4.0</strong> - 6 New features | 8 Enhancements</h2>
 
         <button className="mt-8 md:mt-0 px-10 py-4 bg-[#f4473e] text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition duration-300 text-lg">
           Find Out More
@@ -69,7 +69,7 @@ export default function IntegrationOptionsSection() {
     {/* ---------------------- TESTIMONIAL CAROUSEL SECTION ---------------------- */}
     <section className="w-full py-10 bg-[#fafafa] flex flex-col items-center justify-center">
       <h2 className="text-3xl md:text-4xl font-bold text-[#1a2a49] text-center mb-12">
-        Why Institutes Love Fedena School ERP System?
+        Why Institutes Love Schoolynx School ERP System?
       </h2>
       <TestimonialCarousel />
     </section>
@@ -81,7 +81,7 @@ export default function IntegrationOptionsSection() {
 const testimonials = [
   {
     avatar: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
-    quote: 'Fedena is an all-in-one school management software. You have got everything in it. It manages attendance, grade book, fees collection, and even HR.',
+    quote: 'Schoolynx is an all-in-one school management software. You have got everything in it. It manages attendance, grade book, fees collection, and even HR.',
     school: 'Wellspring International School, Vietnam',
     schoolColor: 'text-[#f4473e]',
     button: true,
@@ -89,7 +89,7 @@ const testimonials = [
   },
   {
     avatar: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
-    quote: 'Fedena helped us digitize all our processes and improved communication with parents and staff.',
+    quote: 'Schoolynx helped us digitize all our processes and improved communication with parents and staff.',
     school: 'Green Valley School, India',
     schoolColor: 'text-[#1a2a49]',
     button: false,

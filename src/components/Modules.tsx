@@ -46,7 +46,7 @@ const modules = [
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#f4473e" className="w-10 h-10 mx-auto mb-2"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8V6a5 5 0 0 0-10 0v2M5 8h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z" /></svg>
     ),
     title: 'Online Classes',
-    desc: 'Fedena now integrates with various video conferencing softwares such as Google Meet, Zoom & BigBlueButton, to simplify online learning and teaching process.',
+    desc: 'Schoolynx now integrates with various video conferencing softwares such as Google Meet, Zoom & BigBlueButton, to simplify online learning and teaching process.',
     link: '#',
   },
 ];
@@ -88,7 +88,7 @@ const Modules = () => {
         </div>
         <div className="flex flex-col items-center">
           <p className="text-3xl font-bold mb-1">+50</p>
-          <p className="mb-4 text-white/90">other awesome modules in Fedena School ERP Software</p>
+          <p className="mb-4 text-white/90">other awesome modules in Schoolynx School ERP Software</p>
           <button className="bg-[#f4473e] text-white px-8 py-3 rounded-md font-semibold text-lg hover:bg-red-700 transition">See All Features</button>
         </div>
       </div>

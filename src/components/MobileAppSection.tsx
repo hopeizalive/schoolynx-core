@@ -27,14 +27,14 @@ const MobileAppSection = () => {
         <div className="flex-1 flex items-center justify-center mb-10 md:mb-0">
           <img
             src="https://www.dreamhost.com/blog/wp-content/uploads/2022/06/1460x1095_blog_hero_optimizing_your_site_for_mobile.webp"
-            alt="Fedena Mobile App UI"
+            alt="Schoolynx Mobile App UI"
             className="w-[300px] h-[520px] object-contain rounded-2xl shadow-2xl"
             style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.25)' }}
           />
         </div>
         {/* Right: Text Content */}
         <div className="flex-1 text-white md:pl-16">
-          <h2 className="text-4xl font-bold mb-4">Fedena School Management Mobile App</h2>
+          <h2 className="text-4xl font-bold mb-4">Schoolynx School Management Mobile App</h2>
           <h3 className="text-2xl font-semibold mb-4">To manage the institute's daily operations at your fingertips</h3>
           <p className="mb-4 text-lg font-medium">iOS & Android Apps In Your Brand for Parents, Teachers & Students</p>
           <p className="mb-8 text-lg">

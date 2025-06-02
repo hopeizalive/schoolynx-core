@@ -28,7 +28,7 @@ export const Hero = () => {
               College and School Management Software
             </h1>
             <p className="text-base sm:text-xl text-gray-700 mb-6 md:mb-8">
-            <strong>Automate Institute Daily Operations, Generate Insightful Reports, Make Better & Faster Decisions.</strong> Fedena is an online school management system software that simplifies the institute's academic & administrative process effortlessly.
+            <strong>Automate Institute Daily Operations, Generate Insightful Reports, Make Better & Faster Decisions.</strong> Schoolynx is an online school management system software that simplifies the institute's academic & administrative process effortlessly.
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 items-center">
               <Link 

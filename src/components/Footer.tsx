@@ -64,7 +64,7 @@ export const Footer = () => {
             <h3 className="text-gray-800 font-semibold text-sm mb-3">Why Schoolynx?</h3>
             <ul className="space-y-1.5">
               <li><Link href="#" className="text-gray-600 hover:underline text-xs">101 Reasons</Link></li>
-              <li><Link href="#" className="text-gray-600 hover:underline text-xs">Fedena Differences</Link></li>
+              <li><Link href="#" className="text-gray-600 hover:underline text-xs">Schoolynx Differences</Link></li>
               <li><Link href="#" className="text-gray-600 hover:underline text-xs">Custom ERP</Link></li>
               <li><Link href="#" className="text-gray-600 hover:underline text-xs">Why School Management Software?</Link></li>
               <li><Link href="#" className="text-gray-600 hover:underline text-xs">Our Customers</Link></li>
