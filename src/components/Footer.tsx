@@ -35,8 +35,13 @@ export const Footer = () => {
           {/* Column 0 - Logo - Adjusted to take less space and align left */}
           <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0 flex items-start justify-center">
             <Link href="/" className="text-red-500 text-2xl font-bold">
-              fedena
-              <span className="text-red-500 align-super text-xs">®</span>
+              <Image
+    src="/assets/logo.png" // Public folder se relative path
+    alt="Fedena Logo"
+    width={80}
+    height={80}
+    className="mr-2"
+  />
             </Link>
           </div>
 
@@ -56,7 +61,7 @@ export const Footer = () => {
           
           {/* Column 2 - Why Fedena? */}
           <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0">
-            <h3 className="text-gray-800 font-semibold text-sm mb-3">Why Fedena?</h3>
+            <h3 className="text-gray-800 font-semibold text-sm mb-3">Why Schoolynx?</h3>
             <ul className="space-y-1.5">
               <li><Link href="#" className="text-gray-600 hover:underline text-xs">101 Reasons</Link></li>
               <li><Link href="#" className="text-gray-600 hover:underline text-xs">Fedena Differences</Link></li>
@@ -81,16 +86,16 @@ export const Footer = () => {
           {/* Column 4 - Contact Info & App Download - Adjusted width */}
           <div className="w-full md:w-2/6 px-4">
             <div className="mb-3">
-              <p className="text-gray-600 text-xs leading-snug">Foradian Technologies Pvt Ltd.</p>
-              <p className="text-gray-600 text-xs leading-snug">First Floor, Hustlehub Tech Park,</p>
+              <p className="text-gray-600 text-xs leading-snug">Office No.108 Iqra IT Park defence View Phase II, Shaheed-i-Milat Road Karachi</p>
+              {/* <p className="text-gray-600 text-xs leading-snug">First Floor, Hustlehub Tech Park,</p>
               <p className="text-gray-600 text-xs leading-snug">Somasundarapalya Main Rd, Sector 2,</p>
               <p className="text-gray-600 text-xs leading-snug">HSR Layout, Bengaluru-560102,</p>
-              <p className="text-gray-600 text-xs leading-snug mb-2">Karnataka, India</p>
+              <p className="text-gray-600 text-xs leading-snug mb-2">Karnataka, India</p> */}
             </div>
             
             <div className="mb-3">
               <p className="text-gray-800 font-bold text-xs mb-0.5">Contact us @</p>
-              <p className="text-gray-600 font-bold text-xs mb-2">+91- 8047 0918 07</p>
+              <p className="text-gray-600 font-bold text-xs mb-2">+92-315-5814609</p>
             </div>
             
             <div>
@@ -133,7 +138,7 @@ export const Footer = () => {
         {/* Bottom Bar: Copyright and Social Icons */}
         <div className="border-t border-gray-200 mt-8 pt-4 flex flex-wrap justify-between items-center">
           <div className="text-gray-500 text-xs">
-            <p>©2025 Foradian Technologies. All Rights Reserved. <Link href="#" className="text-gray-500 hover:underline">Terms</Link> & <Link href="#" className="text-gray-500 hover:underline">Privacy</Link></p>
+            <p>©2025 Schoolynx. All Rights Reserved. <Link href="#" className="text-gray-500 hover:underline">Terms</Link> & <Link href="#" className="text-gray-500 hover:underline">Privacy</Link></p>
           </div>
           <div className="flex space-x-3 mt-4 md:mt-0">
             <a href="#" className="text-gray-500 hover:text-blue-600"><FacebookIcon /></a>

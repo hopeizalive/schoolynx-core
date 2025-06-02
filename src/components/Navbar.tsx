@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { IoChevronDown } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
+import Image from 'next/image';
 
 
 interface NavItem {
@@ -24,7 +25,7 @@ const navItems: NavItem[] = [
       { label: 'Student Information System', href: '#' },
       { label: 'Integrations', href: '#' },
       { label: '101 Reasons', href: '#' },
-      { label: 'Fedena Difference', href: '#' }, // Corrected typo from 'Differece'
+      { label: 'Schoolynx Difference', href: '#' }, // Corrected typo from 'Differece'
       { label: 'FAQ', href: '#' },
     ],
   },
@@ -93,17 +94,17 @@ export const Navbar = () => {
       <div className="max-w-[95%] mx-auto px-4">
         <div className="flex flex-wrap items-center justify-between py-3">
           <Link href="/" className="flex items-center">
-          {/* <Image
+          <Image
     src="/assets/logo.png" // Public folder se relative path
     alt="Fedena Logo"
-    width={90}
-    height={90}
+    width={80}
+    height={80}
     className="mr-2"
-  /> */}
-            <span className="self-center text-2xl font-bold whitespace-nowrap text-red-600">
+  />
+            {/* <span className="self-center text-2xl font-bold whitespace-nowrap text-red-600">
               fedena
               <span className="text-red-600 align-super text-xs">®</span>
-            </span>
+            </span> */}
           </Link>
           
           <div className="flex md:gap-2 items-center md:order-2 space-x-2 md:space-x-3">
