@@ -84,7 +84,7 @@ export const Navbar = () => {
           
           <div className="flex md:gap-2 items-center md:order-2 space-x-2 md:space-x-3">
             <Link
-              href="#" 
+              href="/live-demo" 
               className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-md text-sm px-4 py-2 text-center"
             >
               Request Live Demo

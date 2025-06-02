@@ -74,7 +74,7 @@ export const Footer = () => {
             <ul className="space-y-1.5">
               <li><Link href="/help#contact" className="text-gray-600 hover:underline text-xs">Contact Us</Link></li>
              
-              <li><Link href="/help#services" className="text-gray-600 hover:underline text-xs">Services</Link></li>
+              <li><Link href="/services" className="text-gray-600 hover:underline text-xs">Services</Link></li>
               <li><Link href="/help#faq" className="text-gray-600 hover:underline text-xs">FAQ</Link></li>
               <li><Link href="/help#api" className="text-gray-600 hover:underline text-xs">API Playground</Link></li>
             </ul>
