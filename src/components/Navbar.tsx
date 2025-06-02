@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ChevronDownIcon, PhoneIcon } from '@heroicons/react/24/outline'; // Changed GlobeAltIcon to PhoneIcon
-import Image from 'next/image';
+import { IoChevronDown } from "react-icons/io5";
+import { FaPhone } from "react-icons/fa6";
 
 
 interface NavItem {
@@ -115,7 +115,7 @@ export const Navbar = () => {
             </Link>
             {/* Changed to PhoneIcon and added a subtle border like in the image */}
             <button className="text-gray-600 hover:text-red-600 p-1.5 border border-gray-300 rounded-full">
-              <PhoneIcon className="h-4 w-4" />
+              <FaPhone className="h-4 w-4" />
             </button>
             <button
               type="button"
@@ -152,7 +152,7 @@ export const Navbar = () => {
                     ) : (
                       <Link href={item.href} className='w-full'>{item.label}</Link>
                     )}
-                    {item.children && <ChevronDownIcon className={`w-3 h-3 ml-0.5 transition-transform duration-200 ${openDropdown === item.label && isOpen ? 'rotate-180' : ''} md:group-hover:rotate-180`} />}
+                    {item.children && <IoChevronDown className={`w-3 h-3 ml-0.5 transition-transform duration-200 ${openDropdown === item.label && isOpen ? 'rotate-180' : ''} md:group-hover:rotate-180`} />}
                   </button>
                   {item.children && (
                     <div className={`absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg py-1 z-20 ring-1 ring-black ring-opacity-5 ${openDropdown === item.label ? 'block' : 'hidden'} md:group-hover:block`}>
