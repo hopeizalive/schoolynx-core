@@ -1,66 +1,77 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+const images = [
+  { src: '/hero-slider-1.png', alt: 'Fedena School Management Software Dashboard' },
+  { src: '/hero-slider-2.png', alt: 'Fedena Attendance Tracking' },
+  { src: '/hero-slider-3.png', alt: 'Fedena Mobile App View' },
+];
+
 export const Hero = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(timer); // Cleanup timer on component unmount
+  }, []);
+
   return (
-    <div className="relative bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 py-20 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-20">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808010_1px,transparent_1px),linear-gradient(to_bottom,#80808010_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      </div>
-      <div className="container mx-auto px-4 z-10 relative">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              <span className="text-blue-600 dark:text-blue-400">Smart School Management</span> for the Digital Age
+    <div className="bg-white pt-12 pb-20 md:pt-16 md:pb-28">
+      <div className="max-w-[80%] mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+          <div className="max-w-xl lg:max-w-2xl text-center lg:text-left">
+            <span className="inline-block bg-red-600 text-white text-sm font-semibold px-3 py-1 rounded-md mb-3 lg:mb-4">All-In-One</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
+              College and School Management Software
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Revolutionize the way your school operates. SchooLnyx is a powerful, all-in-one school management ERP system that streamlines academics, administration, finance, attendance, communication, and more — all from one unified platform.
+            <p className="text-base sm:text-xl text-gray-700 mb-6 md:mb-8">
+            <strong>Automate Institute Daily Operations, Generate Insightful Reports, Make Better & Faster Decisions.</strong> Fedena is an online school management system software that simplifies the institute's academic & administrative process effortlessly.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 items-center">
               <Link 
-                href="#features" 
-                className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition duration-300 text-center"
+                href="#"
+                className="px-6 py-2 sm:px-8 sm:py-2 bg-white text-red-600 border-2 border-red-600 font-semibold rounded-md hover:bg-red-50 transition duration-300 text-center text-base sm:text-lg w-full"
               >
-                Explore Features
+                Request Live Demo
               </Link>
               <Link 
-                href="#contact" 
-                className="px-6 py-3 bg-white text-blue-600 font-medium rounded-lg border border-blue-600 hover:bg-blue-50 transition duration-300 text-center"
+                href="#"
+                className="px-6 py-2 sm:px-8 sm:py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 transition duration-300 text-center text-base sm:text-lg w-full"
               >
-                Request Demo
+                Pricing & Plans
               </Link>
-            </div>
-            <div className="mt-8 flex items-center text-gray-500 dark:text-gray-400">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 border-2 border-white dark:border-gray-800"></div>
-                ))}
-              </div>
-              <span className="ml-3">Trusted by schools worldwide</span>
             </div>
           </div>
-          <div className="relative w-full max-w-lg lg:max-w-xl">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur-lg opacity-30 animate-pulse"></div>
-            <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
-              <div className="p-5 bg-gray-50 dark:bg-gray-700">
-                <div className="flex items-center">
-                  <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <div className="ml-auto font-medium text-sm text-gray-500 dark:text-gray-400">SchoolNyx Dashboard</div>
+          <div className="relative w-full max-w-md lg:max-w-2xl mt-8 lg:mt-0 mx-auto lg:mx-0">
+            <div className="aspect-[4/3] relative overflow-hidden rounded-lg shadow-2xl">
+              {images.map((image, index) => (
+                <div 
+                  key={image.src}
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentImage ? 'opacity-100' : 'opacity-0'}`}
+                >
+                  <Image 
+                    src={image.src} 
+                    alt={image.alt}
+                    layout="fill"
+                    objectFit="contain" // or 'cover' depending on how you want the image to fit
+                    priority={index === 0} // Prioritize loading the first image
+                  />
                 </div>
-              </div>
-              <div className="p-6">
-                <div className="bg-gray-100 dark:bg-gray-700 h-64 rounded-lg flex items-center justify-center">
-                  <p className="text-center text-gray-500 dark:text-gray-400">Dashboard Preview Image</p>
-                </div>
-                <div className="mt-4 space-y-3">
-                  <div className="h-4 bg-gray-200 dark:bg-gray-600 rounded w-3/4"></div>
-                  <div className="h-4 bg-gray-200 dark:bg-gray-600 rounded"></div>
-                  <div className="h-4 bg-gray-200 dark:bg-gray-600 rounded w-5/6"></div>
-                </div>
-              </div>
+              ))}
+            </div>
+             {/* Navigation dots for slider (optional) */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  className={`w-3 h-3 rounded-full ${index === currentImage ? 'bg-red-600' : 'bg-gray-300 hover:bg-gray-400'} transition-colors`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -69,4 +80,4 @@ export const Hero = () => {
   );
 };
 
-export default Hero; 
+export default Hero;

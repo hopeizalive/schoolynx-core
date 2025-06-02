@@ -7,6 +7,13 @@ import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import Stats from '../components/Stats';
+import WhyFedena from '../components/WhyFedena';
+import Modules from '../components/Modules';
+import PerfectSystem from '../components/PerfectSystem';
+import MobileAppSection from '../components/MobileAppSection';
+import IntegrationOptionsSection from '../components/IntegrationOptionsSection';
+import FAQCarouselSection from '@/components/FAQCarouselSection';
 
 export default function Home() {
   return (
@@ -14,11 +21,18 @@ export default function Home() {
       <Navbar />
       <div className="pt-16">
         <Hero />
+        <Stats />
+        <WhyFedena />
+        <Modules />
+        <PerfectSystem />
+        <MobileAppSection />
+        <IntegrationOptionsSection />
         <Features />
-        <Testimonials />
+        <FAQCarouselSection/>
+        {/* <Testimonials /> */}
         <CTA />
         <Footer />
       </div>
     </main>
   );
-} 
+}
