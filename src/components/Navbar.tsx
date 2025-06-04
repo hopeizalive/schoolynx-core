@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { IoChevronDown } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 import Image from 'next/image';
+import { IoMdClose } from 'react-icons/io';
 
 
 interface NavItem {
@@ -41,6 +42,7 @@ const navItems: NavItem[] = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -60,7 +62,7 @@ export const Navbar = () => {
 
   const handleDropdownClick = (label: string) => {
     if (window.innerWidth < 768) { 
-      setOpenDropdown(openDropdown === label ? null : label);
+      setMobileDropdown(mobileDropdown === label ? null : label);
     }
   };
 
@@ -85,7 +87,7 @@ export const Navbar = () => {
           <div className="flex md:gap-2 items-center md:order-2 space-x-2 md:space-x-3">
             <Link
               href="/live-demo" 
-              className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-md text-sm px-4 py-2 text-center"
+              className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-md text-sm px-4 py-2 text-center hidden md:block"
             >
               Request Live Demo
             </Link>
@@ -96,54 +98,106 @@ export const Navbar = () => {
             <button
               type="button"
               onClick={toggleMenu}
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all duration-300"
               aria-controls="navbar-default"
               aria-expanded={isOpen ? "true" : "false"}
             >
               <span className="sr-only">Open main menu</span>
-              <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M1 1h15M1 7h15M1 13h15"/>
-              </svg>
+              <span className="relative w-6 h-6 block">
+                <span
+                  className={`absolute left-0 top-1/2 w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'}`}
+                  style={{transitionProperty:'all'}}
+                />
+                <span
+                  className={`absolute left-0 top-1/2 w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}
+                  style={{transitionProperty:'all'}}
+                />
+                <span
+                  className={`absolute left-0 top-1/2 w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'}`}
+                  style={{transitionProperty:'all'}}
+                />
+              </span>
             </button>
           </div>
           
+          {/* Desktop Nav */}
           <div
             className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isOpen ? "block" : "hidden"}`}
             id="navbar-default"
           >
-            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium text-xs lg:text-sm border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-4 lg:space-x-5 xl:space-x-6 md:mt-0 md:border-0 md:bg-white">
+            <ul className="flex flex-col md:flex-row p-4 md:p-0 mt-4 font-medium text-xs lg:text-sm border border-gray-100 rounded-lg bg-gray-50 md:bg-white md:mt-0 md:border-0 md:space-x-4 lg:space-x-5 xl:space-x-6">
               {navItems.map((item) => (
-                <li 
+                <li
                   key={item.label}
                   className="relative group"
                   onMouseEnter={() => item.children && handleDropdownEnter(item.label)}
                   onMouseLeave={() => item.children && handleDropdownLeave()}
                 >
-                  <button
-                    onClick={() => item.children && handleDropdownClick(item.label) }
-                    className={`flex items-center w-full text-left py-2 px-1 text-gray-700 hover:text-red-600 md:hover:bg-transparent md:p-0 ${item.children ? 'md:cursor-default' : 'md:cursor-pointer'}`}
-                  >
-                    {item.children ? (
-                      <span className='md:mr-1'>{item.label}</span>
-                    ) : (
-                      <Link href={item.href} className='w-full'>{item.label}</Link>
+                  {/* Desktop Dropdown */}
+                  <div className="hidden md:block">
+                    <button
+                      onClick={() => {}}
+                      className={`flex items-center w-full text-left py-2 px-1 text-gray-700 hover:text-red-600 md:hover:bg-transparent md:p-0 ${item.children ? 'md:cursor-default' : 'md:cursor-pointer'}`}
+                    >
+                      {item.children ? (
+                        <span className='md:mr-1'>{item.label}</span>
+                      ) : (
+                        <Link href={item.href} className='w-full'>{item.label}</Link>
+                      )}
+                      {item.children && <IoChevronDown className={`w-3 h-3 ml-0.5 transition-transform duration-200 ${openDropdown === item.label ? 'rotate-180' : ''} md:group-hover:rotate-180`} />}
+                    </button>
+                    {item.children && (
+                      <div className={`absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-1 z-20 ring-1 ring-black ring-opacity-5 ${openDropdown === item.label ? 'block' : 'hidden'} md:group-hover:block transition-all duration-300`}>
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            onClick={() => { setIsOpen(false); setOpenDropdown(null); }}
+                            className="block px-4 py-2 text-xs lg:text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     )}
-                    {item.children && <IoChevronDown className={`w-3 h-3 ml-0.5 transition-transform duration-200 ${openDropdown === item.label && isOpen ? 'rotate-180' : ''} md:group-hover:rotate-180`} />}
-                  </button>
-                  {item.children && (
-                    <div className={`absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-1 z-20 ring-1 ring-black ring-opacity-5 ${openDropdown === item.label ? 'block' : 'hidden'} md:group-hover:block`}>
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          onClick={() => { setIsOpen(false); setOpenDropdown(null); }}
-                          className="block px-4 py-2 text-xs lg:text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600"
+                  </div>
+                  {/* Mobile Dropdown */}
+                  <div className="md:hidden">
+                    {item.children ? (
+                      <>
+                        <button
+                          onClick={() => handleDropdownClick(item.label)}
+                          className="flex items-center w-full justify-between py-2 px-1 text-gray-700 hover:text-red-600 focus:outline-none"
                         >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                          <span>{item.label}</span>
+                          <IoChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${mobileDropdown === item.label ? 'rotate-180' : ''}`} />
+                        </button>
+                        <div className={`pl-4 border-l border-gray-200 bg-gray-50 transition-all duration-300 overflow-hidden ${mobileDropdown === item.label ? 'max-h-40 py-1' : 'max-h-0 py-0'} ${mobileDropdown === item.label ? 'opacity-100' : 'opacity-0'}`}
+                          style={{ transition: 'all 0.3s', pointerEvents: mobileDropdown === item.label ? 'auto' : 'none' }}
+                        >
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.label}
+                              href={child.href}
+                              onClick={() => { setIsOpen(false); setMobileDropdown(null); }}
+                              className="block px-4 py-2 text-xs text-gray-700 hover:bg-gray-100 hover:text-red-600"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="block py-2 px-1 text-gray-700 hover:text-red-600"
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                    
+                  </div>
                 </li>
               ))}
             </ul>
