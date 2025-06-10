@@ -152,7 +152,7 @@ export default function PricingPage() {
                 <span className="text-2xl text-gray-900 font-semibold flex justify-center">$ 999</span>
                 <p className="text-sm text-gray-700 flex justify-center pt-2">(billed yearly)</p>
               </div>
-              <Link href="/" className='font-medium text-gray-700 cursor-pointer flex justify-center items-center border-2 border-[#674FE4] rounded-full px-6 py-1 w-fit mx-auto text-[#674FE4] text-xl mb-6'>Buy Standard</Link>
+              <Link href="/" className='font-medium  cursor-pointer flex justify-center items-center border-2 border-[#674FE4] rounded-full px-6 py-1 w-fit mx-auto text-[#674FE4] text-xl mb-6'>Buy Standard</Link>
 
               <div className='border-b-2 border-gray-200'></div>
              
