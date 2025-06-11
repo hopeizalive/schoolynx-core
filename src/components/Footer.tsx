@@ -49,10 +49,10 @@ export const Footer = () => {
           <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0">
             <h3 className="text-gray-800 font-semibold text-sm mb-3">Product</h3>
             <ul className="space-y-1.5">
-              <li><Link href="/product#feature-tour" className="text-red-500 hover:underline text-xs">Feature Tour</Link></li>
+              <li><Link href="/product#feature-tour" className="text-gray-600 hover:underline text-xs">Feature Tour</Link></li>
              
               <li><Link href="/pricing" className="text-gray-600 hover:underline text-xs">Pricing & Plans</Link></li>
-              <li><Link href="/partner" className="text-gray-600 hover:underline text-xs">Partner Program</Link></li>
+              {/* <li><Link href="/partner" className="text-gray-600 hover:underline text-xs">Partner Program</Link></li> */}
             </ul>
           </div>
           
@@ -60,9 +60,9 @@ export const Footer = () => {
           <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0">
             <h3 className="text-gray-800 font-semibold text-sm mb-3">Why Schoolynx?</h3>
             <ul className="space-y-1.5">
-              <li><Link href="/product#reasons" className="text-gray-600 hover:underline text-xs">101 Reasons</Link></li>
-              <li><Link href="/product#difference" className="text-gray-600 hover:underline text-xs">Schoolynx Differences</Link></li>
-              <li><Link href="/product#custom-erp" className="text-gray-600 hover:underline text-xs">Custom ERP</Link></li>
+              {/* <li><Link href="/product#reasons" className="text-gray-600 hover:underline text-xs">101 Reasons</Link></li>
+              <li><Link href="/product#difference" className="text-gray-600 hover:underline text-xs">Schoolynx Differences</Link></li> */}
+              {/* <li><Link href="/product#custom-erp" className="text-gray-600 hover:underline text-xs">Custom ERP</Link></li> */}
               <li><Link href="/product#why-software" className="text-gray-600 hover:underline text-xs">Why School Management Software?</Link></li>
               <li><Link href="/about#customers" className="text-gray-600 hover:underline text-xs">Our Customers</Link></li>
             </ul>
@@ -72,11 +72,11 @@ export const Footer = () => {
           <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0">
             <h3 className="text-gray-800 font-semibold text-sm mb-3">Help</h3>
             <ul className="space-y-1.5">
-              <li><Link href="/help#contact" className="text-gray-600 hover:underline text-xs">Contact Us</Link></li>
+              <li><Link href="/contact" className="text-gray-600 hover:underline text-xs">Contact Us</Link></li>
              
               <li><Link href="/services" className="text-gray-600 hover:underline text-xs">Services</Link></li>
-              <li><Link href="/help#faq" className="text-gray-600 hover:underline text-xs">FAQ</Link></li>
-              <li><Link href="/help#api" className="text-gray-600 hover:underline text-xs">API Playground</Link></li>
+              <li><Link href="/product/faq" className="text-gray-600 hover:underline text-xs">FAQ</Link></li>
+              {/* <li><Link href="/help#api" className="text-gray-600 hover:underline text-xs">API Playground</Link></li> */}
             </ul>
           </div>
           
@@ -95,40 +95,7 @@ export const Footer = () => {
               <p className="text-gray-600 font-bold text-xs mb-2">+92-315-5814609</p>
             </div>
             
-            <div>
-              <p className="text-gray-800 font-bold text-xs mb-1">Download App</p>
-              <div className="flex space-x-2">
-                <a href="#" className="block">
-                  {/* Replace with actual Next/Image if you have the images */}
-                  <img 
-                    src="/app-store.png" 
-                    alt="Download on the App Store" 
-                    className="h-8 md:h-9" 
-                    // onError={(e) => { 
-                    //   e.currentTarget.style.display = 'none'; 
-                    //   const placeholder = document.createElement('div');
-                    //   placeholder.className = 'w-28 h-8 md:h-9 bg-gray-300 flex items-center justify-center text-xs text-gray-500';
-                    //   placeholder.textContent = 'App Store';
-                    //   e.currentTarget.parentNode?.insertBefore(placeholder, e.currentTarget.nextSibling);
-                    // }}
-                  />
-                </a>
-                <a href="#" className="block">
-                  <img 
-                    src="/google-play.png" 
-                    alt="Get it on Google Play" 
-                    className="h-8 md:h-9" 
-                    // onError={(e) => { 
-                    //   e.currentTarget.style.display = 'none'; 
-                    //   const placeholder = document.createElement('div');
-                    //   placeholder.className = 'w-28 h-8 md:h-9 bg-gray-300 flex items-center justify-center text-xs text-gray-500';
-                    //   placeholder.textContent = 'Google Play';
-                    //   e.currentTarget.parentNode?.insertBefore(placeholder, e.currentTarget.nextSibling);
-                    // }}
-                  />
-                </a>
-              </div>
-            </div>
+           
           </div>
         </div>
         

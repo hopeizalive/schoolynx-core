@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const images = [
-  { src: '/hero-slider-1.png', alt: 'Fedena School Management Software Dashboard' },
-  { src: '/hero-slider-2.png', alt: 'Fedena Attendance Tracking' },
-  { src: '/hero-slider-3.png', alt: 'Fedena Mobile App View' },
+  { src: '/assets/home_image_1.png', alt: 'Fedena School Management Software Dashboard' },
+  { src: '/assets/home_image_2.png', alt: 'Fedena Attendance Tracking' },
+  { src: '/assets/home_image_3.png', alt: 'Fedena Mobile App View' },
 ];
 
 export const Hero = () => {
@@ -20,9 +20,9 @@ export const Hero = () => {
 
   return (
     <div className="bg-white pt-12 pb-20 md:pt-16 md:pb-28">
-      <div className="max-w-[80%] mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          <div className="max-w-xl lg:max-w-2xl text-center lg:text-left">
+      <div className="max-w-[90%] mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 relative">
+          <div className=" w-[40%] text-center lg:text-left">
             <span className="inline-block bg-red-600 text-white text-sm font-semibold px-3 py-1 rounded-md mb-3 lg:mb-4">All-In-One</span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
               College and School Management Software
@@ -33,37 +33,41 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 items-center">
               <Link 
                 href="#"
-                className="px-6 py-2 sm:px-8 sm:py-2 bg-white text-red-600 border-2 border-red-600 font-semibold rounded-md hover:bg-red-50 transition duration-300 text-center text-base sm:text-lg w-full"
+                className="px-6 py-2 sm:px-0 sm:py-2 bg-white text-red-600 border-2 border-red-600 font-semibold rounded-md hover:bg-red-50 transition duration-300 text-center text-base sm:text-lg w-full"
               >
                 Request Live Demo
               </Link>
               <Link 
                 href="#"
-                className="px-6 py-2 sm:px-8 sm:py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 transition duration-300 text-center text-base sm:text-lg w-full"
+                className="px-6 py-2 sm:px-0 sm:py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 transition duration-300 text-center text-base sm:text-lg w-full"
               >
                 Pricing & Plans
               </Link>
             </div>
           </div>
-          <div className="relative w-full max-w-md lg:max-w-2xl mt-8 lg:mt-0 mx-auto lg:mx-0">
-            <div className="aspect-[4/3] relative overflow-hidden rounded-lg shadow-2xl">
+          <div className="w-[85%] mt-8 lg:mt-0 absolute -right-[16%] -top-[52%]">
+            <div className="aspect-[4/3] relative overflow-hidden">
               {images.map((image, index) => (
-                <div 
-                  key={image.src}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentImage ? 'opacity-100' : 'opacity-0'}`}
-                >
-                  <Image 
-                    src={image.src} 
-                    alt={image.alt}
-                    layout="fill"
-                    objectFit="contain" // or 'cover' depending on how you want the image to fit
-                    priority={index === 0} // Prioritize loading the first image
-                  />
-                </div>
+                <div className="relative w-full aspect-[4/3]">
+                {images.map((image, index) => (
+                  <div 
+                    key={image.src}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentImage ? 'opacity-100' : 'opacity-0'}`}
+                  >
+                    <Image 
+                      src={image.src} 
+                      alt={image.alt}
+                      layout="fill"
+                      objectFit="contain"
+                      priority={index === 0}
+                    />
+                  </div>
+                ))}
+              </div>
               ))}
             </div>
              {/* Navigation dots for slider (optional) */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            {/* <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
               {images.map((_, index) => (
                 <button
                   key={index}
@@ -72,7 +76,7 @@ export const Hero = () => {
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -23,9 +23,9 @@ const WhyFedena = () => {
         {/* Right: Illustration */}
         <div className="flex-1 flex justify-center items-center">
           <img
-            src="https://cdn.pixabay.com/photo/2018/05/18/15/30/web-design-3411373_640.jpg"
+            src="/assets/school_management.png"
             alt="School Management Illustration"
-            className="max-w-[400px] w-full h-auto"
+            className="max-w-[500px] w-full h-auto"
           />
         </div>
       </div>

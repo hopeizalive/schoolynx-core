@@ -2,8 +2,62 @@
 
 import React, { useState } from 'react';
 
+type ResultType = { type: 'success' | 'error'; message: string } | null;
+
 export default function ContactPage() {
   const [interest, setInterest] = useState('use');
+
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    contact: '',
+    location: '',
+    interest: 'use',
+    message: '',
+    captcha: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<ResultType>(null);
+
+  const handleChange = (e: any) => {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  };
+
+  const handleInterest = (value: any) => {
+    setForm({ ...form, interest: value });
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+    setResult(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setResult({ type: 'success', message: 'Your message has been sent!' });
+        setForm({
+          name: '',
+          email: '',
+          contact: '',
+          location: '',
+          interest: 'use',
+          message: '',
+          captcha: '',
+        });
+      } else {
+        setResult({ type: 'error', message: data.message || 'Something went wrong.' });
+      }
+    } catch (err) {
+      setResult({ type: 'error', message: 'Network error.' });
+    }
+    setLoading(false);
+  };
+  
   return (
     <div className="min-h-screen pt-12 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
@@ -14,7 +68,7 @@ export default function ContactPage() {
         <div className="mb-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
             <div className="bg-white p-8 col-span-2">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 {/* Name */}
                 <div>
                   <label htmlFor="name" className="block text-base font-semibold text-gray-800 mb-1">
@@ -23,6 +77,8 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="name"
+                    value={form.name}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-100 border border-transparent rounded-md focus:ring-2 focus:ring-red-500 focus:bg-white focus:border-red-500 text-base"
                     placeholder="Your Name"
                     required
@@ -36,6 +92,8 @@ export default function ContactPage() {
                   <input
                     type="email"
                     id="email"
+                    value={form.email}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-100 border border-transparent rounded-md focus:ring-2 focus:ring-red-500 focus:bg-white focus:border-red-500 text-base"
                     placeholder="Email"
                     required
@@ -49,6 +107,8 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="contact"
+                    value={form.contact}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-100 border border-transparent rounded-md focus:ring-2 focus:ring-red-500 focus:bg-white focus:border-red-500 text-base"
                     placeholder="Contact Number with Country Code"
                     required
@@ -62,6 +122,8 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="location"
+                    value={form.location}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-100 border border-transparent rounded-md focus:ring-2 focus:ring-red-500 focus:bg-white focus:border-red-500 text-base"
                     placeholder="City Name"
                     required
@@ -76,26 +138,26 @@ export default function ContactPage() {
                     <button
                       type="button"
                       className={`flex-1 px-6 py-4 rounded-lg border-2 font-bold text-lg focus:outline-none transition-all duration-150 cursor-pointer ${
-                        interest === 'use'
+                        form.interest === 'use'
                           ? 'bg-gray-800 text-white border-gray-800'
                           : 'bg-white text-gray-800 border-gray-300'
                       }`}
-                      onClick={() => setInterest('use')}
+                      onClick={() => handleInterest('use')}
                     >
                       I want to use Schoolynx
-                      <div className={`block text-sm font-normal ${interest === 'use' ? 'text-gray-200' : 'text-gray-500'}`}>Manage my institution</div>
+                      <div className={`block text-sm font-normal ${form.interest === 'use' ? 'text-gray-200' : 'text-gray-500'}`}>Manage my institution</div>
                     </button>
                     <button
                       type="button"
                       className={`cursor-pointer flex-1 px-6 py-4 rounded-lg border-2 font-bold text-lg focus:outline-none  transition-all duration-150 ${
-                        interest === 'resell'
+                        form.interest === 'resell'
                           ? 'bg-gray-800 text-white border-gray-800 shadow-md'
                           : 'bg-white text-gray-800 border-gray-300'
                       }`}
-                      onClick={() => setInterest('resell')}
+                      onClick={() => handleInterest('resell')}
                     >
                       I want to resell Schoolynx
-                      <div className={`block text-sm font-normal ${interest === 'resell' ? 'text-gray-200' : 'text-gray-500'}`}>Become a partner</div>
+                      <div className={`block text-sm font-normal ${form.interest === 'resell' ? 'text-gray-200' : 'text-gray-500'}`}>Become a partner</div>
                     </button>
                   </div>
                 </div>
@@ -106,6 +168,8 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     id="message"
+                    value={form.message}
+                    onChange={handleChange}
                     rows={3}
                     className="w-full px-4 py-3 bg-gray-100 border border-transparent rounded-md focus:ring-2 focus:ring-red-500 focus:bg-white focus:border-red-500 text-base resize-none"
                     placeholder="If you have any specific message about Schoolynx"
@@ -121,6 +185,9 @@ export default function ContactPage() {
                   </div>
                   <input
                     type="text"
+                    id="captcha"
+                    value={form.captcha}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-100 border border-transparent rounded-md focus:ring-2 focus:ring-red-500 focus:bg-white focus:border-red-500 text-base"
                     placeholder="Captcha"
                   />
@@ -129,9 +196,15 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   className="mt-6 bg-red-500 hover:bg-red-600 text-white font-bold text-xl px-6 py-2 rounded transition w-40"
+                  disabled={loading}
                 >
-                  Submit
+                  {loading ? 'Sending...' : 'Submit'}
                 </button>
+                {result && (
+                  <div className={`mt-4 text-lg font-semibold ${result.type === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                    {result.message}
+                  </div>
+                )}
               </form>
             </div>
             
