@@ -25,10 +25,10 @@ export const Hero = () => {
           <div className=" w-[40%] text-center lg:text-left">
             <span className="inline-block bg-red-600 text-white text-sm font-semibold px-3 py-1 rounded-md mb-3 lg:mb-4">All-In-One</span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
-              School Management Software
+            School Management Comprehensive ERP System
             </h1>
             <p className="text-base sm:text-xl text-gray-700 mb-6 md:mb-8">
-            <strong>Automate Institute Daily Operations, Generate Insightful Reports, Make Better & Faster Decisions.</strong> Schoolynx is an online school management system software that simplifies the institute's academic & administrative process effortlessly.
+            <strong>Streamline Daily Activities, Access Smart Reports, Enable Quick & Informed Decisions. </strong> Schoolynx is a web-based school management tool that smoothly handles academic and administrative workflows.
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 items-center">
               <Link 
