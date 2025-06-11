@@ -79,7 +79,7 @@ export const Navbar = () => {
     className="mr-2"
   />
             {/* <span className="self-center text-2xl font-bold whitespace-nowrap text-red-600">
-              fedena
+              Schoolynx
               <span className="text-red-600 align-super text-xs">®</span>
             </span> */}
           </Link>

@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const images = [
-  { src: '/assets/home_image_1.png', alt: 'Fedena School Management Software Dashboard' },
-  { src: '/assets/home_image_2.png', alt: 'Fedena Attendance Tracking' },
-  { src: '/assets/home_image_3.png', alt: 'Fedena Mobile App View' },
+  { src: '/assets/home_image_1.png', alt: 'Schoolynx School Management Software Dashboard' },
+  { src: '/assets/home_image_2.png', alt: 'Schoolynx Attendance Tracking' },
+  { src: '/assets/home_image_3.png', alt: 'Schoolynx Mobile App View' },
 ];
 
 export const Hero = () => {
@@ -25,7 +25,7 @@ export const Hero = () => {
           <div className=" w-[40%] text-center lg:text-left">
             <span className="inline-block bg-red-600 text-white text-sm font-semibold px-3 py-1 rounded-md mb-3 lg:mb-4">All-In-One</span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
-              College and School Management Software
+              School Management Software
             </h1>
             <p className="text-base sm:text-xl text-gray-700 mb-6 md:mb-8">
             <strong>Automate Institute Daily Operations, Generate Insightful Reports, Make Better & Faster Decisions.</strong> Schoolynx is an online school management system software that simplifies the institute's academic & administrative process effortlessly.

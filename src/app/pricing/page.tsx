@@ -67,12 +67,29 @@ const faqData: FAQItem[] = [
 ];
 
 export default function PricingPage() {
-
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isAnnual, setIsAnnual] = useState(true);
 
   const toggleFAQ = (index: number) => {
     setActiveIndex((prev) => (prev === index ? null : index));
   };
+
+  // Pricing data
+  const pricing = {
+    standard: {
+      monthly: 99,
+      yearly: 999,
+    },
+    premium: {
+      monthly: 139,
+      yearly: 1399,
+    },
+    ultimate: {
+      monthly: 169,
+      yearly: 1699,
+    },
+  };
+
   // Testimonial data with real images
   const testimonials = [
     {
@@ -133,9 +150,15 @@ export default function PricingPage() {
    {/* Pricing Toggle */}
    <div className="flex justify-center items-center space-x-4 absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-white py-2 px-12 rounded-2xl shadow-md">
           <span className="text-gray-700 text-xl font-semibold">Monthly</span>
-          <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200">
-            <span className="sr-only ">Toggle pricing period</span>
-            <span className="inline-block h-4 w-4 transform rounded-full bg-white transition translate-x-6"></span>
+          <button
+            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 ${isAnnual ? 'bg-gray-200' : 'bg-red-500'}`}
+            onClick={() => setIsAnnual((prev) => !prev)}
+            aria-label="Toggle pricing period"
+          >
+            <span className="sr-only">Toggle pricing period</span>
+            <span
+              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300 ${isAnnual ? 'translate-x-6' : 'translate-x-1'}`}
+            ></span>
           </button>
           <span className="text-gray-700 text-xl font-semibold">Annual <span className="text-red-600 text-xl font-semibold">(Save 20%)</span></span>
         </div>
@@ -149,8 +172,8 @@ export default function PricingPage() {
             <div className="p-8">
               <h2 className="text-3xl text-center text-[#674FE4] mb-6 font-semibold">STANDARD</h2>
               <div className="mb-6">
-                <span className="text-2xl text-gray-900 font-semibold flex justify-center">$ 999</span>
-                <p className="text-sm text-gray-700 flex justify-center pt-2">(billed yearly)</p>
+                <span className="text-2xl text-gray-900 font-semibold flex justify-center">$ {isAnnual ? pricing.standard.yearly : pricing.standard.monthly}</span>
+                <p className="text-sm text-gray-700 flex justify-center pt-2">({isAnnual ? 'billed yearly' : 'billed monthly'})</p>
               </div>
               <Link href="/" className='font-medium  cursor-pointer flex justify-center items-center border-2 border-[#674FE4] rounded-full px-6 py-1 w-fit mx-auto text-[#674FE4] text-xl mb-6'>Buy Standard</Link>
 
@@ -223,8 +246,8 @@ export default function PricingPage() {
             <div className="p-8">
               <h2 className="text-3xl text-center text-[#ff8b00] mb-6 font-semibold uppercase">Premium</h2>
               <div className="mb-6">
-                <span className="text-2xl text-gray-900 font-semibold flex justify-center">$ 1399</span>
-                <p className="text-sm text-gray-700 flex justify-center pt-2">(billed yearly)</p>
+                <span className="text-2xl text-gray-900 font-semibold flex justify-center">$ {isAnnual ? pricing.premium.yearly : pricing.premium.monthly}</span>
+                <p className="text-sm text-gray-700 flex justify-center pt-2">({isAnnual ? 'billed yearly' : 'billed monthly'})</p>
               </div>
               <Link href="/" className='font-medium cursor-pointer flex justify-center items-center border-2 border-[#ff8b00] rounded-full px-6 py-1 w-fit mx-auto text-[#ff8b00] text-xl mb-6'>Buy Standard</Link>
 
@@ -299,8 +322,8 @@ export default function PricingPage() {
             <div className="p-8">
               <h2 className="text-3xl text-center text-[#E84C3D] mb-6 font-semibold uppercase">Ultimate</h2>
               <div className="mb-6">
-                <span className="text-2xl text-gray-900 font-semibold flex justify-center">$ 1699</span>
-                <p className="text-sm text-gray-700 flex justify-center pt-2">(billed yearly)</p>
+                <span className="text-2xl text-gray-900 font-semibold flex justify-center">$ {isAnnual ? pricing.ultimate.yearly : pricing.ultimate.monthly}</span>
+                <p className="text-sm text-gray-700 flex justify-center pt-2">({isAnnual ? 'billed yearly' : 'billed monthly'})</p>
               </div>
               <Link href="/" className='font-medium cursor-pointer flex justify-center items-center border-2 border-[#E84C3D] rounded-full px-6 py-1 w-fit mx-auto text-[#E84C3D] text-xl mb-6'>Buy Ultimate</Link>
 
@@ -451,7 +474,7 @@ export default function PricingPage() {
                 
               </ul>
             </div>
-            <Link href="/" className='font-medium cursor-pointer flex justify-center items-center rounded-xl px-6 py-1 w-[80%] mx-auto bg-[#E84C3D] text-white text-xl mb-6'>Contact Us</Link>
+            <Link href="/" className='font-medium cursor-pointer flex justify-center items-center rounded-xl px-6 py-1 w-[80%] mx-auto bg-[#08AD69] text-white text-xl mb-6'>Contact Us</Link>
           </div>
 
         </div>
@@ -819,7 +842,7 @@ Employee / Teacher Login</p>
     <div className="w-full bg-[#fff5f5] py-10 flex flex-col items-center relative min-h-screen">
       <h3 className="text-2xl md:text-3xl font-semibold text-[#1a2d52] mb-8 text-center">Loved by 40,000+ Institutes Around the World!</h3>
       <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto mb-3">
-        <img className='pb-4 h-[400px]' src="https://bcassetcdn.com/assets/images/web/maker-home/how-logo-step-1.png" alt="" />
+        <img className='pb-4 h-auto w-full' src="/assets/feature-product/2.png" alt="" />
       </div>
 
       {/* Testimonials Section - heading and background fixed, only cards move */}

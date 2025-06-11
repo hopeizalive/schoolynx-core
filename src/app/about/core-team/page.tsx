@@ -7,7 +7,7 @@ export default function CoreTeamPage() {
   return (
     <div className="min-h-screen pt-12 pb-12 px-4">
       <h1 className='text-3xl md:text-4xl font-semibold mb-3 text-gray-800 text-center'>Our Story</h1>
-      <p className='text-xl text-gray-400 font-semibold text-center max-w-3xl mx-auto'>Know the people who leads team Fedena to achieve the vision & goals</p>
+      <p className='text-xl text-gray-400 font-semibold text-center max-w-3xl mx-auto'>Know the people who leads team Schoolynx to achieve the vision & goals</p>
       
       <div className="flex flex-col md:flex-row items-start gap-12 mt-20 px-4 max-w-6xl mx-auto">
   
@@ -30,7 +30,7 @@ export default function CoreTeamPage() {
       Chief Executive Officer
       </p>
       <p className="text-gray-600">
-      Neelakantha Karinje leads the executive team for achieving the vision and mission of Foradian. Neel has 25 years of experience as CFO for startup companies as well as the well-established multinational corporation. Neel believes with innovative EdTech solution like Fedena we can bring automation in the institutes' daily operations and help the schools all around the world to run better.
+      Neelakantha Karinje leads the executive team for achieving the vision and mission of Foradian. Neel has 25 years of experience as CFO for startup companies as well as the well-established multinational corporation. Neel believes with innovative EdTech solution like Schoolynx we can bring automation in the institutes' daily operations and help the schools all around the world to run better.
       </p>
         </div>
      
@@ -47,7 +47,7 @@ export default function CoreTeamPage() {
       SVP - Sales
       </p>
       <p className="text-gray-600">
-      Sharath Krishnan leads the global sales and partner relationship at Foradian. Sharath focuses on building successful, long-term relationship with partners across the globe for Fedena implementation in their geography.
+      Sharath Krishnan leads the global sales and partner relationship at Foradian. Sharath focuses on building successful, long-term relationship with partners across the globe for Schoolynx implementation in their geography.
       </p>
         </div>
      

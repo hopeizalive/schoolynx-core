@@ -212,7 +212,7 @@ export default function OurStoryPage() {
 
 <div className='max-w-7xl mx-auto py-12 px-8'>
   <h1 className='text-3xl md:text-4xl font-semibold mb-6 text-gray-800'>Every School, A Smart School</h1>
-  <p className='text-md py-4 px-1'>Foradian builds educational software to simplify the life of institution administrators and teachers so that they can focus on the most important thing : educating our children. We are bridging the digital divide in education by offering Fedena product and services at affordable pricing.</p>
+  <p className='text-md py-4 px-1'>Foradian builds educational software to simplify the life of institution administrators and teachers so that they can focus on the most important thing : educating our children. We are bridging the digital divide in education by offering Schoolynx product and services at affordable pricing.</p>
 </div>
 </div>
 

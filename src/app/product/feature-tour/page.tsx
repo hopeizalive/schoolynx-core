@@ -20,25 +20,25 @@ export default function ProductPage() {
           Ultimate School ERP Software for all kind of Institutes
           </h2>
           <p className="text-xl md:text-2xl text-[#6d6e6f] mb-8 text-center">
-          Fedena School ERP system has every feature you will ever need to run your institution efficiently
+          Schoolynx School ERP system has every feature you will ever need to run your institution efficiently
           </p>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 gap-8">
         {/* Left: Text */}
         <div className="flex-1 text-left">
           <p className="text-md text-gray-700 mb-6">
-          School ERP Software is a platform which helps in managing the day to day academic and administrative activities from a single platform. Fedena provides user-friendly dashboards with login access for teachers, non-teaching staff, students, parents, and management personnel of your institution. The various modules available in school ERP software automate daily operations of your institution such as from students’ admission to generating transfer certificates to digitizing the online learning experience all can be managed effortlessly .
+          School ERP Software is a platform which helps in managing the day to day academic and administrative activities from a single platform. Schoolynx provides user-friendly dashboards with login access for teachers, non-teaching staff, students, parents, and management personnel of your institution. The various modules available in school ERP software automate daily operations of your institution such as from students’ admission to generating transfer certificates to digitizing the online learning experience all can be managed effortlessly .
           </p>
           <p className="text-md text-gray-700 mb-6">
-          Fedena School ERP has modules to manage Timetable, Attendance, Online Class, Examinations, Gradebooks, Mobile Learning, Hostel, Library, Transportation, School Calendar, Events, and many more. It has a fully-fledged Human Resource module to manage the payroll and employee pay slips. The Finance module helps you to plan and allot different fee structures to students. Fedena School ERP System is also an excellent collaboration tool using its Task, Discussion, Poll, Blog, and Videoconference plugins. There is an internal messaging system within Fedena, but you can also integrate it with external communication tools like email and texting. To find out more about the school ERP system, scroll through the following descriptions, try the .
+          Schoolynx School ERP has modules to manage Timetable, Attendance, Online Class, Examinations, Gradebooks, Mobile Learning, Hostel, Library, Transportation, School Calendar, Events, and many more. It has a fully-fledged Human Resource module to manage the payroll and employee pay slips. The Finance module helps you to plan and allot different fee structures to students. Schoolynx School ERP System is also an excellent collaboration tool using its Task, Discussion, Poll, Blog, and Videoconference plugins. There is an internal messaging system within Schoolynx, but you can also integrate it with external communication tools like email and texting. To find out more about the school ERP system, scroll through the following descriptions, try the .
           </p>
         
         </div>
         {/* Right: Illustration */}
         <div className="flex-1 flex justify-center items-center">
           <img
-            src="https://cdn.pixabay.com/photo/2018/05/18/15/30/web-design-3411373_640.jpg"
+            src="/assets/feature-product/1.png"
             alt="School Management Illustration"
-            className="max-w-[400px] w-full h-auto"
+            className="max-w-[500px] w-full h-auto"
           />
         </div>
       </div>
@@ -395,15 +395,15 @@ Employee / Teacher Login</p>
           
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center justify-between px-4 gap-8">
           <div className='bg-[#D1EDFF] p-8 rounded-lg shadow-md'>
-            <h2 className='text-2xl md:text-3xl font-semibold'>Resell Fedena</h2>
-            <p className='my-4'>Embed Fedena in your application and sell it in your market, under your terms and pricing.</p>
+            <h2 className='text-2xl md:text-3xl font-semibold'>Resell Schoolynx</h2>
+            <p className='my-4'>Embed Schoolynx in your application and sell it in your market, under your terms and pricing.</p>
             <button className='border-2 border-red-600 cursor-pointer px-4 py-2 rounded-md text-red-700 hover:bg-red-600 hover:text-white'>
               Partner
             </button>
           </div>
           <div className='bg-[#D1EDFF] p-8 rounded-lg shadow-md'>
           <h2 className='text-2xl md:text-3xl font-semibold'>
-            Buy Fedena
+            Buy Schoolynx
             </h2>
             <p className='my-4'>
             All our plans include unlimited students, unlimited courses, priority support with no hidden fee.

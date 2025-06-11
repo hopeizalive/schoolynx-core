@@ -37,7 +37,7 @@ export const Footer = () => {
             <Link href="/" className="text-red-500 text-2xl font-bold">
               <Image
     src="/assets/logo.png" // Public folder se relative path
-    alt="Fedena Logo"
+    alt="Schoolynx Logo"
     width={80}
     height={80}
     className="mr-2"
@@ -56,7 +56,7 @@ export const Footer = () => {
             </ul>
           </div>
           
-          {/* Column 2 - Why Fedena? */}
+          {/* Column 2 - Why Schoolynx? */}
           <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0">
             <h3 className="text-gray-800 font-semibold text-sm mb-3">Why Schoolynx?</h3>
             <ul className="space-y-1.5">

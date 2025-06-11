@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const WhyFedena = () => {
+const WhySchoolynx = () => {
   return (
     <section className="py-16 bg-white w-full">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1a2d52] mb-8 text-center">
@@ -33,4 +33,4 @@ const WhyFedena = () => {
   );
 };
 
-export default WhyFedena; 
+export default WhySchoolynx; 
