@@ -862,7 +862,8 @@ Employee / Teacher Login</p>
             {visibleTestimonials.map((t, idx) => (
               <div key={idx} className="flex-1 max-w-xl min-w-[200px] bg-[#fafafa] border border-[#ff5c4d] rounded-2xl p-8 relative flex flex-col justify-between shadow-md" style={{borderWidth:2}}>
                 {/* Quote Icon */}
-                <svg className="absolute -top-8 left-8 w-16 h-16 text-[#ff5c4d]" fill="currentColor" viewBox="0 0 48 48"><path d="M17 12A8 8 0 0 0 9 20v2a8 8 0 0 0 8 8h.5A5 5 0 0 1 22 25v-2a5 5 0 0 0-5-5H17z" /></svg>
+                <svg className="absolute -top-12 left-8 w-24 h-24 text-[#ff5c4d]" fill="currentColor" viewBox="0 0 48 48"><path d="M17 12A8 8 0 0 0 9 20v2a8 8 0 0 0 8 8h.5A5 5 0 0 1 22 25v-2a5 5 0 0 0-5-5H17z" /></svg>
+                <svg className="absolute -top-12 left-18 w-24 h-24 text-[#ff5c4d]" fill="currentColor" viewBox="0 0 48 48"><path d="M17 12A8 8 0 0 0 9 20v2a8 8 0 0 0 8 8h.5A5 5 0 0 1 22 25v-2a5 5 0 0 0-5-5H17z" /></svg>
                 <p className="text-[#1a2d52] text-md font-medium my-4 overflow-y-auto h-[90px]">{t.text}</p>
                 <div className="flex items-center gap-4 mt-2">
                   <img src={t.img} alt={t.name} className="w-14 h-14 object-contain" />
@@ -911,9 +912,9 @@ Employee / Teacher Login</p>
 
     {/* Bottom CTA with Rocket */}
     <div className="w-full bg-[#f9fafc] py-12">
-      <div className='max-w-7xl flex flex-col md:flex-row items-center justify-center gap-8'>
+      <div className='max-w-[100%] flex flex-col md:flex-row items-center justify-center gap-0 mx-auto'>
       <div className="flex justify-center items-center">
-        <img src="https://cdn.prod.website-files.com/5bff8886c3964a992e90d465/5c006187d9549d3368158d3d_mixes.gif" alt="Rocket" className="w-[80%] h-auto object-contain" />
+        <img src="/assets/kick_start.png" alt="Rocket" className="w-[100%] h-auto object-cover" />
       </div>
       <div className="max-w-lg">
         <h3 className="text-2xl md:text-3xl font-semibold text-[#1a2d52] mb-4">Kickstart your school automation today with Schoolynx.</h3>

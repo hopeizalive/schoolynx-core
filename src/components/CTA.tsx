@@ -10,12 +10,11 @@ export const CTA = () => {
           Get Started for Free Today
           </h2>
           <p className="text-lg text-white mb-10 w-[60%] mx-auto">
-          Join millions of users who have shared that Schoolynx provides 99% of
-          Customer Support Satisfaction.
+          Join millions who say Schoolynx delivers 99% Customer Support Satisfaction.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link href={"/"} className="mt-8 md:mt-0 px-10 py-3 bg-[#f4473e] text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition duration-300 text-lg">
-          Book a demo
+          Schedule a Demo
         </Link>
            
           </div>

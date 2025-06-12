@@ -1,18 +1,7 @@
 import React from 'react';
 
 const features = [
-  {
-    icon: (
-      <svg width="100" height="100" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-0">
-        {/* <circle cx="36" cy="36" r="35" stroke="#f4473e" strokeWidth="2" fill="none" /> */}
-        <path d="M24 44V32C24 29.7909 25.7909 28 28 28H44C46.2091 28 48 29.7909 48 32V44" stroke="#1a2d52" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M36 40C37.6569 40 39 38.6569 39 37C39 35.3431 37.6569 34 36 34C34.3431 34 33 35.3431 33 37C33 38.6569 34.3431 40 36 40Z" stroke="#1a2d52" strokeWidth="2.5"/>
-        <path d="M28 44V46C28 47.1046 28.8954 48 30 48H42C43.1046 48 44 47.1046 44 46V44" stroke="#1a2d52" strokeWidth="2.5" strokeLinecap="round"/>
-      </svg>
-    ),
-    title: 'Simple & Easy to use for Teachers',
-    desc: 'Designed to engage teachers and parents. No expertise is required to quickly accomplish a task.',
-  },
+  
   {
     icon: (
       <svg width="100" height="100" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-0">
@@ -23,7 +12,19 @@ const features = [
       </svg>
     ),
     title: 'Powerful features for your Institution',
-    desc: 'We provide everything you will ever need to run an education institution. No customization required',
+    desc: 'We offer all essential tools to efficiently manage your institution. Fully functional—no customization necessary.',
+  },
+  {
+    icon: (
+      <svg width="100" height="100" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-0">
+        {/* <circle cx="36" cy="36" r="35" stroke="#f4473e" strokeWidth="2" fill="none" /> */}
+        <path d="M24 44V32C24 29.7909 25.7909 28 28 28H44C46.2091 28 48 29.7909 48 32V44" stroke="#1a2d52" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M36 40C37.6569 40 39 38.6569 39 37C39 35.3431 37.6569 34 36 34C34.3431 34 33 35.3431 33 37C33 38.6569 34.3431 40 36 40Z" stroke="#1a2d52" strokeWidth="2.5"/>
+        <path d="M28 44V46C28 47.1046 28.8954 48 30 48H42C43.1046 48 44 47.1046 44 46V44" stroke="#1a2d52" strokeWidth="2.5" strokeLinecap="round"/>
+      </svg>
+    ),
+    title: 'Simple & Easy to use for Teachers',
+    desc: 'Built to connect educators and parents. No technical skills needed to efficiently complete any task.',
   },
   {
     icon: (
@@ -35,7 +36,7 @@ const features = [
       </svg>
     ),
     title: 'Online & On-site Customer Support',
-    desc: 'Along with online & on-site support, Schoolynx also offers on-demand & webinar-based training to their customers.',
+    desc: 'In addition to online and onsite support, Schoolynx provides webinar-based and on-demand training tailored to customer needs.',
   },
 ];
 
@@ -43,8 +44,8 @@ const PerfectSystem = () => {
   return (
     <section className="w-full py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#1a2d52] text-center mb-12">
-          Perfect School Management System to Meet Your Institution Needs
+        <h2 className="text-2xl md:text-3xl font-bold text-[#1a2d52] text-center mb-12">
+          Comprehensive ERP School Management System to Meet Your School Needs
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {features.map((f, i) => (

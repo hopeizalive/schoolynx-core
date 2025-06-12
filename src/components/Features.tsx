@@ -22,7 +22,7 @@ export const Features = () => {
  
   return (
     <section className="py-20 bg-[#fdfdfd] text-black w-full">
-      <h2 className='text-3xl md:text-3xl text-[#1a2a49] text-center mb-12 font-semibold'>Loved by the pioneers in technology</h2>
+      <h2 className='text-3xl md:text-3xl text-[#1a2a49] text-center mb-12 font-semibold'>Trusted by Leaders in Educational Technology</h2>
     <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
       <div className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-24">
         {/* Schools & Colleges */}

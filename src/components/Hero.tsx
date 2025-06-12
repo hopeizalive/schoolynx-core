@@ -19,13 +19,13 @@ export const Hero = () => {
   }, []);
 
   return (
-    <div className="bg-white pt-12 pb-20 md:pt-16 md:pb-28">
+    <div className="bg-white pt-12 pb-20 md:pt-16 md:pb-28 overflow-hidden">
       <div className="max-w-[90%] mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 relative">
           <div className=" w-[40%] text-center lg:text-left">
             <span className="inline-block bg-red-600 text-white text-sm font-semibold px-3 py-1 rounded-md mb-3 lg:mb-4">All-In-One</span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
-            School Management Comprehensive ERP System
+            Comprehensive ERP School Management System
             </h1>
             <p className="text-base sm:text-xl text-gray-700 mb-6 md:mb-8">
             <strong>Streamline Daily Activities, Access Smart Reports, Enable Quick & Informed Decisions. </strong> Schoolynx is a web-based school management tool that smoothly handles academic and administrative workflows.
@@ -48,7 +48,7 @@ export const Hero = () => {
           <div className="w-[85%] mt-8 lg:mt-0 absolute -right-[16%] -top-[52%]">
             <div className="aspect-[4/3] relative overflow-hidden">
               {images.map((image, index) => (
-                <div className="relative w-full aspect-[4/3]">
+                <div className="relative w-full aspect-[4/3] overflow-hidden">
                 {images.map((image, index) => (
                   <div 
                     key={image.src}
@@ -60,23 +60,14 @@ export const Hero = () => {
                       layout="fill"
                       objectFit="contain"
                       priority={index === 0}
+                      className='overflow-hidden'
                     />
                   </div>
                 ))}
               </div>
               ))}
             </div>
-             {/* Navigation dots for slider (optional) */}
-            {/* <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-              {images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImage(index)}
-                  className={`w-3 h-3 rounded-full ${index === currentImage ? 'bg-red-600' : 'bg-gray-300 hover:bg-gray-400'} transition-colors`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div> */}
+
           </div>
         </div>
       </div>

@@ -28,11 +28,11 @@ const MobileAppSection = () => {
         </div>
         {/* Right: Text Content */}
         <div className="flex-1 text-white md:pl-16">
-          <h2 className="text-4xl font-bold mb-4">Schoolynx School Management Mobile App</h2>
-          <h3 className="text-2xl font-semibold mb-4">To manage the institute's daily operations at your fingertips</h3>
-          <p className="mb-4 text-lg font-medium">iOS & Android Apps In Your Brand for Parents, Teachers & Students</p>
+          <h2 className="text-4xl font-bold mb-4">Schoolynx Educational Management Mobile App</h2>
+          <h3 className="text-2xl font-semibold mb-4">Effortlessly handle daily institutional tasks from your fingertips</h3>
+          <p className="mb-4 text-lg font-medium">Branded iOS & Android Apps for Parents, Teachers & Students</p>
           <p className="mb-8 text-lg">
-            You can now enjoy the benefit of having a dedicated school management mobile app in your institution's name that will communicate with the school ERP and stay connected with everyone.
+            Experience the convenience of a dedicated school management app, fully customized with your institution’s name, seamlessly integrated with the ERP system to ensure constant connectivity for all stakeholders.
           </p>
           <button className="bg-white text-[#f4473e] font-bold px-8 py-4 rounded-md text-lg shadow hover:bg-gray-100 transition">Explore APP Features</button>
         </div>

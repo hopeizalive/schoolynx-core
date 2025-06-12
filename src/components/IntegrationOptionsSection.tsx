@@ -20,10 +20,10 @@ export default function IntegrationOptionsSection() {
       className="w-full flex flex-col items-center"
       >
       <h2 className="text-3xl md:text-3xl font-bold text-center mb-4 text-[#1a2a49]">
-        Various Integration Option to Enhance School Management Experience
+       Multiple Integration Options to Elevate School Management Experience.
       </h2>
       <p className="text-xl text-center max-w-3xl mb-12 text-[#1a2a49] w-full">
-        Schoolynx has every feature your institution will ever need and offers upto 20 integrations that enhance the capability and functionality of the student management platform.
+        Schoolynx includes all essential features your institution requires and supports up to 20 integrations, enhancing the overall efficiency and performance of the student information and management platform.
       </p>
       <div className="flex flex-wrap justify-center gap-20 mb-12">
         {/* Biometric */}
@@ -34,6 +34,12 @@ export default function IntegrationOptionsSection() {
 
           <span className="mt-4 text-xl font-semibold text-[#1a2a49] my-auto">Biometric</span>
         </div>
+        {/* Payment Gateway */}
+        <div className="flex flex-col md:flex-row md:gap-1 items-center">
+          <svg width="64" height="64" fill="none" stroke="#1a2a49" strokeWidth="1" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M2 10h20"/><circle cx="7" cy="15" r="1"/><circle cx="11" cy="15" r="1"/></svg>
+          <span className="mt-4 text-xl font-semibold text-[#1a2a49] my-auto">Payment Gateway</span>
+        </div>
+
         {/* Location */}
         <div className="flex flex-col md:flex-row md:gap-1 items-center">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="size-15">
@@ -42,11 +48,6 @@ export default function IntegrationOptionsSection() {
 </svg>
 
           <span className="mt-4 text-xl font-semibold text-[#1a2a49] my-auto">Location</span>
-        </div>
-        {/* Payment Gateway */}
-        <div className="flex flex-col md:flex-row md:gap-1 items-center">
-          <svg width="64" height="64" fill="none" stroke="#1a2a49" strokeWidth="1" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M2 10h20"/><circle cx="7" cy="15" r="1"/><circle cx="11" cy="15" r="1"/></svg>
-          <span className="mt-4 text-xl font-semibold text-[#1a2a49] my-auto">Payment Gateway</span>
         </div>
         {/* Online Classes */}
         <div className="flex flex-col md:flex-row md:gap-1 items-center">
@@ -63,7 +64,7 @@ export default function IntegrationOptionsSection() {
     
     <section className="py-12 bg-[#1a2d52] text-white w-full">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-10">
-       <h2 className="text-xl md:text-2xl text-center text-[white]"><strong>New! Schoolynx 4.0</strong> - 6 New features | 8 Enhancements</h2>
+       <h2 className="text-xl md:text-2xl text-center text-[white]"><strong>Introducing Schoolynx 4.0</strong> – 4 New Features | 6 Upgrades</h2>
 
         <button className="mt-8 md:mt-0 px-10 py-4 bg-[#f4473e] text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition duration-300 text-lg">
           Find Out More
@@ -74,7 +75,7 @@ export default function IntegrationOptionsSection() {
     {/* ---------------------- TESTIMONIAL CAROUSEL SECTION ---------------------- */}
     <section className="w-full py-10 bg-[#fafafa] flex flex-col items-center justify-center">
       <h2 className="text-3xl md:text-4xl font-bold text-[#1a2a49] text-center mb-12">
-        Why Institutes Love Schoolynx School ERP System?
+        Why Institutions Prefer the Schoolynx ERP System?
       </h2>
       <TestimonialCarousel />
     </section>
