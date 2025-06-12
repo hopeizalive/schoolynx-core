@@ -68,7 +68,7 @@ const faqData: FAQItem[] = [
 
 export default function PricingPage() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [isAnnual, setIsAnnual] = useState(true);
+  const [isAnnual, setIsAnnual] = useState(false);
 
   const toggleFAQ = (index: number) => {
     setActiveIndex((prev) => (prev === index ? null : index));
@@ -151,7 +151,7 @@ export default function PricingPage() {
    <div className="flex justify-center items-center space-x-4 absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-white py-2 px-12 rounded-2xl shadow-md">
           <span className="text-gray-700 text-xl font-semibold">Monthly</span>
           <button
-            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 ${isAnnual ? 'bg-gray-200' : 'bg-red-500'}`}
+            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 cursor-pointer ${isAnnual ? 'bg-red-500' : 'bg-gray-200'}`}
             onClick={() => setIsAnnual((prev) => !prev)}
             aria-label="Toggle pricing period"
           >
@@ -238,7 +238,7 @@ export default function PricingPage() {
                 
               </ul>
             </div>
-            <Link href="/" className='font-medium cursor-pointer flex justify-center items-center rounded-xl px-6 py-1 w-[80%] mx-auto bg-[#674FE4] text-white text-xl mb-6'>Contact Us</Link>
+            <Link href="/contact" className='font-medium cursor-pointer flex justify-center items-center rounded-xl px-6 py-1 w-[80%] mx-auto bg-[#674FE4] text-white text-xl mb-6'>Contact Us</Link>
           </div>
 
           {/* Premium Plan */}
@@ -314,7 +314,7 @@ export default function PricingPage() {
                 
               </ul>
             </div>
-            <Link href="/" className='font-medium cursor-pointer flex justify-center items-center rounded-xl px-6 py-1 w-[80%] mx-auto bg-[#ff8b00] text-white text-xl mb-6'>Contact Us</Link>
+            <Link href="/contact" className='font-medium cursor-pointer flex justify-center items-center rounded-xl px-6 py-1 w-[80%] mx-auto bg-[#ff8b00] text-white text-xl mb-6'>Contact Us</Link>
           </div>
 
           {/* Ultimate Plan */}
@@ -392,7 +392,7 @@ export default function PricingPage() {
                 
               </ul>
             </div>
-            <Link href="/" className='font-medium cursor-pointer flex justify-center items-center rounded-xl px-6 py-1 w-[80%] mx-auto bg-[#E84C3D] text-white text-xl mb-6'>Contact Us</Link>
+            <Link href="/contact" className='font-medium cursor-pointer flex justify-center items-center rounded-xl px-6 py-1 w-[80%] mx-auto bg-[#E84C3D] text-white text-xl mb-6'>Contact Us</Link>
           </div>
 
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -474,7 +474,7 @@ export default function PricingPage() {
                 
               </ul>
             </div>
-            <Link href="/" className='font-medium cursor-pointer flex justify-center items-center rounded-xl px-6 py-1 w-[80%] mx-auto bg-[#08AD69] text-white text-xl mb-6'>Contact Us</Link>
+            <Link href="/contact" className='font-medium cursor-pointer flex justify-center items-center rounded-xl px-6 py-1 w-[80%] mx-auto bg-[#08AD69] text-white text-xl mb-6'>Contact Us</Link>
           </div>
 
         </div>

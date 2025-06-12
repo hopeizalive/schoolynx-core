@@ -3,9 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { IoChevronDown } from "react-icons/io5";
-import { FaPhone } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa";
 import Image from 'next/image';
-import { IoMdClose } from 'react-icons/io';
 
 
 interface NavItem {

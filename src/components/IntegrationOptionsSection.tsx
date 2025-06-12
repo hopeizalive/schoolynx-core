@@ -8,16 +8,21 @@ export default function IntegrationOptionsSection() {
   return (
     <>
     <section
-      style={{
-          background: `url(${dottedBg}) center center repeat`,
-          padding: '60px 0',
+       style={{
+        backgroundImage: 'url(/assets/dotted_bg.png)',
+        backgroundSize: 'cover',          // ✅ Ensure it covers fully
+        backgroundRepeat: 'no-repeat',    // ✅ No repeat
+        backgroundPosition: 'center',     // ✅ Center the background
+        width: '100%',
+        // minHeight: '100vh',               // ✅ Full viewport height
+        padding: '60px 0',
       }}
       className="w-full flex flex-col items-center"
       >
       <h2 className="text-3xl md:text-3xl font-bold text-center mb-4 text-[#1a2a49]">
         Various Integration Option to Enhance School Management Experience
       </h2>
-      <p className="text-xl text-center max-w-3xl mb-12 text-[#1a2a49]">
+      <p className="text-xl text-center max-w-3xl mb-12 text-[#1a2a49] w-full">
         Schoolynx has every feature your institution will ever need and offers upto 20 integrations that enhance the capability and functionality of the student management platform.
       </p>
       <div className="flex flex-wrap justify-center gap-20 mb-12">

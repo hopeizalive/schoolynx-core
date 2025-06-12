@@ -7,18 +7,13 @@ const MobileAppSection = () => {
       style={{ backgroundColor: '#f4473e' }}
     >
       {/* Doodle background image: left side */}
-      {/* <img
-        src="https://t4.ftcdn.net/jpg/07/74/32/99/360_F_774329935_sFVGRqnMaqJ1oQDC79qSeCo7mAdz7Awo.jpg"
+       <img
+        src="/assets/doodle_bg.png"
         alt="ERP Doodle Background Left"
-        className="absolute left-0 top-0 w-[500px] h-full object-cover opacity-10 pointer-events-none select-none"
+        className="absolute left-0 top-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
         style={{ zIndex: 1 }}
       />
-      <img
-        src="https://t4.ftcdn.net/jpg/07/74/32/99/360_F_774329935_sFVGRqnMaqJ1oQDC79qSeCo7mAdz7Awo.jpg"
-        alt="ERP Doodle Background Right"
-        className="absolute right-0 bottom-0 w-[400px] h-[300px] object-contain opacity-10 pointer-events-none select-none"
-        style={{ zIndex: 1 }}
-      /> */}
+     
       {/* Solid red overlay in the center */}
       <div className="absolute left-1/4 right-1/4 top-0 bottom-0 bg-[#f4473e] z-10" />
       <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 z-20">
