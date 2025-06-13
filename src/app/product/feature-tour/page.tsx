@@ -408,9 +408,9 @@ Employee / Teacher Login</p>
             <p className='my-4'>
             All our plans include unlimited students, unlimited courses, priority support with no hidden fee.
             </p>
-            <button className='border-2 border-red-600 cursor-pointer px-4 py-2 rounded-md text-red-700 hover:bg-red-600 hover:text-white'>
+            <Link href={"/pricing"} className='border-2 border-red-600 cursor-pointer px-4 py-2 rounded-md text-red-700 hover:bg-red-600 hover:text-white'>
               Pricing and plans
-            </button>
+            </Link>
           </div>
      
       </div>
@@ -426,10 +426,10 @@ Employee / Teacher Login</p>
           Suitable for all types of institutes such as K12, Universities, Higher-Ed, Training Institutes and more.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link href={"/"} className="mt-8 md:mt-0 px-10 py-3 bg-[#f4473e] text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition duration-300 text-lg">
+          <Link href={"/live-demo"} className="mt-8 md:mt-0 px-10 py-3 bg-[#f4473e] text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition duration-300 text-lg">
           Book a demo
         </Link>
-          <Link href={"/"} className="mt-8 md:mt-0 px-10 py-3 border-2 border-[#f4473e] text-[#f4473e] font-semibold rounded-md shadow-lg hover:bg-red-700 hover:text-white transition duration-300 text-lg">
+          <Link href={"/product/faq"} className="mt-8 md:mt-0 px-10 py-3 border-2 border-[#f4473e] text-[#f4473e] font-semibold rounded-md shadow-lg hover:bg-red-700 hover:text-white transition duration-300 text-lg">
           Frequently asked questions
         </Link>
            

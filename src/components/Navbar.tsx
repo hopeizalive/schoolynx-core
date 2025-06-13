@@ -128,7 +128,7 @@ export const Navbar = () => {
             className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isOpen ? "block" : "hidden"}`}
             id="navbar-default"
           >
-            <ul className="flex flex-col md:flex-row p-4 md:p-0 mt-4 font-medium text-xs lg:text-sm border border-gray-100 rounded-lg bg-gray-50 md:bg-white md:mt-0 md:border-0 md:space-x-4 lg:space-x-5 xl:space-x-10">
+            <ul className="flex flex-col md:flex-row p-4 md:p-0 mt-4 font-medium text-xs lg:text-sm border border-gray-100 rounded-lg bg-gray-50 md:bg-white md:mt-0 md:border-0 md:space-x-4 lg:space-x-5 xl:space-x-30">
               {navItems.map((item) => (
                 <li
                   key={item.label}

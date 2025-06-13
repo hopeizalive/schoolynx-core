@@ -111,9 +111,9 @@ const FAQ: React.FC = () => {
           className="text-red-600">+91-1130018096</a>
            </p>
 
-           <button className=' bg-red-600 cursor-pointer px-4 py-2 rounded-md text-white hover:bg-red-700'>
+           <Link href={"/contact"} className=' bg-red-600 cursor-pointer px-4 py-2 rounded-md text-white hover:bg-red-700'>
               Contact Us
-            </button>
+            </Link>
       </div>
 
       <section id="feature-tour" className="py-12 bg-[#1a2d52]">
@@ -124,10 +124,10 @@ const FAQ: React.FC = () => {
           </h2>
          
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link href={"/"} className="mt-8 md:mt-0 px-10 py-3 bg-[#f4473e] text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition duration-300 text-lg">
+          <Link href={"/live-demo"} className="mt-8 md:mt-0 px-10 py-3 bg-[#f4473e] text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition duration-300 text-lg">
           Book a demo
         </Link>
-          <Link href={"/"} className="mt-8 md:mt-0 px-10 py-3 border-2 border-[#f4473e] text-[#f4473e] font-semibold rounded-md shadow-lg hover:bg-red-700 hover:text-white transition duration-300 text-lg">
+          <Link href={"/contact"} className="mt-8 md:mt-0 px-10 py-3 border-2 border-[#f4473e] text-[#f4473e] font-semibold rounded-md shadow-lg hover:bg-red-700 hover:text-white transition duration-300 text-lg">
           Connect with Experts
         </Link>
            

@@ -399,7 +399,7 @@ export default function PricingPage() {
             <div className="p-8">
               <h2 className="text-3xl text-center text-[#08AD69] mb-6 font-semibold uppercase">Enterprise</h2>
               <div className="mb-6">
-              <Link href="/" className='font-medium cursor-pointer flex justify-center items-center bg-[#08AD69] rounded-full px-6 py-1 w-fit mx-auto text-white text-xl mb-6'>Contact Sales</Link>
+              <Link href="/contact" className='font-medium cursor-pointer flex justify-center items-center bg-[#08AD69] rounded-full px-6 py-1 w-fit mx-auto text-white text-xl mb-6'>Contact Sales</Link>
               </div>
               <Link href="/" className='font-medium cursor-pointer flex justify-center items-center border-2 border-[#08AD69] rounded-full px-6 py-1 w-fit mx-auto text-[#08AD69] text-xl mb-6'>Buy Enterprise</Link>
 
@@ -833,8 +833,8 @@ Employee / Teacher Login</p>
     <div className="w-full bg-[#1a2d52] py-10 flex flex-col items-center justify-center">
       <h2 className="text-white text-2xl md:text-2xl font-semibold mb-6 text-center">Can't decide which plan is right for you?</h2>
       <div className="flex gap-4 mb-2">
-        <button className="bg-[#ff5c4d] hover:bg-[#e84c3d] text-white font-semibold px-8 py-2 rounded-md text-lg transition">Book A Demo</button>
-        <button className="border border-[#ff5c4d] text-[#ff5c4d] hover:bg-[#ff5c4d] hover:text-white font-semibold px-8 py-2 rounded-md text-lg transition">Connect With Expert</button>
+        <Link href={"/live-demo"} className="bg-[#ff5c4d] hover:bg-[#e84c3d] text-white font-semibold px-8 py-2 rounded-md text-lg transition">Book A Demo</Link>
+        <Link href={"/contact"} className="border border-[#ff5c4d] text-[#ff5c4d] hover:bg-[#ff5c4d] hover:text-white font-semibold px-8 py-2 rounded-md text-lg transition">Connect With Expert</Link>
       </div>
     </div>
 

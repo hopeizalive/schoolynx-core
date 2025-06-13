@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Stats = () => {
@@ -41,9 +42,9 @@ const Stats = () => {
           </div>
         </div>
 
-        <button className="mt-8 md:mt-0 px-10 py-3 bg-[#f4473e] text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition duration-300 text-lg">
+        <Link href={"/pricing"} className="mt-8 md:mt-0 px-10 py-3 bg-[#f4473e] text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition duration-300 text-lg">
           Buy Now
-        </button>
+        </Link>
       </div>
     </section>
   );

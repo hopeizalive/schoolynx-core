@@ -6,6 +6,7 @@ const images = [
   { id:1, src: '/assets/home1.png', alt: 'Schoolynx School Management Software Dashboard' },
   { id:2, src: '/assets/home2.png', alt: 'Schoolynx Attendance Tracking' },
   { id:3, src: '/assets/home3.png', alt: 'Schoolynx Mobile App View' },
+  { id:4, src: '/assets/home4.png', alt: 'Schoolynx Student/Employee Management' },
 ];
 
 export const Hero = () => {
@@ -32,13 +33,13 @@ export const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 items-center">
               <Link 
-                href="#"
+                href="/live-demo"
                 className="px-6 py-2 sm:px-0 sm:py-2 bg-white text-red-600 border-2 border-red-600 font-semibold rounded-md hover:bg-red-50 transition duration-300 text-center text-base sm:text-lg w-full"
               >
                 Request Live Demo
               </Link>
               <Link 
-                href="#"
+                href="/pricing"
                 className="px-6 py-2 sm:px-0 sm:py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 transition duration-300 text-center text-base sm:text-lg w-full"
               >
                 Pricing & Plans
