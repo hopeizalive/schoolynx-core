@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { IoChevronDown } from "react-icons/io5";
-import { FaPhone } from "react-icons/fa";
+import { BsTelephoneFill } from "react-icons/bs";
 import Image from 'next/image';
 
 
@@ -73,8 +73,8 @@ export const Navbar = () => {
           <Image
     src="/assets/logo.png" // Public folder se relative path
     alt="Schoolynx Logo"
-    width={80}
-    height={80}
+    width={110}
+    height={110}
     className="mr-2"
   />
             {/* <span className="self-center text-2xl font-bold whitespace-nowrap text-red-600">
@@ -90,10 +90,14 @@ export const Navbar = () => {
             >
               Request Live Demo
             </Link>
-            {/* Changed to PhoneIcon and added a subtle border like in the image */}
-            <button className="text-gray-600 hover:text-red-600 p-1.5 border border-gray-300 rounded-full">
-              <FaPhone className="h-4 w-4" />
-            </button>
+          <div className="relative group">
+  <button className="text-gray-600 hover:text-red-600 p-1.5 border border-gray-300 rounded-full">
+    <BsTelephoneFill className="h-6 w-6" />
+  </button>
+  <div className="absolute -left-10 -translate-x-1/2 mt-1 px-3 py-2 text-lg w-50 text-gray-800 bg-white rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50">
+    +92-315-5814609
+  </div>
+</div>
             <button
               type="button"
               onClick={toggleMenu}
@@ -124,7 +128,7 @@ export const Navbar = () => {
             className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isOpen ? "block" : "hidden"}`}
             id="navbar-default"
           >
-            <ul className="flex flex-col md:flex-row p-4 md:p-0 mt-4 font-medium text-xs lg:text-sm border border-gray-100 rounded-lg bg-gray-50 md:bg-white md:mt-0 md:border-0 md:space-x-4 lg:space-x-5 xl:space-x-6">
+            <ul className="flex flex-col md:flex-row p-4 md:p-0 mt-4 font-medium text-xs lg:text-sm border border-gray-100 rounded-lg bg-gray-50 md:bg-white md:mt-0 md:border-0 md:space-x-4 lg:space-x-5 xl:space-x-10">
               {navItems.map((item) => (
                 <li
                   key={item.label}

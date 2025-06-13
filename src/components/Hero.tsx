@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const images = [
-  { src: '/assets/home_image_1.png', alt: 'Schoolynx School Management Software Dashboard' },
-  { src: '/assets/home_image_2.png', alt: 'Schoolynx Attendance Tracking' },
-  { src: '/assets/home_image_3.png', alt: 'Schoolynx Mobile App View' },
+  { id:1, src: '/assets/home-image_1.png', alt: 'Schoolynx School Management Software Dashboard' },
+  { id:2, src: '/assets/home-image_2.png', alt: 'Schoolynx Attendance Tracking' },
+  { id:3, src: '/assets/home-image_3.png', alt: 'Schoolynx Mobile App View' },
 ];
 
 export const Hero = () => {
@@ -45,13 +45,13 @@ export const Hero = () => {
               </Link>
             </div>
           </div>
-          <div className="w-[85%] mt-8 lg:mt-0 absolute -right-[16%] -top-[52%]">
+          <div className="w-[83%] mt-8 lg:mt-0 absolute -right-[14%] -top-[45%]">
             <div className="aspect-[4/3] relative overflow-hidden">
               {images.map((image, index) => (
-                <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <div key={index} className="relative w-full aspect-[4/3] overflow-hidden">
                 {images.map((image, index) => (
                   <div 
-                    key={image.src}
+                    key={image.id}
                     className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentImage ? 'opacity-100' : 'opacity-0'}`}
                   >
                     <Image 
