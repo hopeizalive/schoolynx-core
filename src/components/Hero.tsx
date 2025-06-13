@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const images = [
-  { id:1, src: '/assets/home-image_1.png', alt: 'Schoolynx School Management Software Dashboard' },
-  { id:2, src: '/assets/home-image_2.png', alt: 'Schoolynx Attendance Tracking' },
-  { id:3, src: '/assets/home-image_3.png', alt: 'Schoolynx Mobile App View' },
+  { id:1, src: '/assets/home1.png', alt: 'Schoolynx School Management Software Dashboard' },
+  { id:2, src: '/assets/home2.png', alt: 'Schoolynx Attendance Tracking' },
+  { id:3, src: '/assets/home3.png', alt: 'Schoolynx Mobile App View' },
 ];
 
 export const Hero = () => {
