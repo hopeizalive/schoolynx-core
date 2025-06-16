@@ -1,5 +1,6 @@
 "use client";
 
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -12,9 +13,9 @@ interface TimelineCardProps {
   button?: boolean;
 }
 
-export default function TimelineCard({ image, year, month, title, description, button }: TimelineCardProps) {
+const TimelineCard: React.FC<TimelineCardProps> = ({ image, year, month, title, description, button }) => {
   return (
-    <div className="bg-[#f8f9fa] p-6 w-[300px]">
+    <div className="bg-[#f8f9fa] p-6 w-[300px] shadow-lg rounded-lg">
       <div className="relative w-full h-48 mb-4">
         <Image
           src={image}
@@ -23,11 +24,12 @@ export default function TimelineCard({ image, year, month, title, description, b
           className="object-cover rounded"
           sizes="(max-width: 300px) 100vw, 300px"
           loading="lazy"
+          quality={30}
         />
       </div>
-      <h3 className="text-3xl font-semibold text-center">{year}</h3>
-      <p className="text-gray-600 text-center text-lg mt-1 mb-6">{month}</p>
-      <p className="text-gray-600 text-center">{description}</p>
+      <h3 className="text-xl font-semibold text-center mb-2 text-gray-800">{year}</h3>
+      <h4 className="text-sm text-center mb-6 text-gray-600">{title}</h4>
+      <p className="text-gray-700 text-sm leading-relaxed">{description}</p>
       {button && (
         <Link 
           href="#" 
@@ -38,4 +40,6 @@ export default function TimelineCard({ image, year, month, title, description, b
       )}
     </div>
   );
-} 
+};
+
+export default TimelineCard; 

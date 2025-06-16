@@ -26,6 +26,7 @@ export default function TeamMemberCard({ name, role, image, description }: TeamM
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 192px"
             priority
+            quality={40}
           />
         </div>
   

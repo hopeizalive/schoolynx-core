@@ -62,6 +62,7 @@ export const Hero = () => {
                       objectFit="contain"
                       priority={index === 0}
                       className='overflow-hidden'
+                      quality={40}
                     />
                   </div>
                 ))}

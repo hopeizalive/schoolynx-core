@@ -175,6 +175,7 @@ export default function OurCustomersPage() {
                 className="object-contain"
                 sizes="(max-width: 192px) 100vw, 192px"
                 priority={current === 0}
+                quality={40}
               />
             </div>
             <p className="text-2xl md:text-3xl text-gray-700 mb-8 text-center leading-snug max-w-5xl mx-auto font-normal">
@@ -224,6 +225,7 @@ export default function OurCustomersPage() {
                     className="object-contain"
                     sizes="(max-width: 64px) 100vw, 64px"
                     loading="lazy"
+                    quality={40}
                   />
                 </div>
                 {item.name && <div className="text-lg text-center text-gray-900 font-semibold">{item.name}</div>}

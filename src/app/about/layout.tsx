@@ -8,7 +8,9 @@ export default function AboutLayout({
 }) {
   return (
     <Suspense fallback={<Loading />}>
-      {children}
+      <div className="min-h-screen">
+        {children}
+      </div>
     </Suspense>
   );
 } 

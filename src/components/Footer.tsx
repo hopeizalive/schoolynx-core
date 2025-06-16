@@ -42,6 +42,7 @@ export const Footer = () => {
     height={80}
     className="mr-2"
     loading="lazy"
+    quality={40}
   />
             </Link>
           </div>

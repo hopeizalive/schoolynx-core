@@ -77,6 +77,7 @@ export const Navbar = () => {
     height={110}
     className="mr-2"
     loading="lazy"
+    quality={40}
   />
             {/* <span className="self-center text-2xl font-bold whitespace-nowrap text-red-600">
               Schoolynx

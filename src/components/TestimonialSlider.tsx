@@ -46,6 +46,7 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
               className="rounded-full object-cover"
               sizes="(max-width: 768px) 100vw, 192px"
               priority
+              quality={40}
             />
           </div>
           <p className="text-xl text-gray-600 text-center max-w-4xl mb-8">

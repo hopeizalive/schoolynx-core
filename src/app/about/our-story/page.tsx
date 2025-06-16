@@ -1,11 +1,11 @@
 "use client";
 
 import Link from 'next/link';
-import React, { Suspense } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
-// Dynamically import heavy components
+// Dynamically import TimelineCard with loading state
 const TimelineCard = dynamic(() => import('@/components/TimelineCard'), {
   loading: () => (
     <div className="bg-[#f8f9fa] p-6 w-[300px] animate-pulse">
@@ -14,8 +14,7 @@ const TimelineCard = dynamic(() => import('@/components/TimelineCard'), {
       <div className="h-4 bg-gray-200 rounded w-1/4 mx-auto mb-6"></div>
       <div className="h-20 bg-gray-200 rounded"></div>
     </div>
-  ),
-  ssr: false
+  )
 });
 
 const timelineData = [
@@ -189,16 +188,6 @@ const optimizedTimelineData = timelineData.map(item => ({
   // image: item.image.replace('https://', 'https://images.unsplash.com/photo-') // Replace with optimized images
 }));
 
-// Loading component for timeline cards
-const TimelineCardLoader = () => (
-  <div className="bg-[#f8f9fa] p-6 w-[300px] animate-pulse">
-    <div className="w-full h-48 bg-gray-200 rounded mb-4"></div>
-    <div className="h-8 bg-gray-200 rounded w-1/2 mx-auto mb-2"></div>
-    <div className="h-4 bg-gray-200 rounded w-1/4 mx-auto mb-6"></div>
-    <div className="h-20 bg-gray-200 rounded"></div>
-  </div>
-);
-
 export default function OurStoryPage() {
   const rows = [];
   for (let i = 0; i < timelineData.length; i += 2) {
@@ -209,19 +198,19 @@ export default function OurStoryPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <>
       {/* Banner Section */}
       <div className="relative h-[95vh] bg-cover bg-center">
         <Image
-          src="/assets/banner.jpg"
+          src="/assets/banner1.jpg"
           alt="Schoolynx Banner"
           fill
           priority
           className="object-cover"
           sizes="100vw"
-          quality={90}
+          quality={75}
         />
-        <div className="absolute inset-0 bg-black/20 z-0" />
+        <div className="absolute inset-0 bg-black/30 z-0" />
 
         {/* Text content */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-[20%] md:left-[10%] md:transform-none z-10 text-white md:translate-0 w-[90%]">
@@ -264,30 +253,25 @@ export default function OurStoryPage() {
               <div className="w-1/2 pr-10 flex justify-end">
                 <div className="relative">
                   {/* Left Circle */}
-                  <div className="absolute -right-10 top-1/2 transform -translate-y-1/2 w-7 h-7 rounded-full bg-[#00ffff3c] z-10" />
-                  <Suspense fallback={<TimelineCardLoader />}>
-                    <TimelineCard {...row.left} />
-                  </Suspense>
+                  <div className="absolute -right-10 top-8 transform -translate-y-1/2 w-7 h-7 rounded-full bg-[#00ffff3c] z-10" />
+                  <TimelineCard {...row.left} />
                 </div>
               </div>
             )}
-
 
             {/* Right Card */}
             {row.right && (
               <div className="w-1/2 pl-10">
                 <div className="relative">
                   {/* Right Circle */}
-                  <div className="absolute -left-10 top-1/2 transform -translate-y-1/2 w-7 h-7 rounded-full bg-[#00ffff3c] z-10" />
-                  <Suspense fallback={<TimelineCardLoader />}>
-                    <TimelineCard {...row.right} />
-                  </Suspense>
+                  <div className="absolute -left-10 top-14 transform -translate-y-1/2 w-7 h-7 rounded-full bg-[#00ffff3c] z-10" />
+                  <TimelineCard {...row.right} />
                 </div>
               </div>
             )}
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }
