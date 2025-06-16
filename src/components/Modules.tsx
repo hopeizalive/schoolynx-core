@@ -53,7 +53,7 @@ const modules = [
 
 const Modules = () => {
   return (
-    <section className="w-full py-16 bg-gradient-to-b from-[#1a2d52] to-[#396cae] text-white">
+    <section className="w-full py-16 bg-gradient-to-b from-[#1a2d52] to-[#20448d] text-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-start md:gap-8 mb-10">
           {/* Left: Heading and description */}

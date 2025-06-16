@@ -1,18 +1,52 @@
 "use client";
 
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { BsCalendar4Event } from 'react-icons/bs';
-import { CgProfile } from 'react-icons/cg';
-import { CiLogin } from 'react-icons/ci';
-import { GrCertificate, GrMoney } from 'react-icons/gr';
-import { IoBookOutline } from 'react-icons/io5';
-import { LiaIdCardSolid } from 'react-icons/lia';
-import { LuBookKey, LuLayoutDashboard, LuMessageSquareMore } from 'react-icons/lu';
-import { MdAppRegistration, MdOutlineLibraryBooks, MdOutlineManageAccounts, MdOutlineTextsms } from 'react-icons/md';
-import { PiExam, PiNewspaperClippingLight, PiStudent } from 'react-icons/pi';
-import { RiTimelineView } from 'react-icons/ri';
-import { TbReportAnalytics } from 'react-icons/tb';
+import dynamic from 'next/dynamic';
+import React, { Suspense, useEffect, useState } from 'react';
+
+// Dynamically import icons
+const IconComponents = {
+  BsCalendar4Event: dynamic(() => import('react-icons/bs').then(mod => mod.BsCalendar4Event), { ssr: false }),
+  CgProfile: dynamic(() => import('react-icons/cg').then(mod => mod.CgProfile), { ssr: false }),
+  CiLogin: dynamic(() => import('react-icons/ci').then(mod => mod.CiLogin), { ssr: false }),
+  GrCertificate: dynamic(() => import('react-icons/gr').then(mod => mod.GrCertificate), { ssr: false }),
+  GrMoney: dynamic(() => import('react-icons/gr').then(mod => mod.GrMoney), { ssr: false }),
+  IoBookOutline: dynamic(() => import('react-icons/io5').then(mod => mod.IoBookOutline), { ssr: false }),
+  LiaIdCardSolid: dynamic(() => import('react-icons/lia').then(mod => mod.LiaIdCardSolid), { ssr: false }),
+  LuBookKey: dynamic(() => import('react-icons/lu').then(mod => mod.LuBookKey), { ssr: false }),
+  LuLayoutDashboard: dynamic(() => import('react-icons/lu').then(mod => mod.LuLayoutDashboard), { ssr: false }),
+  LuMessageSquareMore: dynamic(() => import('react-icons/lu').then(mod => mod.LuMessageSquareMore), { ssr: false }),
+  MdAppRegistration: dynamic(() => import('react-icons/md').then(mod => mod.MdAppRegistration), { ssr: false }),
+  MdOutlineLibraryBooks: dynamic(() => import('react-icons/md').then(mod => mod.MdOutlineLibraryBooks), { ssr: false }),
+  MdOutlineManageAccounts: dynamic(() => import('react-icons/md').then(mod => mod.MdOutlineManageAccounts), { ssr: false }),
+  MdOutlineTextsms: dynamic(() => import('react-icons/md').then(mod => mod.MdOutlineTextsms), { ssr: false }),
+  PiExam: dynamic(() => import('react-icons/pi').then(mod => mod.PiExam), { ssr: false }),
+  PiNewspaperClippingLight: dynamic(() => import('react-icons/pi').then(mod => mod.PiNewspaperClippingLight), { ssr: false }),
+  PiStudent: dynamic(() => import('react-icons/pi').then(mod => mod.PiStudent), { ssr: false }),
+  RiTimelineView: dynamic(() => import('react-icons/ri').then(mod => mod.RiTimelineView), { ssr: false }),
+  TbReportAnalytics: dynamic(() => import('react-icons/tb').then(mod => mod.TbReportAnalytics), { ssr: false }),
+} as const;
+
+type IconName = keyof typeof IconComponents;
+
+// Loading component for icons
+const IconLoader = () => (
+  <div className="w-8 h-8 bg-gray-200 animate-pulse rounded"></div>
+);
+
+// Module component with lazy loaded icon
+const ModuleLink = ({ href, iconName, text }: { href: string; iconName: IconName; text: string }) => {
+  const Icon = IconComponents[iconName];
+  
+  return (
+    <Link href={href} className='flex items-center gap-6'>
+      <Suspense fallback={<IconLoader />}>
+        {Icon && <Icon size={35} className='text-red-600' />}
+      </Suspense>
+      <p className='text-gray-700 text-md hover:underline'>{text}</p>
+    </Link>
+  );
+};
 
 interface FAQItem {
   question: string;
@@ -69,6 +103,7 @@ const faqData: FAQItem[] = [
 export default function PricingPage() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isAnnual, setIsAnnual] = useState(false);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
 
   const toggleFAQ = (index: number) => {
     setActiveIndex((prev) => (prev === index ? null : index));
@@ -117,25 +152,26 @@ export default function PricingPage() {
       logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg',
     },
   ];
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
+
   const visibleTestimonials = [
     testimonials[testimonialIndex],
     testimonials[(testimonialIndex + 1) % testimonials.length],
   ];
+
   const handlePrev = () => {
     setTestimonialIndex((prev) => (prev - 2 + testimonials.length) % testimonials.length);
   };
+
   const handleNext = () => {
     setTestimonialIndex((prev) => (prev + 2) % testimonials.length);
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      handleNext(); // move to next testimonial
-    }, 5000); // every 5 seconds
-  
-    return () => clearInterval(interval); // cleanup on unmount
-  }, [visibleTestimonials]);
+      handleNext();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonialIndex]);
 
   return (
     <>
@@ -487,112 +523,27 @@ export default function PricingPage() {
           
           <div className="w-full mx-auto grid grid-cols-2 md:grid-cols-3 items-center justify-between px-4 gap-8">
 
-     <Link href={"#"} className='flex items-center gap-6'>
-     <IoBookOutline size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Courses and Batches</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <GrCertificate  size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Certificate Generator</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiStudent size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Student Information</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <CgProfile size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Human Resources</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LuLayoutDashboard size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Multiple Dashboards</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LuBookKey size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-Employee / Teacher Login</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdAppRegistration size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Student Attendance</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiStudent size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Student Admission</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <CiLogin size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Students / Parents Login</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <RiTimelineView size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Timetable</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiNewspaperClippingLight size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      News Management</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LuMessageSquareMore size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Messaging System</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdOutlineLibraryBooks size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Gradebook</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiExam size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>   
-Examination</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdOutlineManageAccounts size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      User Management</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdOutlineTextsms size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      SMS Integration</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdOutlineManageAccounts size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      User Management</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <BsCalendar4Event size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      School / Events Calendar</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <TbReportAnalytics size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Report Center</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LiaIdCardSolid size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      ID Card Generator</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <GrMoney size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-Finance</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiStudent size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Custom Student Remarks</p>
-     </Link>
+     <ModuleLink href={"#"} iconName="IoBookOutline" text="Courses and Batches" />
+     <ModuleLink href={"#"} iconName="GrCertificate" text="Certificate Generator" />
+     <ModuleLink href={"#"} iconName="PiStudent" text="Student Information" />
+     <ModuleLink href={"#"} iconName="CgProfile" text="Human Resources" />
+     <ModuleLink href={"#"} iconName="LuLayoutDashboard" text="Multiple Dashboards" />
+     <ModuleLink href={"#"} iconName="LuBookKey" text="Employee / Teacher Login" />
+     <ModuleLink href={"#"} iconName="MdAppRegistration" text="Student Attendance" />
+     <ModuleLink href={"#"} iconName="PiStudent" text="Student Admission" />
+     <ModuleLink href={"#"} iconName="CiLogin" text="Students / Parents Login" />
+     <ModuleLink href={"#"} iconName="RiTimelineView" text="Timetable" />
+     <ModuleLink href={"#"} iconName="PiNewspaperClippingLight" text="News Management" />
+     <ModuleLink href={"#"} iconName="LuMessageSquareMore" text="Messaging System" />
+     <ModuleLink href={"#"} iconName="MdOutlineLibraryBooks" text="Gradebook" />
+     <ModuleLink href={"#"} iconName="PiExam" text="Examination" />
+     <ModuleLink href={"#"} iconName="MdOutlineManageAccounts" text="User Management" />
+     <ModuleLink href={"#"} iconName="MdOutlineTextsms" text="SMS Integration" />
+     <ModuleLink href={"#"} iconName="BsCalendar4Event" text="School / Events Calendar" />
+     <ModuleLink href={"#"} iconName="TbReportAnalytics" text="Report Center" />
+     <ModuleLink href={"#"} iconName="LiaIdCardSolid" text="ID Card Generator" />
+     <ModuleLink href={"#"} iconName="GrMoney" text="Finance" />
+     <ModuleLink href={"#"} iconName="PiStudent" text="Custom Student Remarks" />
       </div>
     </section>
 
@@ -603,112 +554,28 @@ Finance</p>
           
           <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 items-center justify-between px-4 gap-8">
 
-     <Link href={"#"} className='flex items-center gap-6'>
-     <IoBookOutline size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Courses and Batches</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <GrCertificate  size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Certificate Generator</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiStudent size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Student Information</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <CgProfile size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Human Resources</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LuLayoutDashboard size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Multiple Dashboards</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LuBookKey size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-Employee / Teacher Login</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdAppRegistration size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Student Attendance</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiStudent size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Student Admission</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <CiLogin size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Students / Parents Login</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <RiTimelineView size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Timetable</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiNewspaperClippingLight size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      News Management</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LuMessageSquareMore size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Messaging System</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdOutlineLibraryBooks size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Gradebook</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiExam size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>   
-Examination</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdOutlineManageAccounts size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      User Management</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdOutlineTextsms size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      SMS Integration</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdOutlineManageAccounts size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      User Management</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <BsCalendar4Event size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      School / Events Calendar</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <TbReportAnalytics size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Report Center</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LiaIdCardSolid size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      ID Card Generator</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <GrMoney size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-Finance</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiStudent size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Custom Student Remarks</p>
-     </Link>
+     <ModuleLink href={"#"} iconName="IoBookOutline" text="Courses and Batches" />
+     <ModuleLink href={"#"} iconName="GrCertificate" text="Certificate Generator" />
+     <ModuleLink href={"#"} iconName="PiStudent" text="Student Information" />
+     <ModuleLink href={"#"} iconName="CgProfile" text="Human Resources" />
+     <ModuleLink href={"#"} iconName="LuLayoutDashboard" text="Multiple Dashboards" />
+     <ModuleLink href={"#"} iconName="LuBookKey" text="Employee / Teacher Login" />
+     <ModuleLink href={"#"} iconName="MdAppRegistration" text="Student Attendance" />
+     <ModuleLink href={"#"} iconName="PiStudent" text="Student Admission" />
+     <ModuleLink href={"#"} iconName="CiLogin" text="Students / Parents Login" />
+     <ModuleLink href={"#"} iconName="RiTimelineView" text="Timetable" />
+     <ModuleLink href={"#"} iconName="PiNewspaperClippingLight" text="News Management" />
+     <ModuleLink href={"#"} iconName="LuMessageSquareMore" text="Messaging System" />
+     <ModuleLink href={"#"} iconName="MdOutlineLibraryBooks" text="Gradebook" />
+     <ModuleLink href={"#"} iconName="PiExam" text="Examination" />
+     <ModuleLink href={"#"} iconName="MdOutlineManageAccounts" text="User Management" />
+     <ModuleLink href={"#"} iconName="MdOutlineTextsms" text="SMS Integration" />
+     <ModuleLink href={"#"} iconName="MdOutlineManageAccounts" text="User Management" />
+     <ModuleLink href={"#"} iconName="BsCalendar4Event" text="School / Events Calendar" />
+     <ModuleLink href={"#"} iconName="TbReportAnalytics" text="Report Center" />
+     <ModuleLink href={"#"} iconName="LiaIdCardSolid" text="ID Card Generator" />
+     <ModuleLink href={"#"} iconName="GrMoney" text="Finance" />
+     <ModuleLink href={"#"} iconName="PiStudent" text="Custom Student Remarks" />
       </div>
     </section>
 
@@ -719,53 +586,16 @@ Finance</p>
           
           <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 items-center justify-between px-4 gap-8">
 
-     <Link href={"#"} className='flex items-center gap-6'>
-     <IoBookOutline size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Courses and Batches</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <GrCertificate  size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Certificate Generator</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiStudent size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Student Information</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <CgProfile size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Human Resources</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LuLayoutDashboard size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Multiple Dashboards</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LuBookKey size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-Employee / Teacher Login</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdAppRegistration size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Student Attendance</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiStudent size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Student Admission</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <CiLogin size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Students / Parents Login</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <RiTimelineView size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Timetable</p>
-     </Link>
-     
+     <ModuleLink href={"#"} iconName="IoBookOutline" text="Courses and Batches" />
+     <ModuleLink href={"#"} iconName="GrCertificate" text="Certificate Generator" />
+     <ModuleLink href={"#"} iconName="PiStudent" text="Student Information" />
+     <ModuleLink href={"#"} iconName="CgProfile" text="Human Resources" />
+     <ModuleLink href={"#"} iconName="LuLayoutDashboard" text="Multiple Dashboards" />
+     <ModuleLink href={"#"} iconName="LuBookKey" text="Employee / Teacher Login" />
+     <ModuleLink href={"#"} iconName="MdAppRegistration" text="Student Attendance" />
+     <ModuleLink href={"#"} iconName="PiStudent" text="Student Admission" />
+     <ModuleLink href={"#"} iconName="CiLogin" text="Students / Parents Login" />
+     <ModuleLink href={"#"} iconName="RiTimelineView" text="Timetable" />
       </div>
     </section>
 
@@ -776,53 +606,16 @@ Employee / Teacher Login</p>
           
           <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 items-center justify-between px-4 gap-8">
 
-     <Link href={"#"} className='flex items-center gap-6'>
-     <IoBookOutline size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Courses and Batches</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <GrCertificate  size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Certificate Generator</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiStudent size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Student Information</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <CgProfile size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>Human Resources</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LuLayoutDashboard size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Multiple Dashboards</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <LuBookKey size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-Employee / Teacher Login</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <MdAppRegistration size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Student Attendance</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <PiStudent size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Student Admission</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <CiLogin size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Students / Parents Login</p>
-     </Link>
-     <Link href={"#"} className='flex items-center gap-6'>
-     <RiTimelineView size={35} className='text-red-600'/>
-      <p className='text-gray-700 text-md hover:underline'>
-      Timetable</p>
-     </Link>
-     
+     <ModuleLink href={"#"} iconName="IoBookOutline" text="Courses and Batches" />
+     <ModuleLink href={"#"} iconName="GrCertificate" text="Certificate Generator" />
+     <ModuleLink href={"#"} iconName="PiStudent" text="Student Information" />
+     <ModuleLink href={"#"} iconName="CgProfile" text="Human Resources" />
+     <ModuleLink href={"#"} iconName="LuLayoutDashboard" text="Multiple Dashboards" />
+     <ModuleLink href={"#"} iconName="LuBookKey" text="Employee / Teacher Login" />
+     <ModuleLink href={"#"} iconName="MdAppRegistration" text="Student Attendance" />
+     <ModuleLink href={"#"} iconName="PiStudent" text="Student Admission" />
+     <ModuleLink href={"#"} iconName="CiLogin" text="Students / Parents Login" />
+     <ModuleLink href={"#"} iconName="RiTimelineView" text="Timetable" />
       </div>
     </section>
       </div>
@@ -883,9 +676,6 @@ Employee / Teacher Login</p>
         </div>
       </div>
     </div>
-
-    {/* Testimonials Section */}
-   
 
     <div className="max-w-6xl mx-auto px-4 mt-52 mb-12">
         <h1 className="text-2xl md:text-3xl font-semibold text-[#1a2d52] mb-8 text-center">Frequently Asked Questions</h1>

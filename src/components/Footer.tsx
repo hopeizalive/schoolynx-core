@@ -41,6 +41,7 @@ export const Footer = () => {
     width={80}
     height={80}
     className="mr-2"
+    loading="lazy"
   />
             </Link>
           </div>

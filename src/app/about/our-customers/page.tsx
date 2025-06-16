@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 // --- Testimonial Slider Data ---
 const sliderTestimonials = [
@@ -41,7 +42,7 @@ const cardTestimonials = [
     org: 'Govt of Kerala - India',
   },
   {
-    text: 'Help to maintain and use Information about Employees and Students in very Constructive way. Which makes any Educational Organization’s Life much easier.',
+    text: 'Help to maintain and use Information about Employees and Students in very Constructive way. Which makes any Educational Organizations Life much easier.',
     logo: '/assets/our-customer/card2.png',
     name: 'Maria Auraliya Arokia Doss M',
     org: 'Indian Institute of Logistics',
@@ -49,7 +50,6 @@ const cardTestimonials = [
   {
     text: 'Schoolynx is one of the most useful ERP software in which institutes, schools or colleges can fulfill their needs as they required.',
     logo: '/assets/our-customer/card3.jpg',
-    // name: '',
     org: 'HEC Group Of Institutions',
   },
   {
@@ -128,79 +128,83 @@ const cardTestimonials = [
     org: 'Anantha Vidyaniketan, Bangalore - INDIA',
   },
   {
-    text: 'Fantastic app. Full of functions, very user friendly, simple and easy to use. We couldn’t have asked for more.',
+    text: 'Fantastic app. Full of functions, very user friendly, simple and easy to use. We could not have asked for more.',
     logo: '/assets/our-customer/card1.jpg',
     name: 'Abdullahi Qasim',
     midName: "",
     org: 'Mogadishu University - Somalia',
   },
   {
-    text: 'In one word, Schoolynx is ‘convenient’. It has made schooling so convenient for our staff, teachers, parents and students.',
+    text: 'In one word, Schoolynx is convenient. It has made schooling so convenient for our staff, teachers, parents and students.',
     logo: '/assets/our-customer/card2.png',
     name: 'Adel',
     midName: "",
     org: 'International Modern Arabic School - Malaysia',
   },
-  
-  // Add more as needed
 ];
 
-function Slider() {
+export default function OurCustomersPage() {
   const [current, setCurrent] = useState(0);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % sliderTestimonials.length);
     }, 5000);
+
     return () => clearInterval(timer);
   }, []);
-  return (
-    <div className="w-full flex flex-col items-center justify-center mb-16 py-6 overflow-hidden bg-white">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col items-center w-full"
-        >
-          <img
-            src={sliderTestimonials[current].image}
-            alt="logo"
-            className="w-48 h-48 object-contain mb-0 mx-auto"
-            // style={{ maxWidth: '220px', maxHeight: '220px' }}
-          />
-          <p className="text-2xl md:text-3xl text-gray-700 mb-8 text-center leading-snug max-w-5xl mx-auto font-normal">
-            {sliderTestimonials[current].text}
-          </p>
-          <div className="text-[#f4473e] font-normal text-xl text-center mb-4">
-            {sliderTestimonials[current].name}
-          </div>
-        </motion.div>
-      </AnimatePresence>
-      {/* Dots */}
-      <div className="flex gap-4 mt-4 justify-center">
-        {sliderTestimonials.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrent(idx)}
-            className={`w-2 h-2 rounded-full border-2 ${idx === current ? 'bg-[#f4473e] border-[#f4473e]' : 'bg-white border-[#e5e7eb]'} transition cursor-pointer`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
-export default function OurCustomersPage() {
   return (
     <div className="min-h-screen pb-12 px-4 bg-[#f8f9fa]">
       {/* Top Slider Section */}
-      <Slider />
+      <div className="w-full flex flex-col items-center justify-center mb-16 py-6 overflow-hidden bg-white">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center w-full"
+          >
+            <div className="relative w-48 h-48 mb-0 mx-auto">
+              <Image
+                src={sliderTestimonials[current].image}
+                alt={sliderTestimonials[current].name}
+                fill
+                className="object-contain"
+                sizes="(max-width: 192px) 100vw, 192px"
+                priority={current === 0}
+              />
+            </div>
+            <p className="text-2xl md:text-3xl text-gray-700 mb-8 text-center leading-snug max-w-5xl mx-auto font-normal">
+              {sliderTestimonials[current].text}
+            </p>
+            <div className="text-[#f4473e] font-normal text-xl text-center mb-4">
+              {sliderTestimonials[current].name}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+        {/* Dots */}
+        <div className="flex gap-4 mt-4 justify-center">
+          {sliderTestimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrent(idx)}
+              className={`w-2 h-2 rounded-full border-2 ${
+                idx === current ? 'bg-[#f4473e] border-[#f4473e]' : 'bg-white border-[#e5e7eb]'
+              } transition cursor-pointer`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
       {/* Cards Grid Section */}
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-8 text-center">A few other Happy Schoolynx Customers</h2>
+        <h2 className="text-3xl font-semibold text-gray-800 mb-8 text-center">
+          A few other Happy Schoolynx Customers
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 mt-8">
           {cardTestimonials.map((item, idx) => (
             <div key={idx} className="flex flex-col items-center">
@@ -212,9 +216,18 @@ export default function OurCustomersPage() {
               </div>
               {/* Logo and name/org below card */}
               <div className="flex flex-col items-center mt-8">
-                <img src={item.logo} alt="logo" className="w-16 h-16 object-contain my-2" />
-                <div className="text-lg text-center text-gray-900 font-semibold">{item.name}</div>
-                {item.midName && (<div className="text-md text-center text-gray-900">{item.midName}</div>)}
+                <div className="relative w-16 h-16 my-2">
+                  <Image
+                    src={item.logo}
+                    alt={item.org}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 64px) 100vw, 64px"
+                    loading="lazy"
+                  />
+                </div>
+                {item.name && <div className="text-lg text-center text-gray-900 font-semibold">{item.name}</div>}
+                {item.midName && <div className="text-md text-center text-gray-900">{item.midName}</div>}
                 <div className="text-[#f4473e] text-center text-base font-medium">{item.org}</div>
               </div>
             </div>

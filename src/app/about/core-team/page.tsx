@@ -1,7 +1,48 @@
+"use client";
+
 import Link from 'next/link'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+// Dynamically import team member card component
+const TeamMemberCard = dynamic(() => import('@/components/TeamMemberCard'), {
+  loading: () => (
+    <div className='bg-[#F4F5F7] rounded-xl p-8 flex justify-center items-center gap-12 animate-pulse'>
+      <div className='flex flex-col gap-2'>
+        <div className='w-[524px] h-[145px] bg-gray-200 rounded'></div>
+        <div className='flex items-center gap-1'>
+          <div className='w-10 h-10 bg-gray-200 rounded'></div>
+          <div className='w-8 h-8 bg-gray-200 rounded'></div>
+        </div>
+      </div>
+      <div className='flex-1'>
+        <div className='h-8 bg-gray-200 rounded w-1/3 mb-2'></div>
+        <div className='h-4 bg-gray-200 rounded w-1/4 mb-4'></div>
+        <div className='h-24 bg-gray-200 rounded'></div>
+      </div>
+    </div>
+  ),
+  ssr: false
+});
+
+// Team member data
+const teamMembers = [
+  {
+    name: "Neelakantha Karinje",
+    role: "Chief Executive Officer",
+    image: "https://www.publicdomainpictures.net/pictures/200000/nahled/central-african-man.jpg",
+    description: "Neelakantha Karinje leads the executive team for achieving the vision and mission of Foradian. Neel has 25 years of experience as CFO for startup companies as well as the well-established multinational corporation. Neel believes with innovative EdTech solution like Schoolynx we can bring automation in the institutes' daily operations and help the schools all around the world to run better."
+  },
+  {
+    name: "Sharath Krishnan",
+    role: "SVP - Sales",
+    image: "https://cdn.pixabay.com/photo/2022/08/20/11/59/african-man-7398921_1280.jpg",
+    description: "Sharath Krishnan leads the global sales and partner relationship at Foradian. Sharath focuses on building successful, long-term relationship with partners across the globe for Schoolynx implementation in their geography."
+  }
+];
 
 export default function CoreTeamPage() {
   return (
@@ -16,43 +57,28 @@ export default function CoreTeamPage() {
    <Link href="#" className='text-red-600 underline text-2xl'>Executive Team</Link>
   </div>
 
-  {/* Right: Card (takes 2/3rd space) */}
-  <div className="md:w-3/4 w-full flex flex-col gap-4">
-      <div className='bg-[#F4F5F7] rounded-xl p-8 flex justify-center items-center gap-12'>
-        <div className='flex flex-col gap-2'>
-          <img src="https://www.publicdomainpictures.net/pictures/200000/nahled/central-african-man.jpg" alt="" className='w-[524px] h-[145px]'/>
-          <div className='flex items-center gap-1'><MdEmail className='text-gray-500 text-4xl'/><FaLinkedin className='text-gray-500 text-3xl'/></div>
-
+  {/* Right: Team Member Cards */}
+  <div className="flex-1 space-y-8">
+    {teamMembers.map((member, index) => (
+      <Suspense key={index} fallback={
+        <div className='bg-[#F4F5F7] rounded-xl p-8 flex justify-center items-center gap-12 animate-pulse'>
+          <div className='flex flex-col gap-2'>
+            <div className='w-[524px] h-[145px] bg-gray-200 rounded'></div>
+            <div className='flex items-center gap-1'>
+              <div className='w-10 h-10 bg-gray-200 rounded'></div>
+              <div className='w-8 h-8 bg-gray-200 rounded'></div>
+            </div>
+          </div>
+          <div className='flex-1'>
+            <div className='h-8 bg-gray-200 rounded w-1/3 mb-2'></div>
+            <div className='h-4 bg-gray-200 rounded w-1/4 mb-4'></div>
+            <div className='h-24 bg-gray-200 rounded'></div>
+          </div>
         </div>
-        <div>
-        <h3 className="text-2xl font-semibold mb-1">Neelakantha Karinje</h3>
-      <p className="text-gray-800 mb-2 pb-1 border-b-1 border-gray-800 w-fit">
-      Chief Executive Officer
-      </p>
-      <p className="text-gray-600">
-      Neelakantha Karinje leads the executive team for achieving the vision and mission of Foradian. Neel has 25 years of experience as CFO for startup companies as well as the well-established multinational corporation. Neel believes with innovative EdTech solution like Schoolynx we can bring automation in the institutes' daily operations and help the schools all around the world to run better.
-      </p>
-        </div>
-     
-      </div>
-      <div className='bg-[#F4F5F7] rounded-xl p-8 flex justify-center items-center gap-12'>
-        <div className='flex flex-col gap-2'>
-          <img src="https://cdn.pixabay.com/photo/2022/08/20/11/59/african-man-7398921_1280.jpg" alt="" className='w-[524px] h-[145px]'/>
-          <div className='flex items-center gap-1'><MdEmail className='text-gray-500 text-4xl'/><FaLinkedin className='text-gray-500 text-3xl'/></div>
-
-        </div>
-        <div>
-        <h3 className="text-2xl font-semibold mb-1">Sharath Krishnan</h3>
-      <p className="text-gray-800 mb-2 pb-1 border-b-1 border-gray-800 w-fit">
-      SVP - Sales
-      </p>
-      <p className="text-gray-600">
-      Sharath Krishnan leads the global sales and partner relationship at Foradian. Sharath focuses on building successful, long-term relationship with partners across the globe for Schoolynx implementation in their geography.
-      </p>
-        </div>
-     
-      </div>
-    
+      }>
+        <TeamMemberCard {...member} />
+      </Suspense>
+    ))}
   </div>
 
 </div>
