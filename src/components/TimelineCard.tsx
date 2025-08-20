@@ -13,7 +13,7 @@ interface TimelineCardProps {
   button?: boolean;
 }
 
-const TimelineCard: React.FC<TimelineCardProps> = ({ image, year, month, title, description, button }) => {
+const TimelineCard: React.FC<TimelineCardProps> = ({ image, year, title, description, button }) => {
   return (
     <div className="bg-[#f8f9fa] p-6 w-[300px] shadow-lg rounded-lg">
       <div className="relative w-full h-48 mb-4">

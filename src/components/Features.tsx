@@ -1,10 +1,11 @@
 import React from 'react';
 
-interface FeatureProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
+// Interface available for future feature components
+// interface FeatureProps {
+//   icon: React.ReactNode;
+//   title: string;
+//   description: string;
+// }
 
 // const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => {
 //   return (

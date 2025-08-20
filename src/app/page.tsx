@@ -5,7 +5,7 @@ import Hero from '../components/Hero';
 import Features from '../components/Features';
 import CTA from '../components/CTA';
 import Stats from '../components/Stats';
-import WhyFedena from '../components/WhyFedena';
+import WhySchoolynx from '../components/WhySchoolynx';
 import Modules from '../components/Modules';
 import PerfectSystem from '../components/PerfectSystem';
 import MobileAppSection from '../components/MobileAppSection';
@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Hero />
       <Stats />
-      <WhyFedena />
+      <WhySchoolynx />
       <Modules />
       <PerfectSystem />
       <MobileAppSection />

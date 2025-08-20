@@ -42,7 +42,7 @@ export default function ResourcesPage() {
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Success Story: XYZ Academy</h3>
-              <p className="text-gray-600 mb-4">XYZ Academy's journey to digital transformation with Schoolynx.</p>
+              <p className="text-gray-600 mb-4">XYZ Academy&apos;s journey to digital transformation with Schoolynx.</p>
               <a href="#" className="text-red-600 hover:text-red-700 font-medium">View Case Study →</a>
             </div>
           </div>

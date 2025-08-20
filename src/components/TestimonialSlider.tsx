@@ -50,7 +50,7 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
             />
           </div>
           <p className="text-xl text-gray-600 text-center max-w-4xl mb-8">
-            "{currentTestimonial.text}"
+            &quot;{currentTestimonial.text}&quot;
           </p>
           <p className="text-lg font-semibold text-gray-900">
             {currentTestimonial.name}

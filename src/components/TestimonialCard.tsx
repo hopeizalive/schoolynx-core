@@ -15,7 +15,7 @@ export default function TestimonialCard({ text, logo, name, midName, org }: Test
   return (
     <div className="flex flex-col items-center">
       <div className="bg-white rounded-xl px-8 py-8 w-full shadow-md">
-        <p className="text-gray-600 italic text-center mb-6">"{text}"</p>
+        <p className="text-gray-600 italic text-center mb-6">&quot;{text}&quot;</p>
         <div className="relative w-32 h-16 mx-auto">
           <Image
             src={logo}

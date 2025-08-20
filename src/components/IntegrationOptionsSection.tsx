@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const dottedBg =
-  'https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png'; // Free dotted pattern
+// Dotted background pattern available for future use
+// const dottedBg =
+//   'https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png'; // Free dotted pattern
 
 export default function IntegrationOptionsSection() {
   return (

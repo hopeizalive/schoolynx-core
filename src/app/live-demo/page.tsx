@@ -88,7 +88,7 @@ export default function LiveDemo() {
       } else {
         setResult({ type: 'error', message: data.message || 'Something went wrong.' });
       }
-    } catch (err) {
+    } catch {
       setResult({ type: 'error', message: 'Network error.' });
     }
     setLoading(false);

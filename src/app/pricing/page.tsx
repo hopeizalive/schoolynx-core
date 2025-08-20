@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState, useCallback } from 'react';
 
 // Dynamically import icons
 const IconComponents = {
@@ -82,7 +82,7 @@ const faqData: FAQItem[] = [
     question: "Can Schoolynx ERP software be customized for my Institute?",
     answer:(
       <>
-        Yes, according to your institution's needs, Schoolynx can be customized. The basic version of Schoolynx is an open-source code and is available free of cost. We also provide the Enterprise version, for more insights follow the link:{" "}
+        Yes, according to your institution&apos;s needs, Schoolynx can be customized. The basic version of Schoolynx is an open-source code and is available free of cost. We also provide the Enterprise version, for more insights follow the link:{" "}
         <a
           href="https://Schoolynx.com"
           target="_blank"
@@ -162,16 +162,16 @@ export default function PricingPage() {
     setTestimonialIndex((prev) => (prev - 2 + testimonials.length) % testimonials.length);
   };
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setTestimonialIndex((prev) => (prev + 2) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
     }, 5000);
     return () => clearInterval(interval);
-  }, [testimonialIndex]);
+  }, [handleNext]);
 
   return (
     <>
@@ -624,7 +624,7 @@ export default function PricingPage() {
     {/* --- Custom Section from Screenshot --- */}
     {/* CTA Bar */}
     <div className="w-full bg-[#1a2d52] py-10 flex flex-col items-center justify-center">
-      <h2 className="text-white text-2xl md:text-2xl font-semibold mb-6 text-center">Can't decide which plan is right for you?</h2>
+      <h2 className="text-white text-2xl md:text-2xl font-semibold mb-6 text-center">Can&apos;t decide which plan is right for you?</h2>
       <div className="flex gap-4 mb-2">
         <Link href={"/live-demo"} className="bg-[#ff5c4d] hover:bg-[#e84c3d] text-white font-semibold px-8 py-2 rounded-md text-lg transition">Book A Demo</Link>
         <Link href={"/contact"} className="border border-[#ff5c4d] text-[#ff5c4d] hover:bg-[#ff5c4d] hover:text-white font-semibold px-8 py-2 rounded-md text-lg transition">Connect With Expert</Link>

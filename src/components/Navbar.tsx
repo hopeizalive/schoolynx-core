@@ -25,15 +25,6 @@ const navItems: NavItem[] = [
   },
   
   { label: 'Pricing', href: '/pricing' },
-  {
-    label: 'About',
-    href: '/about',
-    children: [
-      { label: 'Our Story', href: '/about/our-story' },
-      { label: 'Core Team', href: '/about/core-team' },
-      { label: 'Our Customers', href: '/about/our-customers' },
-    ],
-  },
   { label: 'Contact', href: '/contact' },
   // Removed 'Support docs' and 'Services'
 ];

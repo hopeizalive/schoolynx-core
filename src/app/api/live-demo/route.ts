@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
 export async function POST(req: NextRequest) {
   try {
@@ -115,10 +115,11 @@ export async function POST(req: NextRequest) {
       success: true,
       message: 'Demo request submitted successfully',
     });
-  } catch (error: any) {
-    console.error('Demo request submission failed:', error?.message);
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    console.error('Demo request submission failed:', errorMessage);
     return NextResponse.json(
-      { success: false, message: 'Demo request submission failed', error: error?.message },
+      { success: false, message: 'Demo request submission failed', error: errorMessage },
       { status: 500 }
     );
   }

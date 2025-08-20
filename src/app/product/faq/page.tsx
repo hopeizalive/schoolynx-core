@@ -38,7 +38,7 @@ const faqData: FAQItem[] = [
     question: "Can Schoolynx ERP software be customized for my Institute?",
     answer:(
       <>
-        Yes, according to your institution's needs, Schoolynx can be customized. The basic version of Schoolynx is an open-source code and is available free of cost. We also provide the Enterprise version, for more insights follow the link:{" "}
+        Yes, according to your institution&apos;s needs, Schoolynx can be customized. The basic version of Schoolynx is an open-source code and is available free of cost. We also provide the Enterprise version, for more insights follow the link:{" "}
         <a
           href="https://Schoolynx.com"
           target="_blank"
@@ -120,7 +120,7 @@ const FAQ: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-semibold text-white mb-16">
-          Can't decide which plan is right for you?
+          Can&apos;t decide which plan is right for you?
           </h2>
          
           <div className="flex flex-col sm:flex-row justify-center gap-4">

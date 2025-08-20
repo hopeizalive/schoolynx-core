@@ -62,12 +62,8 @@ export const Footer = () => {
           <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0">
             <h3 className="text-gray-800 font-semibold text-sm mb-3">Why Schoolynx?</h3>
             <ul className="space-y-1.5">
-              {/* <li><Link href="/product#reasons" className="text-gray-600 hover:underline text-xs">101 Reasons</Link></li>
-              <li><Link href="/product#difference" className="text-gray-600 hover:underline text-xs">Schoolynx Differences</Link></li> */}
-              {/* <li><Link href="/product#custom-erp" className="text-gray-600 hover:underline text-xs">Custom ERP</Link></li> */}
               <li><Link href="/product#why-software" className="text-gray-600 hover:underline text-xs">Why School Management Software?</Link></li>
-              <li><Link href="/about#customers" className="text-gray-600 hover:underline text-xs">Our Customers</Link></li>
-            </ul>
+              </ul>
           </div>
           
           {/* Column 3 - Help */}

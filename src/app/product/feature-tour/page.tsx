@@ -25,13 +25,20 @@ const PiStudent = dynamic(() => import('react-icons/pi').then(mod => mod.PiStude
 const RiTimelineView = dynamic(() => import('react-icons/ri').then(mod => mod.RiTimelineView), { ssr: false });
 const TbReportAnalytics = dynamic(() => import('react-icons/tb').then(mod => mod.TbReportAnalytics), { ssr: false });
 
+// Interface for ModuleLink component props
+interface ModuleLinkProps {
+  href: string;
+  Icon: React.ComponentType<{ size?: string | number; className?: string }>;
+  text: string;
+}
+
 // Loading component for icons
 const IconLoader = () => (
   <div className="w-8 h-8 bg-gray-200 animate-pulse rounded"></div>
 );
 
 // Module component with lazy loaded icon
-const ModuleLink = ({ href, Icon, text }: { href: string; Icon: React.ComponentType<any>; text: string }) => (
+const ModuleLink = ({ href, Icon, text }: ModuleLinkProps) => (
   <Link href={href} className='flex items-center gap-6'>
     <Suspense fallback={<IconLoader />}>
       <Icon size={35} className='text-red-600' />
@@ -54,7 +61,7 @@ export default function ProductPage() {
         {/* Left: Text */}
         <div className="flex-1 text-left">
           <p className="text-md text-gray-700 mb-6">
-          School ERP Software is a platform which helps in managing the day to day academic and administrative activities from a single platform. Schoolynx provides user-friendly dashboards with login access for teachers, non-teaching staff, students, parents, and management personnel of your institution. The various modules available in school ERP software automate daily operations of your institution such as from students' admission to generating transfer certificates to digitizing the online learning experience all can be managed effortlessly .
+          School ERP Software is a platform which helps in managing the day to day academic and administrative activities from a single platform. Schoolynx provides user-friendly dashboards with login access for teachers, non-teaching staff, students, parents, and management personnel of your institution. The various modules available in school ERP software automate daily operations of your institution such as from students&apos; admission to generating transfer certificates to digitizing the online learning experience all can be managed effortlessly .
           </p>
           <p className="text-md text-gray-700 mb-6">
           Schoolynx School ERP has modules to manage Timetable, Attendance, Online Class, Examinations, Gradebooks, Mobile Learning, Hostel, Library, Transportation, School Calendar, Events, and many more. It has a fully-fledged Human Resource module to manage the payroll and employee pay slips. The Finance module helps you to plan and allot different fee structures to students. Schoolynx School ERP System is also an excellent collaboration tool using its Task, Discussion, Poll, Blog, and Videoconference plugins. There is an internal messaging system within Schoolynx, but you can also integrate it with external communication tools like email and texting. To find out more about the school ERP system, scroll through the following descriptions, try the .
