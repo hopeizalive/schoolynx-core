@@ -11,8 +11,8 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Script configuration - MODIFY THESE PATHS AS NEEDED
-SOURCE_DIR="D:/Git-Projects/schoolnyx-core"
-DEPLOYMENT_DIR="D:/deployment/schoolnyx"
+SOURCE_DIR="/mnt/schoolynx.com"
+DEPLOYMENT_DIR="/mnt/prod.schoolynx.com"
 PACKAGE_NAME="schoolnyx-app.tar.gz"
 ENV_FILE=".env.production"
 APP_NAME="schoolnyx-core"
