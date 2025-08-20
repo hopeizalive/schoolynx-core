@@ -127,7 +127,7 @@ print_status "Build verification passed"
 print_info "Preparing file list..."
 
 # Required files (must exist)
-REQUIRED_FILES=".next package.json public next.config.ts tsconfig.json postcss.config.mjs"
+REQUIRED_FILES=".next package.json public next.config.ts tsconfig.json postcss.config.mjs public/google730650837031eef0.html"
 
 # Optional files (include if they exist)
 OPTIONAL_FILES="package-lock.json yarn.lock pnpm-lock.yaml tailwind.config.ts tailwind.config.js .env.example"

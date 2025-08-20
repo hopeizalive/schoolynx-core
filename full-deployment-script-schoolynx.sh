@@ -11,8 +11,10 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Script configuration - MODIFY THESE PATHS AS NEEDED
-SOURCE_DIR="/mnt/schoolynx.com"
-DEPLOYMENT_DIR="/mnt/prod.schoolynx.com"
+#SOURCE_DIR="/mnt/schoolynx.com"
+SOURCE_DIR="/d/Git-Projects/schoolnyx-core"
+#DEPLOYMENT_DIR="/mnt/prod.schoolynx.com"
+DEPLOYMENT_DIR="/d/deployment/schoolnyx"
 PACKAGE_NAME="schoolnyx-app.tar.gz"
 ENV_FILE=".env.production"
 APP_NAME="schoolnyx-core"
@@ -253,7 +255,7 @@ build_and_package() {
     fi
     
     # Required files for packaging
-    REQUIRED_FILES=".next package.json public next.config.ts tsconfig.json postcss.config.mjs"
+    REQUIRED_FILES=".next package.json public next.config.ts tsconfig.json postcss.config.mjs public/google730650837031eef0.html"
     OPTIONAL_FILES="package-lock.json yarn.lock pnpm-lock.yaml tailwind.config.ts tailwind.config.js .env.example"
     
     # Build tar arguments
