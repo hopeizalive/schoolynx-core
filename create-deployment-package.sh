@@ -127,10 +127,10 @@ print_status "Build verification passed"
 print_info "Preparing file list..."
 
 # Required files (must exist)
-REQUIRED_FILES=".next package.json public next.config.ts components.json tsconfig.json postcss.config.js"
+REQUIRED_FILES=".next package.json public next.config.ts tsconfig.json postcss.config.mjs"
 
 # Optional files (include if they exist)
-OPTIONAL_FILES="package-lock.json yarn.lock tailwind.config.ts tailwind.config.js .env.example"
+OPTIONAL_FILES="package-lock.json yarn.lock pnpm-lock.yaml tailwind.config.ts tailwind.config.js .env.example"
 
 # Build the tar command arguments
 TAR_ARGS=""

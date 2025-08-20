@@ -253,8 +253,8 @@ build_and_package() {
     fi
     
     # Required files for packaging
-    REQUIRED_FILES=".next package.json public next.config.ts components.json tsconfig.json postcss.config.js"
-    OPTIONAL_FILES="package-lock.json yarn.lock tailwind.config.ts tailwind.config.js .env.example"
+    REQUIRED_FILES=".next package.json public next.config.ts tsconfig.json postcss.config.mjs"
+    OPTIONAL_FILES="package-lock.json yarn.lock pnpm-lock.yaml tailwind.config.ts tailwind.config.js .env.example"
     
     # Build tar arguments
     TAR_ARGS=""
@@ -356,7 +356,12 @@ install_dependencies() {
     
     if command_exists pnpm; then
         print_info "Installing production dependencies with pnpm..."
-        pnpm install --prod --frozen-lockfile
+        if [ -f "pnpm-lock.yaml" ]; then
+            pnpm install --prod --frozen-lockfile
+        else
+            print_warning "pnpm-lock.yaml not found, installing without frozen lockfile"
+            pnpm install --prod
+        fi
     elif command_exists yarn; then
         print_info "Installing production dependencies with Yarn..."
         yarn install --production --frozen-lockfile

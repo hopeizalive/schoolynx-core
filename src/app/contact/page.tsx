@@ -150,9 +150,8 @@ export default function ContactPage() {
 
                         <div className="bg-gray-100 p-8 rounded-lg col-span-1">
                             <h3 className="text-2xl font-semibold text-gray-800 mb-4">Quick Contact</h3>
-                            <h3 className="text-xl font-semibold text-red-600 hover:underline cursor-pointer">+91-8047-0918-07</h3>
-                            <h3 className="text-lg font-semibold text-red-600 mb-4 hover:underline cursor-pointer">sales@Schoolynx.com</h3>
-                            <hr className='text-gray-300'/>
+                            <h3 className="text-xl font-semibold text-red-600 hover:underline cursor-pointer">+92-315-5814609</h3>
+                            <h3 className="text-lg font-semibold text-red-600 mb-4 hover:underline cursor-pointer">rizwan@gmail.com</h3>
                             <div className="space-y-6 pt-6">
 
                                 <hr className='text-gray-300'/>
