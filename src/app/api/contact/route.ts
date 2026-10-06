@@ -1,24 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { mailConfig } from '@/lib/mailer';
 
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
 
-    const transporter = nodemailer.createTransport({
-    service: "gmail",
-      auth: {
-        user: 'anasnizamani54@gmail.com',
-        pass: 'mdsw rxaj essq zijz',
-      },
-    });
+    const { transporter, user } = mailConfig();
 
     const adminMailOptions = {
       from: {
         name: 'Schoolynx Contact',
-        address: 'anasnizamani54@gmail.com', 
+        address: user,
       },
-      to: 'anasnizamani54@gmail.com', 
+      to: user,
       replyTo: data.email, 
       subject: 'New Contact Form Submission',
       html: `
@@ -34,7 +28,7 @@ export async function POST(req: NextRequest) {
     const userMailOptions = {
       from: {
         name: 'Schoolynx Team',
-        address: 'anasnizamani54@gmail.com',
+        address: user,
       },
       to: data.email,
       subject: 'Thank you for contacting Schoolynx',

@@ -1,26 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { mailConfig } from '@/lib/mailer';
 
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
     console.log('Live Demo form data:', data);
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: 'anasnizamani54@gmail.com',
-        pass: 'mdsw rxaj essq zijz',
-      },
-    });
+    const { transporter, user } = mailConfig();
 
     // Admin email content
     const adminMailOptions = {
       from: {
         name: 'Schoolynx Demo Request',
-        address: 'anasnizamani54@gmail.com',
+        address: user,
       },
-      to: 'anasnizamani54@gmail.com',
+      to: user,
       replyTo: data.email,
       subject: 'New Live Demo Request',
       html: `
@@ -66,7 +60,7 @@ export async function POST(req: NextRequest) {
     const userMailOptions = {
       from: {
         name: 'Schoolynx Team',
-        address: 'anasnizamani54@gmail.com',
+        address: user,
       },
       to: data.email,
       subject: 'Thank you for requesting a Schoolynx Demo',
