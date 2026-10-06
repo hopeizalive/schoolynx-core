@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Head from "next/head";
 import Link from "next/link";
 
 interface FAQItem {
@@ -73,9 +72,7 @@ const FAQ: React.FC = () => {
 
   return (
     <>
-      <Head>
-        <title>FAQ - Schoolynx</title>
-      </Head>
+      <title>FAQ - Schoolynx</title>
       <div className="max-w-7xl mx-auto px-4 py-12">
         <h1 className="text-3xl md:text-4xl font-semibold mb-6 text-center text-gray-800">Frequently Asked Questions</h1>
         <div className="space-y-3">
