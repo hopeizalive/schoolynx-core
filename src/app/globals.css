@@ -1,5 +1,125 @@
 @import "tailwindcss";
 
+.mobile-app-wave {
+  background-image:
+    radial-gradient(ellipse at 48% 105%, rgba(244, 71, 62, 0.22), transparent 48%),
+    url("/assets/mobile-app-wave.svg");
+  background-position: center, 50% 65%;
+  background-repeat: no-repeat;
+  background-size: cover, 115% 120%;
+  animation: mobile-app-wave-drift 18s ease-in-out infinite alternate;
+  will-change: background-position, transform;
+}
+
+@keyframes mobile-app-wave-drift {
+  from {
+    background-position: center, 42% 70%;
+    transform: scale(1);
+  }
+
+  to {
+    background-position: center, 58% 58%;
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-app-wave {
+    animation: none;
+    will-change: auto;
+  }
+}
+
+.mobile-heading-caret {
+  display: inline-block;
+  height: 0.9em;
+  margin-left: 0.08em;
+  border-right: 2px solid currentColor;
+  vertical-align: -0.08em;
+  animation: mobile-heading-caret-blink 0.8s steps(2, start) infinite;
+}
+
+@keyframes mobile-heading-caret-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-heading-caret {
+    animation: none;
+  }
+}
+
+.logo-marquee {
+  animation: logo-marquee-scroll 32s linear infinite;
+}
+
+@keyframes logo-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee {
+    animation: none;
+  }
+}
+
+.hero-bubble-motion {
+  background-image: url("/assets/hero-soft-bg.jpeg");
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  background-size: 110% 110%;
+  animation: hero-bubble-drift 32s ease-in-out infinite alternate;
+  will-change: background-position, transform;
+}
+
+@keyframes hero-bubble-drift {
+  from {
+    background-position: 0% 45%;
+    transform: scale(1);
+  }
+
+  to {
+    background-position: 100% 55%;
+    transform: scale(1.08);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-bubble-motion {
+    background-position: center;
+    background-size: auto 100%;
+    animation-name: hero-bubble-drift-mobile;
+    animation-duration: 40s;
+  }
+
+  @keyframes hero-bubble-drift-mobile {
+    from {
+      background-position: 48% 50%;
+      transform: scale(1);
+    }
+
+    to {
+      background-position: 52% 50%;
+      transform: scale(1.025);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bubble-motion {
+    animation: none;
+    will-change: auto;
+  }
+}
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;

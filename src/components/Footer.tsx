@@ -1,117 +1,135 @@
-import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 
-// Placeholder SVGs for social icons - replace with your actual icons or a library
-const FacebookIcon = () => (
-  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-  </svg>
-);
+const footerSections = [
+  {
+    title: 'Product',
+    links: [
+      { label: 'Explore features', href: '/product#feature-tour' },
+      { label: 'Pricing & plans', href: '/pricing' },
+      { label: 'Our services', href: '/services' },
+    ],
+  },
+  {
+    title: 'Discover',
+    links: [
+      { label: 'Why Schoolynx', href: '/product#why-software' },
+      { label: 'Frequently asked questions', href: '/product/faq' },
+      { label: 'Contact us', href: '/contact' },
+    ],
+  },
+];
 
-const TwitterIcon = () => (
-  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-  </svg>
-);
-
-const LinkedInIcon = () => (
-  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
-  </svg>
-);
-
-const YouTubeIcon = () => (
-  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path fillRule="evenodd" d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" clipRule="evenodd" />
-  </svg>
-);
-
-export const Footer = () => {
-  return (
-    <footer className="bg-white text-gray-700 pt-10 pb-4 border-t border-gray-200">
-      <div className="max-w-[95%] mx-auto px-4">
-        <div className="flex flex-wrap -mx-4 justify-center">
-          {/* Column 0 - Logo - Adjusted to take less space and align left */}
-          <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0 flex items-start justify-center">
-            <Link href="/" className="text-red-500 text-2xl font-bold">
-              <Image
-    src="/assets/logo.png" // Public folder se relative path
-    alt="Schoolynx Logo"
-    width={80}
-    height={80}
-    className="mr-2"
-    loading="lazy"
-    quality={40}
-  />
-            </Link>
+export const Footer = () => (
+  <footer className="bg-[#f5f7fb] px-4 pb-5 pt-12 sm:px-6 sm:pt-16">
+    <div className="mx-auto max-w-7xl">
+      <section className="relative isolate overflow-hidden rounded-[1.75rem] bg-[#172d50] px-6 py-9 text-white shadow-xl shadow-[#172d50]/10 sm:px-10 sm:py-11 lg:px-14">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 -top-36 -z-10 h-80 w-80 rounded-full bg-[#f4473e]/30 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-36 right-1/3 -z-10 h-64 w-64 rounded-full bg-blue-400/15 blur-3xl"
+        />
+        <div className="flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-xl">
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#ffaaa4]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#f4473e]" />
+              Ready for a smarter school?
+            </span>
+            <h2 className="mt-3 text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+              Let&apos;s make school management simpler.
+            </h2>
+            <p className="mt-3 max-w-lg text-sm leading-6 text-blue-100/80 sm:text-base">
+              See how Schoolynx can bring your school&apos;s day-to-day into one clear, connected place.
+            </p>
           </div>
-
-          {/* Column 1 - Product */}
-          <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0">
-            <h3 className="text-gray-800 font-semibold text-sm mb-3">Product</h3>
-            <ul className="space-y-1.5">
-              <li><Link href="/product#feature-tour" className="text-gray-600 hover:underline text-xs">Feature Tour</Link></li>
-             
-              <li><Link href="/pricing" className="text-gray-600 hover:underline text-xs">Pricing & Plans</Link></li>
-              {/* <li><Link href="/partner" className="text-gray-600 hover:underline text-xs">Partner Program</Link></li> */}
-            </ul>
-          </div>
-          
-          {/* Column 2 - Why Schoolynx? */}
-          <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0">
-            <h3 className="text-gray-800 font-semibold text-sm mb-3">Why Schoolynx?</h3>
-            <ul className="space-y-1.5">
-              <li><Link href="/product#why-software" className="text-gray-600 hover:underline text-xs">Why School Management Software?</Link></li>
-              </ul>
-          </div>
-          
-          {/* Column 3 - Help */}
-          <div className="w-full md:w-1/6 px-4 mb-8 md:mb-0">
-            <h3 className="text-gray-800 font-semibold text-sm mb-3">Help</h3>
-            <ul className="space-y-1.5">
-              <li><Link href="/contact" className="text-gray-600 hover:underline text-xs">Contact Us</Link></li>
-             
-              <li><Link href="/services" className="text-gray-600 hover:underline text-xs">Services</Link></li>
-              <li><Link href="/product/faq" className="text-gray-600 hover:underline text-xs">FAQ</Link></li>
-              {/* <li><Link href="/help#api" className="text-gray-600 hover:underline text-xs">API Playground</Link></li> */}
-            </ul>
-          </div>
-          
-          {/* Column 4 - Contact Info & App Download - Adjusted width */}
-          <div className="w-full md:w-2/6 px-4">
-            <div className="mb-3">
-              <p className="text-gray-600 text-xs leading-snug">Office No.108 Iqra IT Park defence View Phase II, Shaheed-i-Milat Road Karachi</p>
-              {/* <p className="text-gray-600 text-xs leading-snug">First Floor, Hustlehub Tech Park,</p>
-              <p className="text-gray-600 text-xs leading-snug">Somasundarapalya Main Rd, Sector 2,</p>
-              <p className="text-gray-600 text-xs leading-snug">HSR Layout, Bengaluru-560102,</p>
-              <p className="text-gray-600 text-xs leading-snug mb-2">Karnataka, India</p> */}
-            </div>
-            
-            <div className="mb-3">
-              <p className="text-gray-800 font-bold text-xs mb-0.5">Contact us @</p>
-              <p className="text-gray-600 font-bold text-xs mb-2">+92-315-5814609</p>
-            </div>
-            
-           
-          </div>
+          <Link
+            href="/live-demo"
+            className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-[#f4473e] px-6 text-sm font-bold text-white shadow-lg shadow-black/15 transition hover:-translate-y-0.5 hover:bg-[#ff5b52] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#172d50]"
+          >
+            Book a free demo
+            <span aria-hidden="true" className="text-lg leading-none">→</span>
+          </Link>
         </div>
-        
-        {/* Bottom Bar: Copyright and Social Icons */}
-        <div className="border-t border-gray-200 mt-8 pt-4 flex flex-wrap justify-between items-center">
-          <div className="text-gray-500 text-xs">
-            <p>©2025 Schoolynx. All Rights Reserved. <Link href="#" className="text-gray-500 hover:underline">Terms</Link> & <Link href="#" className="text-gray-500 hover:underline">Privacy</Link></p>
+      </section>
+
+      <div className="grid gap-10 py-12 sm:grid-cols-2 sm:gap-x-12 lg:grid-cols-12 lg:gap-8 lg:py-14">
+        <div className="sm:col-span-2 lg:col-span-4">
+          <Link
+            href="/"
+            aria-label="Schoolynx home"
+            className="inline-flex rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-4"
+          >
+            <Image
+              src="/assets/logo2.png"
+              alt="Schoolynx School ERP"
+              width={220}
+              height={80}
+              className="h-auto w-48 object-contain object-left sm:w-56"
+            />
+          </Link>
+          <p className="mt-4 max-w-sm text-sm leading-7 text-slate-600">
+            Thoughtful tools for the people who make great schools happen.
+          </p>
+        </div>
+
+        {footerSections.map((section) => (
+          <nav
+            key={section.title}
+            aria-label={section.title}
+            className="lg:col-span-2"
+          >
+            <h2 className="text-sm font-bold text-[#172d50]">{section.title}</h2>
+            <ul className="mt-4 space-y-3">
+              {section.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm leading-6 text-slate-600 transition-colors hover:text-[#f4473e] focus-visible:text-[#f4473e] focus-visible:outline-none"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
+
+        <div className="sm:col-span-2 lg:col-span-4">
+          <h2 className="text-sm font-bold text-[#172d50]">Come say hello</h2>
+          <div className="mt-4 flex items-start gap-3">
+            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#f4473e] shadow-sm ring-1 ring-slate-200/70" aria-hidden="true">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z" />
+                <circle cx="12" cy="9" r="2.3" />
+              </svg>
+            </span>
+            <p className="max-w-xs text-sm leading-6 text-slate-600">
+              Office No. 108, Iqra IT Park, Defence View Phase II, Shaheed-i-Milat Road, Karachi
+            </p>
           </div>
-          <div className="flex space-x-3 mt-4 md:mt-0">
-            <a href="#" className="text-gray-500 hover:text-blue-600"><FacebookIcon /></a>
-            <a href="#" className="text-gray-500 hover:text-blue-400"><TwitterIcon /></a>
-            <a href="#" className="text-gray-500 hover:text-blue-700"><LinkedInIcon /></a>
-            <a href="#" className="text-gray-500 hover:text-red-600"><YouTubeIcon /></a>
-          </div>
+          <a
+            href="tel:+923155814609"
+            className="mt-4 inline-flex min-h-10 items-center gap-3 rounded-lg text-sm font-semibold text-[#172d50] transition-colors hover:text-[#f4473e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-2"
+          >
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-[#f4473e] shadow-sm ring-1 ring-slate-200/70" aria-hidden="true">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m5 4 3.5-.8L11 7l-2 2a15 15 0 0 0 6 6l2-2 3.8 2.5L20 19c-.3 1-1.3 1.5-2.3 1.2A18 18 0 0 1 3.8 6.3C3.5 5.3 4 4.3 5 4Z" />
+              </svg>
+            </span>
+            +92-315-5814609
+          </a>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      <div className="flex flex-col gap-2 border-t border-slate-200 py-5 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} Schoolynx. All rights reserved.</p>
+        <p>Made for better school days.</p>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;
