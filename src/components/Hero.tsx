@@ -23,13 +23,13 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="overflow-hidden bg-[#eef1f2]">
-      <div className="mx-auto grid min-h-[580px] w-[90%] max-w-[1440px] grid-cols-1 items-center gap-7 py-10 sm:py-14 lg:grid-cols-[0.84fr_1.16fr] lg:gap-8 lg:py-12">
+    <section className="overflow-hidden bg-white">
+      <div className="mx-auto grid min-h-[580px] w-[95%] max-w-[1760px] grid-cols-1 items-center gap-7 py-10 sm:py-14 lg:min-h-[700px] lg:grid-cols-[0.84fr_1.16fr] lg:gap-8 lg:pt-0 lg:pb-24">
         <div className="w-full text-center lg:text-left">
           <span className="mb-3 inline-flex rounded-xl bg-[#f4473e] px-3 py-2 text-sm font-semibold text-white sm:text-base lg:mb-4">
             All-in-One
           </span>
-          <h1 className="mx-auto mb-4 max-w-2xl text-4xl font-bold leading-[1.12] tracking-tight text-[#1a2d52] sm:text-5xl md:mb-6 lg:mx-0 lg:text-[3.15rem]">
+          <h1 className="mx-auto mb-4 max-w-2xl text-4xl font-bold leading-[1.12] tracking-tight text-[#1a2d52] sm:text-5xl md:mb-6 lg:mx-0 lg:text-[3.5rem]">
             College and School Management Software
           </h1>
           <p className="mx-auto mb-6 max-w-2xl text-base leading-7 text-[#1a2d52] sm:text-lg sm:leading-8 md:mb-8 lg:mx-0">
@@ -54,7 +54,7 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[680px] lg:w-[112%] lg:max-w-[820px]">
+        <div className="relative mx-auto w-full max-w-[680px] lg:w-[112%] lg:max-w-[1050px]">
           <div className="relative aspect-[4/3] w-full overflow-hidden">
             {images.map((image, index) => (
               <div
