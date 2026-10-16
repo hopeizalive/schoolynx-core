@@ -3,7 +3,10 @@ import React from 'react';
 
 const WhySchoolynx = () => {
   return (
-    <section className="py-16 bg-white w-full">
+    <section
+      className="w-full bg-cover bg-center bg-no-repeat py-16"
+      style={{ backgroundImage: "url('/assets/why-schoolynx-bg.jpeg')" }}
+    >
           <h2 className="text-3xl md:text-4xl font-bold text-[#1a2d52] mb-8 text-center">
           Why School Management Comprehensive ERP System?
           </h2>

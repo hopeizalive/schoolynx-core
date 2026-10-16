@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { mailConfig } from '@/lib/mailer';
+import { CONTACT_EMAIL } from '@/lib/contact-info';
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,7 +13,7 @@ export async function POST(req: NextRequest) {
         name: 'Schoolynx Contact',
         address: user,
       },
-      to: user,
+      to: CONTACT_EMAIL,
       replyTo: data.email, 
       subject: 'New Contact Form Submission',
       html: `
