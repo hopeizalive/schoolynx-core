@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { Suspense } from "react";
 import Loading from "./loading";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
+        <SmoothScroll />
         <Navbar />
         <Suspense fallback={<Loading />}>
           <main>

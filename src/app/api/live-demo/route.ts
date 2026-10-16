@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { mailConfig } from '@/lib/mailer';
+import { CONTACT_EMAIL, CONTACT_PHONES } from '@/lib/contact-info';
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,7 +15,7 @@ export async function POST(req: NextRequest) {
         name: 'Schoolynx Demo Request',
         address: user,
       },
-      to: user,
+      to: CONTACT_EMAIL,
       replyTo: data.email,
       subject: 'New Live Demo Request',
       html: `
@@ -83,7 +84,7 @@ export async function POST(req: NextRequest) {
           <div style="margin-top: 30px; padding: 20px; background-color: #f3f4f6; border-radius: 8px;">
             <p style="color: #374151; margin: 0 0 10px 0;">
               <strong>📞 For urgent queries, feel free to contact us at:</strong><br>
-              +92-XXX-XXXXXXX
+              ${CONTACT_PHONES.map((phone) => phone.display).join(' / ')}
             </p>
             <p style="color: #374151; margin: 0;">
               <strong>🌐 Visit us at:</strong><br>

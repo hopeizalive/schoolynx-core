@@ -1,64 +1,91 @@
-import React from 'react';
+import {
+  BookOpenIcon,
+  ComputerDesktopIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
 
 const features = [
-  
   {
     icon: (
-      <svg width="100" height="100" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-0">
-        <rect x="12" y="20" width="48" height="32" rx="6" stroke="#1a2d52" strokeWidth="2.5" fill="none" />
-        <path d="M36 36L36 44" stroke="#f4473e" strokeWidth="2.5" strokeLinecap="round"/>
-        <path d="M36 36L44 28" stroke="#f4473e" strokeWidth="2.5" strokeLinecap="round"/>
-        <path d="M36 36L28 28" stroke="#f4473e" strokeWidth="2.5" strokeLinecap="round"/>
-      </svg>
+      <span className="relative inline-flex h-14 w-14 items-center justify-center">
+        <span aria-hidden="true" className="absolute inset-0 rounded-2xl border border-[#f4473e]/15 bg-[#fff1ef]" />
+        <UserIcon aria-hidden="true" className="relative h-7 w-7" strokeWidth={1.7} />
+      </span>
     ),
-    title: 'Powerful features for your Institution',
-    desc: 'We offer all essential tools to efficiently manage your institution. Fully functional—no customization necessary.',
+    number: "01",
+    title: "Simple & Easy to use for Teachers",
+    desc: "Designed to engage teachers and parents. No expertise is required to quickly accomplish a task.",
   },
   {
     icon: (
-      <svg width="100" height="100" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-0">
-        {/* <circle cx="36" cy="36" r="35" stroke="#f4473e" strokeWidth="2" fill="none" /> */}
-        <path d="M24 44V32C24 29.7909 25.7909 28 28 28H44C46.2091 28 48 29.7909 48 32V44" stroke="#1a2d52" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M36 40C37.6569 40 39 38.6569 39 37C39 35.3431 37.6569 34 36 34C34.3431 34 33 35.3431 33 37C33 38.6569 34.3431 40 36 40Z" stroke="#1a2d52" strokeWidth="2.5"/>
-        <path d="M28 44V46C28 47.1046 28.8954 48 30 48H42C43.1046 48 44 47.1046 44 46V44" stroke="#1a2d52" strokeWidth="2.5" strokeLinecap="round"/>
-      </svg>
+      <span className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#f4473e]/15 bg-[#fff1ef]">
+        <BookOpenIcon aria-hidden="true" className="h-7 w-7" strokeWidth={1.7} />
+        <svg aria-hidden="true" className="absolute -right-1 -top-1 h-5 w-5 text-[#f4473e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m13 2-3 9h6l-5 11 1-9H7l6-11Z" />
+        </svg>
+      </span>
     ),
-    title: 'Simple & Easy to use for Teachers',
-    desc: 'Built to connect educators and parents. No technical skills needed to efficiently complete any task.',
+    number: "02",
+    title: "Powerful features for your Institution",
+    desc: "We provide everything you will ever need to run an education institution. No customization required.",
   },
   {
     icon: (
-      <svg width="100" height="100" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-0">
-        <rect x="16" y="20" width="40" height="32" rx="6" stroke="#1a2d52" strokeWidth="2.5" fill="none" />
-        <circle cx="36" cy="36" r="8" stroke="#1a2d52" strokeWidth="2.5" fill="none" />
-        <rect x="30" y="44" width="12" height="4" rx="2" fill="#f4473e" />
-        <rect x="28" y="28" width="16" height="4" rx="2" fill="#f4473e" />
-      </svg>
+      <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#f4473e]/15 bg-[#fff1ef]">
+        <ComputerDesktopIcon aria-hidden="true" className="h-7 w-7" strokeWidth={1.7} />
+      </span>
     ),
-    title: 'Online & On-site Customer Support',
-    desc: 'In addition to online and onsite support, Schoolynx provides webinar-based and on-demand training tailored to customer needs.',
+    number: "03",
+    title: "Online & On-site Customer Support",
+    desc: "Get help when you need it with online and onsite support, webinars, and on-demand training tailored to your team.",
   },
 ];
 
-const PerfectSystem = () => {
-  return (
-    <section className="w-full py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#1a2d52] text-center mb-12">
-          Comprehensive ERP School Management System to Meet Your School Needs
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {features.map((f, i) => (
-            <div key={i} className="flex flex-col items-center text-center">
-              {f.icon}
-              <h3 className="text-xl font-bold text-[#1a2d52] mb-2">{f.title}</h3>
-              <p className="text-gray-500 text-lg max-w-xs">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+const PerfectSystem = () => (
+  <section className="relative isolate w-full overflow-hidden bg-[#f5f7fb] py-16 sm:py-20 lg:py-24">
+    <div aria-hidden="true" className="pointer-events-none absolute -right-32 -top-36 -z-10 h-96 w-96 rounded-full bg-sky-100/80 blur-3xl" />
+    <div aria-hidden="true" className="pointer-events-none absolute -bottom-40 -left-32 -z-10 h-96 w-96 rounded-full bg-rose-100/70 blur-3xl" />
 
-export default PerfectSystem; 
+    <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <header className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
+        <span className="mb-5 inline-flex items-center rounded-full border border-[#172d50]/10 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-[#526781] shadow-sm sm:text-sm">
+          Built for better school days
+        </span>
+        <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#172d50] sm:text-4xl lg:text-5xl">
+          A comprehensive ERP system
+          <span className="mt-1 block text-[#f4473e]">built around your school&apos;s needs.</span>
+        </h2>
+        <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+          Give your educators the tools, features, and support to keep your entire institution moving forward.
+        </p>
+      </header>
+
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        {features.map((feature) => (
+          <article
+            key={feature.number}
+            className="group relative flex min-h-[270px] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_8px_24px_-18px_rgba(23,45,80,0.35)] transition duration-300 hover:-translate-y-1 hover:border-[#f4473e]/30 hover:shadow-[0_20px_45px_-24px_rgba(23,45,80,0.28)] sm:p-7"
+          >
+            <span aria-hidden="true" className="absolute inset-x-7 top-0 h-px bg-gradient-to-r from-transparent via-[#f4473e]/45 to-transparent" />
+            <div className="mb-6 flex items-center justify-between">
+              <span className="inline-flex text-[#314960] transition-transform duration-300 group-hover:-translate-y-0.5">
+                {feature.icon}
+              </span>
+              <span className="text-sm font-bold tabular-nums tracking-wider text-slate-300">
+                {feature.number}
+              </span>
+            </div>
+            <h3 className="max-w-xs text-xl font-bold leading-snug text-[#172d50] sm:text-[22px]">
+              {feature.title}
+            </h3>
+            <p className="mt-3 max-w-sm text-sm leading-7 text-slate-600 sm:text-base">
+              {feature.desc}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export default PerfectSystem;

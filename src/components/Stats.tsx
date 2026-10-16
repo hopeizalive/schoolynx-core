@@ -1,53 +1,71 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
 
-const Stats = () => {
-  return (
-    <section className="py-6 bg-[#1a2d52] text-white w-full">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center">
-        <div className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-24">
-          {/* Schools & Colleges */}
-          <div className="flex items-center space-x-4 min-w-[250px]"> 
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-12">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
-</svg>
-            <div>
-              <p className="text-2xl font-bold leading-tight">300+</p>
-              <p className="text-base leading-tight">Schools</p>
-            </div>
-          </div>
+const stats = [
+  {
+    label: "Schools",
+    value: "300+",
+    icon: (
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9 sm:h-10 sm:w-10">
+        <path d="m3 11 13-7 13 7-13 7L3 11Z" />
+        <path d="M7 13v8l9 5 9-5v-8M4 12v9" />
+        <path d="m5 21 3 2" />
+      </svg>
+    ),
+  },
+  {
+    label: "Countries",
+    value: "30+",
+    icon: (
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9 sm:h-10 sm:w-10">
+        <circle cx="16" cy="16" r="12" />
+        <path d="M10 7.5 13 10l-1 3-3 1-1 4 3 2 2 5M21 5l-1 4 3 2-1 3-4 1-2 4 2 4M5 14l4-1M20 27l1-4 4-2" />
+      </svg>
+    ),
+  },
+  {
+    label: "Languages",
+    value: "8+",
+    icon: (
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9 sm:h-10 sm:w-10">
+        <path d="m18 6 10 20M15 10h14M22 10c-1 8-5 13-12 17M13 14c2 4 5 7 9 9M5 8h11M10.5 5v3M3 25l5-12 5 12M5 20h7" />
+      </svg>
+    ),
+  },
+];
 
-          {/* Countries */}
-          <div className="flex items-center space-x-4 min-w-[200px]">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-12">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
-</svg>
-
-            <div>
-              <p className="text-2xl font-bold leading-tight">30+</p>
-              <p className="text-base leading-tight">Countries</p>
-            </div>
-          </div>
-
-          {/* Languages */}
-          <div className="flex items-center space-x-4 min-w-[200px]">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-12">
-  <path strokeLinecap="round" strokeLinejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
-</svg>
-
-            <div>
-              <p className="text-2xl font-bold leading-tight">8+</p>
-              <p className="text-base leading-tight">Languages</p>
-            </div>
+const Stats = () => (
+  <section aria-label="Schoolynx worldwide" className="w-full bg-[#1a2d52] text-white">
+    <div className="mx-auto grid max-w-[1240px] grid-cols-2 items-center gap-x-3 gap-y-4 px-5 py-5 sm:gap-x-6 sm:px-8 lg:grid-cols-[repeat(3,minmax(0,1fr))_auto] lg:gap-8 lg:px-6 lg:py-[1.125rem]">
+      {stats.map((stat, index) => (
+        <div
+          key={stat.label}
+          className={`flex items-center justify-center gap-3 sm:gap-4 ${
+            index === stats.length - 1 ? "col-span-2 lg:col-span-1" : ""
+          }`}
+        >
+          <div className="shrink-0 text-white">{stat.icon}</div>
+          <div className="text-left">
+            <p className="text-[1.5rem] font-bold leading-none tracking-[-0.04em] sm:text-[1.7rem]">
+              {stat.value}
+            </p>
+            <p className="mt-1 text-[0.8rem] font-medium leading-tight text-white/90 sm:text-sm">
+              {stat.label}
+            </p>
           </div>
         </div>
+      ))}
 
-        <Link href={"/pricing"} className="mt-8 md:mt-0 px-10 py-3 bg-[#f4473e] text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition duration-300 text-lg">
-          Buy Now
-        </Link>
-      </div>
-    </section>
-  );
-};
+      <Link
+        href="/pricing"
+        className="col-span-2 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md bg-[#f4433b] px-8 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-[#e93630] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2d52] sm:col-span-2 lg:col-span-1 lg:min-w-36"
+      >
+        Buy Now
+        <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className="h-4 w-4">
+          <path d="M4 10h12m-5-5 5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </Link>
+    </div>
+  </section>
+);
 
 export default Stats;

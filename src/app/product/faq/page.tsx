@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { CONTACT_EMAIL, CONTACT_PHONES } from "@/lib/contact-info";
 
 interface FAQItem {
   question: string;
@@ -98,15 +99,16 @@ const FAQ: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 pb-12">
         
       <h1 className="text-3xl md:text-4xl font-semibold text-gray-800">Have any questions?</h1>
-        <p className="text-md py-4 px-1">We are happy to help you. Write us to <a href="https://Schoolynx.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-red-600">support@Schoolynx.com</a> or call the support desk 
-          <a href="https://Schoolynx.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-red-600">+91-1130018096</a>
-           </p>
+        <p className="text-md py-4 px-1">
+          We are happy to help you. Email us at{' '}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="text-red-600">{CONTACT_EMAIL}</a>
+          {' '}or call {CONTACT_PHONES.map((phone, index) => (
+            <React.Fragment key={phone.href}>
+              {index > 0 ? ' or ' : ''}
+              <a href={phone.href} className="text-red-600">{phone.display}</a>
+            </React.Fragment>
+          ))}.
+        </p>
 
            <Link href={"/contact"} className=' bg-red-600 cursor-pointer px-4 py-2 rounded-md text-white hover:bg-red-700'>
               Contact Us
