@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const partnershipBenefits = [
@@ -14,6 +15,21 @@ const partnerRequirements = [
   'Technical expertise',
   'Commitment to customer success',
   'Alignment with our values',
+];
+
+const partnerHighlights = [
+  {
+    title: 'Access Schoolynx Source Code',
+    description: 'Work with a modern, flexible platform that can be adapted to your market, customers, and growth plans. T&C applicable.',
+  },
+  {
+    title: 'An additional resource to generate more revenue',
+    description: 'Unlock new revenue streams by serving schools with a proven digital transformation platform and a compelling partner model.',
+  },
+  {
+    title: 'Expand business into the EdTech market',
+    description: 'Take advantage of a high-demand sector with a trusted solution built for admissions, fees, attendance, exams, and parent engagement.',
+  },
 ];
 
 const oemFeatures = [
@@ -59,7 +75,7 @@ function PartnerListCard({
   type: 'benefits' | 'requirements';
 }) {
   return (
-    <article className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_12px_32px_rgba(23,45,80,0.055)] transition-all duration-200 hover:-translate-y-1 hover:border-[#f4473e]/25 hover:shadow-[0_18px_38px_rgba(23,45,80,0.09)] sm:p-8">
+    <article className="group cursor-pointer rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_12px_32px_rgba(23,45,80,0.055)] transition-all duration-200 hover:-translate-y-1 hover:border-[#f4473e]/30 hover:bg-[#fffaf9] hover:shadow-[0_18px_38px_rgba(23,45,80,0.09)] sm:p-8">
       <div className="mb-6 flex items-center gap-4">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#fff1ef] text-[#e84c3d] transition-colors group-hover:bg-[#f4473e] group-hover:text-white">
           {type === 'benefits' ? (
@@ -108,11 +124,26 @@ export default function PartnerPage() {
             Grow with Schoolynx
           </span>
           <h1 className="text-4xl font-bold tracking-tight text-[#172d50] sm:text-5xl lg:text-6xl">
-            Partner With Us
+            Why Become a Schoolynx Partner?
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-            Build better outcomes for schools with a technology partner committed to your growth.
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+            There are millions of educational institutions worldwide that need a dependable, modern school management solution. This is a strong opportunity for Schoolynx partners to grow their business with a trusted product they can confidently sell and support.
           </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/oem-partner"
+              className="inline-flex items-center justify-center rounded-full bg-[#f4473e] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#f4473e]/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#dc3b32] hover:shadow-xl hover:shadow-[#f4473e]/25"
+            >
+              Start your journey today
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-[#172d50] transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50"
+            >
+              Talk to our team
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -127,6 +158,29 @@ export default function PartnerPage() {
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
             <PartnerListCard title="Benefits of Partnership" items={partnershipBenefits} type="benefits" />
             <PartnerListCard title="Partner Requirements" items={partnerRequirements} type="requirements" />
+          </div>
+        </section>
+
+        <section aria-labelledby="partner-growth-heading" className="mt-14 sm:mt-20">
+          <div className="mb-7">
+            <span className="text-sm font-semibold uppercase tracking-[0.14em] text-[#e84c3d]">Built for growth</span>
+            <h2 id="partner-growth-heading" className="mt-2 text-2xl font-bold tracking-tight text-[#172d50] sm:text-3xl">
+              When you become a Schoolynx Partner
+            </h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {partnerHighlights.map((item) => (
+              <article key={item.title} className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_14px_40px_rgba(23,45,80,0.05)] transition-all duration-200 hover:-translate-y-1 hover:border-[#f4473e]/30 hover:bg-[#fffaf9] hover:shadow-[0_18px_42px_rgba(23,45,80,0.08)] md:p-7">
+                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#fff0ee] text-[#e84c3d] transition-colors duration-200 group-hover:bg-[#f4473e] group-hover:text-white">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-5 w-5">
+                    <path d="m6 12 3 3 9-9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold tracking-tight text-[#172d50]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -147,7 +201,7 @@ export default function PartnerPage() {
               </span>
               <h3 className="text-xl font-bold tracking-tight text-[#172d50] sm:text-2xl">White Label Solutions</h3>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
-                Customize and rebrand Schoolynx to match your brand identity while leveraging our powerful school management platform.
+                Embed Schoolynx in your application and customize the platform to your market while leveraging a proven school management foundation that already works.
               </p>
             </div>
 
@@ -164,6 +218,26 @@ export default function PartnerPage() {
                   <p className="mt-2 text-sm leading-6 text-slate-600">{feature.description}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-14 sm:mt-20">
+          <div className="rounded-[2rem] bg-[#172d50] px-6 py-8 text-white shadow-[0_24px_60px_rgba(23,45,80,0.22)] sm:px-8 sm:py-10 lg:px-10">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <span className="text-sm font-semibold uppercase tracking-[0.14em] text-[#ffb2a9]">Partner program</span>
+                <h3 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Start your journey today.</h3>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-blue-100/80 sm:text-base">
+                  We are happy to help with any partner questions if you are looking for more information about the Schoolynx partner program.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#172d50] transition hover:bg-slate-100"
+              >
+                Enquire now
+              </Link>
             </div>
           </div>
         </section>
