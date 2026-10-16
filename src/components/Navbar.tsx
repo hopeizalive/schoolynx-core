@@ -63,22 +63,27 @@ export const Navbar = () => {
               <div key={item.label} className="group relative flex h-full items-center">
                 <Link
                   href={item.href}
-                  className="inline-flex items-center gap-1.5 py-3 text-sm font-medium text-[#263957] transition-colors hover:text-[#e3443b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-4 2xl:text-base"
+                  className="inline-flex items-center gap-1.5 py-3 text-sm font-medium text-[#263957] transition-colors hover:text-[#e3443b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-4 group-hover:text-[#e3443b] group-focus-within:text-[#e3443b] 2xl:text-base"
                 >
                   {item.label}
-                  {item.children && <IoChevronDown aria-hidden="true" className="h-4 w-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />}
+                  {item.children && <IoChevronDown aria-hidden="true" className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" />}
                 </Link>
                 {item.children && (
-                  <div className="invisible absolute left-0 top-[calc(100%-0.75rem)] z-50 min-w-48 translate-y-2 rounded-xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl shadow-[#172d50]/10 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-[#fff4f3] hover:text-[#c7342e] focus-visible:bg-[#fff4f3] focus-visible:text-[#c7342e] focus-visible:outline-none"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                  <div className="invisible pointer-events-none absolute left-0 top-full z-50 w-64 translate-y-2 pt-2 opacity-0 transition-all duration-200 ease-out group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                    <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-2 shadow-[0_18px_45px_-18px_rgba(23,45,80,0.3)] ring-1 ring-black/[0.03]">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          className="group/link flex items-center justify-between rounded-xl px-3 py-3 text-sm font-semibold text-[#263957] transition-all duration-150 hover:bg-[#fff4f3] hover:text-[#c7342e] focus-visible:bg-[#fff4f3] focus-visible:text-[#c7342e] focus-visible:outline-none"
+                        >
+                          <span className="flex items-center gap-3">
+                            {child.label}
+                          </span>
+                          <span aria-hidden="true" className="translate-x-[-4px] text-base opacity-0 transition-all group-hover/link:translate-x-0 group-hover/link:opacity-100">→</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>

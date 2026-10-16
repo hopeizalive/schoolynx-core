@@ -5,7 +5,7 @@ const footerSections = [
   {
     title: 'Product',
     links: [
-      { label: 'Explore features', href: '/product#feature-tour' },
+      { label: 'Explore features', href: '/product/feature-tour#core-modules' },
       { label: 'Pricing & plans', href: '/pricing' },
       { label: 'Our services', href: '/services' },
     ],
@@ -13,7 +13,7 @@ const footerSections = [
   {
     title: 'Discover',
     links: [
-      { label: 'Why Schoolynx', href: '/product#why-software' },
+      { label: 'Why Schoolynx', href: '/product/why-schoolynx' },
       { label: 'Frequently asked questions', href: '/product/faq' },
       { label: 'Contact us', href: '/contact' },
     ],
@@ -55,22 +55,22 @@ export const Footer = () => (
         </div>
       </section>
 
-      <div className="grid gap-10 py-12 sm:grid-cols-2 sm:gap-x-12 lg:grid-cols-12 lg:gap-8 lg:py-14">
+      <div className="grid items-start gap-8 py-8 sm:grid-cols-2 sm:gap-x-12 lg:grid-cols-12 lg:gap-8">
         <div className="sm:col-span-2 lg:col-span-4">
           <Link
             href="/"
             aria-label="Schoolynx home"
-            className="inline-flex rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-4"
+            className="inline-flex w-56 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-4"
           >
             <Image
-              src="/assets/logo2.png"
+              src="/assets/logo-footer.png"
               alt="Schoolynx School ERP"
-              width={220}
-              height={80}
-              className="h-auto w-48 object-contain object-left sm:w-56"
+              width={380}
+              height={88}
+              className="h-auto w-full object-contain"
             />
           </Link>
-          <p className="mt-4 max-w-sm text-sm leading-7 text-slate-600">
+          <p className="mt-2 max-w-sm text-sm leading-6 text-slate-600">
             Thoughtful tools for the people who make great schools happen.
           </p>
         </div>

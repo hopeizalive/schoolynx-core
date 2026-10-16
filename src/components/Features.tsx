@@ -54,7 +54,7 @@ const partnerLogos = [
 const Features = () => (
   <section
     aria-labelledby="trusted-technology-heading"
-    className="w-full overflow-hidden bg-[#f7f8fa] py-12 sm:py-14 lg:py-16"
+    className="hidden"
   >
     <div className="mx-auto mb-8 max-w-7xl px-5 text-center sm:mb-10 sm:px-8">
       <h2

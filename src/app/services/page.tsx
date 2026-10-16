@@ -54,7 +54,7 @@ const services = [
 const Services = () => (
   <main className="min-h-screen bg-[#f5f7fb]">
     <section className="overflow-hidden bg-[#eef1f2]">
-      <div className="mx-auto grid max-w-[1440px] items-center gap-8 px-5 py-10 sm:px-8 sm:py-14 lg:min-h-[560px] lg:grid-cols-[0.88fr_1.12fr] lg:gap-8 lg:px-10 lg:py-12">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-8 px-5 py-7 sm:px-8 sm:py-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-8 lg:px-10 lg:py-6">
         <div className="relative z-10 text-center lg:pl-5 lg:text-left">
           <span className="inline-flex rounded-xl bg-[#f4473e] px-3 py-2 text-sm font-semibold text-white sm:text-base">
             All-in-One
@@ -84,7 +84,7 @@ const Services = () => (
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[760px]">
+        <div className="relative mx-auto w-full max-w-[560px]">
           <div aria-hidden="true" className="absolute inset-x-10 bottom-8 top-12 rounded-full bg-white/80 blur-3xl" />
           <Image
             src="/assets/home4.png"

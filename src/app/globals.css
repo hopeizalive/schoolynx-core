@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
 .mobile-app-wave {
   background-image:
     radial-gradient(ellipse at 48% 105%, rgba(244, 71, 62, 0.22), transparent 48%),
@@ -52,7 +56,7 @@
 }
 
 .logo-marquee {
-  animation: logo-marquee-scroll 32s linear infinite;
+  animation: logo-marquee-scroll 52s linear infinite;
 }
 
 @keyframes logo-marquee-scroll {
@@ -67,57 +71,16 @@
 
 @media (prefers-reduced-motion: reduce) {
   .logo-marquee {
-    animation-duration: 60s;
+    animation: none;
   }
 }
 
 .hero-bubble-motion {
-  background-image: url("/assets/hero-soft-bg.jpeg");
-  background-position: 0% 50%;
+  background-color: #ffffff;
+  background-image: url("/assets/hero-background.jpeg");
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: 110% 110%;
-  animation: hero-bubble-drift 32s ease-in-out infinite alternate;
-  will-change: background-position, transform;
-}
-
-@keyframes hero-bubble-drift {
-  from {
-    background-position: 0% 45%;
-    transform: scale(1);
-  }
-
-  to {
-    background-position: 100% 55%;
-    transform: scale(1.08);
-  }
-}
-
-@media (max-width: 639px) {
-  .hero-bubble-motion {
-    background-position: center;
-    background-size: auto 100%;
-    animation-name: hero-bubble-drift-mobile;
-    animation-duration: 40s;
-  }
-
-  @keyframes hero-bubble-drift-mobile {
-    from {
-      background-position: 48% 50%;
-      transform: scale(1);
-    }
-
-    to {
-      background-position: 52% 50%;
-      transform: scale(1.025);
-    }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-bubble-motion {
-    animation: none;
-    will-change: auto;
-  }
+  background-size: cover;
 }
 
 /* :root {

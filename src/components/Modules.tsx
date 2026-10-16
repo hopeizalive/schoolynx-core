@@ -49,51 +49,54 @@ const modules = [
 ];
 
 const Modules = () => (
-  <section className="relative isolate w-full overflow-hidden bg-gradient-to-br from-[#172d50] via-[#17466b] to-[#102947] py-14 text-white sm:py-16 lg:py-20">
+  <section className="relative isolate w-full overflow-hidden bg-[#f5f7fb] py-16 text-[#172d50] sm:py-20 lg:py-24">
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute -right-40 -top-48 z-0 h-[440px] w-[440px] rounded-full bg-cyan-300/10 blur-3xl"
+      className="pointer-events-none absolute -right-36 -top-40 z-0 h-[440px] w-[440px] rounded-full bg-sky-200/50 blur-3xl"
     />
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute -bottom-60 -left-40 z-0 h-[440px] w-[440px] rounded-full bg-[#f4473e]/15 blur-3xl"
+      className="pointer-events-none absolute -bottom-56 -left-40 z-0 h-[420px] w-[420px] rounded-full bg-rose-100/70 blur-3xl"
     />
 
     <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-        <div className="flex flex-col justify-center pb-3 sm:col-span-2 sm:pb-5 lg:col-span-2 lg:pb-0">
-          <span className="mb-3 inline-flex w-fit items-center gap-2 text-xs font-semibold text-blue-100 sm:text-sm">
-            <AcademicCapIcon aria-hidden="true" className="h-4 w-4 text-[#ff8279]" />
-            Single ERP platform for all your education needs
-          </span>
-          <h2 className="max-w-xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.65rem]">
-            <span className="text-[#ff8279]">Modules</span> to Automate School Management
-          </h2>
-          <p className="mt-4 max-w-md text-sm leading-6 text-blue-100/75 sm:text-base sm:leading-7">
-            Powerful tools to make everyday school operations simpler, smarter, and more connected.
-          </p>
-        </div>
+      <header className="mx-auto mb-10 max-w-3xl text-center sm:mb-12 lg:mb-14">
+        <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#172d50]/10 bg-white/80 px-4 py-2 text-xs font-bold tracking-wide text-[#36506f] shadow-sm sm:text-sm">
+          <AcademicCapIcon aria-hidden="true" className="h-4 w-4 text-[#f4473e]" />
+          THE SCHOOLYNX PLATFORM
+        </span>
+        <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#172d50] sm:text-4xl lg:text-5xl">
+          Everything your school needs,
+          <span className="mt-1 block text-[#f4473e]">all in one place.</span>
+        </h2>
+        <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+          Explore connected tools that make everyday school operations simpler, smarter, and more organized.
+        </p>
+      </header>
 
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
         {modules.map((module) => (
           <article
             key={module.title}
-            className="group flex min-h-[226px] flex-col items-center rounded-2xl border border-white/60 bg-white px-5 py-5 text-center text-[#172d50] shadow-[0_18px_40px_-24px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-h-[238px] sm:px-5 sm:py-6"
+            className="group relative flex min-h-[220px] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_8px_24px_-18px_rgba(23,45,80,0.35)] transition duration-300 hover:-translate-y-1 hover:border-[#f4473e]/30 hover:shadow-[0_20px_45px_-24px_rgba(23,45,80,0.28)] sm:min-h-[232px] sm:p-7"
           >
-            <span className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#fff1ef] text-[#f4473e] transition-colors duration-300 group-hover:bg-[#f4473e] group-hover:text-white">
-              {module.icon}
-            </span>
-            <span className="mb-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400">
-              {module.category}
-            </span>
-            <h3 className="text-sm font-bold tracking-tight text-[#172d50] sm:text-base">
+            <div className="mb-5 flex items-center justify-between">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fff1ef] text-[#f4473e] ring-1 ring-[#f4473e]/10 transition duration-300 group-hover:bg-[#f4473e] group-hover:text-white">
+                {module.icon}
+              </span>
+              <span className="rounded-full bg-slate-50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500 ring-1 ring-slate-200/80">
+                {module.category}
+              </span>
+            </div>
+            <h3 className="text-lg font-bold tracking-tight text-[#172d50]">
               {module.title}
             </h3>
-            <p className="mt-2 flex-1 text-xs leading-5 text-slate-600">
+            <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
               {module.desc}
             </p>
             <Link
               href="/product/feature-tour"
-              className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-[#e3443b] transition-colors hover:text-[#b92f29] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-2"
+              className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-bold text-[#e3443b] transition-colors hover:text-[#b92f29] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-2"
             >
               Learn more
               <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">
@@ -104,16 +107,16 @@ const Modules = () => (
         ))}
       </div>
 
-      <div className="mt-8 flex flex-col items-center gap-3 text-center sm:mt-10">
-        <p className="text-3xl font-bold leading-none sm:text-4xl">
-          <span className="text-[#ff8279]">30+</span>
-        </p>
-        <p className="text-xs font-medium text-blue-100/80 sm:text-sm">
-          More powerful modules to help your school thrive
-        </p>
+      <div className="mt-8 flex flex-col gap-5 rounded-2xl border border-[#dce4ef] bg-white/80 p-5 shadow-sm backdrop-blur-sm sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:px-7 sm:py-6">
+        <div className="flex items-center gap-4">
+          <span className="text-3xl font-extrabold leading-none tracking-tight text-[#f4473e] sm:text-4xl">30+</span>
+          <p className="max-w-xs text-sm leading-5 text-slate-600 sm:text-base">
+            more powerful modules to help your school thrive
+          </p>
+        </div>
         <Link
           href="/product/feature-tour"
-          className="mt-1 inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-[#f4473e] px-5 text-xs font-bold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#e43c34] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2d52] sm:text-sm"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#172d50] px-5 text-sm font-bold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#24436f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-2"
         >
           See all features
           <span aria-hidden="true">→</span>
