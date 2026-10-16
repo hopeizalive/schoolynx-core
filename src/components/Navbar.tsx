@@ -24,7 +24,6 @@ const navItems: NavItem[] = [
   { label: "Pricing", href: "/pricing" },
   { label: "Resources", href: "/resources" },
   { label: "Services", href: "/services" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const Navbar = () => {
@@ -97,15 +96,6 @@ export const Navbar = () => {
             >
               Book a Live Demo
             </Link>
-            <a
-              href="tel:+923155814609"
-              aria-label="Call Schoolynx"
-              className="hidden h-11 w-11 items-center justify-center rounded-full border border-[#f4473e]/25 bg-[#fff8f7] text-[#e3443b] transition hover:bg-[#fff0ef] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-2 sm:inline-flex"
-            >
-              <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m5 4 3.5-.8L11 7l-2 2a15 15 0 0 0 6 6l2-2 3.8 2.5L20 19c-.3 1-1.3 1.5-2.3 1.2A18 18 0 0 1 3.8 6.3C3.5 5.3 4 4.3 5 4Z" />
-              </svg>
-            </a>
             <button
               type="button"
               onClick={() => setIsOpen(true)}

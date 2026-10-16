@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Fragment } from 'react';
+import { CONTACT_EMAIL, CONTACT_PHONES } from '@/lib/contact-info';
 
 const footerSections = [
   {
@@ -110,17 +112,40 @@ export const Footer = () => (
               Office No. 108, Iqra IT Park, Defence View Phase II, Shaheed-i-Milat Road, Karachi
             </p>
           </div>
-          <a
-            href="tel:+923155814609"
-            className="mt-4 inline-flex min-h-10 items-center gap-3 rounded-lg text-sm font-semibold text-[#172d50] transition-colors hover:text-[#f4473e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-2"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-[#f4473e] shadow-sm ring-1 ring-slate-200/70" aria-hidden="true">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m5 4 3.5-.8L11 7l-2 2a15 15 0 0 0 6 6l2-2 3.8 2.5L20 19c-.3 1-1.3 1.5-2.3 1.2A18 18 0 0 1 3.8 6.3C3.5 5.3 4 4.3 5 4Z" />
-              </svg>
-            </span>
-            +92-315-5814609
-          </a>
+          <div className="mt-4 flex flex-col items-start gap-5">
+            <div className="flex min-h-10 items-center gap-3">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white text-[#f4473e] shadow-sm ring-1 ring-slate-200/70" aria-hidden="true">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m5 4 3.5-.8L11 7l-2 2a15 15 0 0 0 6 6l2-2 3.8 2.5L20 19c-.3 1-1.3 1.5-2.3 1.2A18 18 0 0 1 3.8 6.3C3.5 5.3 4 4.3 5 4Z" />
+                </svg>
+              </span>
+              <div className="flex flex-nowrap items-center gap-x-3 text-xs font-semibold sm:text-sm">
+                {CONTACT_PHONES.map((phone, index) => (
+                  <Fragment key={phone.href}>
+                    {index > 0 && <span aria-hidden="true" className="text-slate-400">|</span>}
+                    <a
+                      href={phone.href}
+                      className="whitespace-nowrap text-[#172d50] transition-colors hover:text-[#f4473e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-2"
+                    >
+                      {phone.display}
+                    </a>
+                  </Fragment>
+                ))}
+              </div>
+            </div>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="inline-flex min-h-10 items-center gap-3 rounded-lg text-sm font-semibold text-[#172d50] transition-colors hover:text-[#f4473e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4473e] focus-visible:ring-offset-2"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-[#f4473e] shadow-sm ring-1 ring-slate-200/70" aria-hidden="true">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m4 7 8 6 8-6" />
+                </svg>
+              </span>
+              {CONTACT_EMAIL}
+            </a>
+          </div>
         </div>
       </div>
 

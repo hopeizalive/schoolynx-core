@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { CONTACT_EMAIL, CONTACT_PHONES } from '@/lib/contact-info';
 
 type ResultType = { type: 'success' | 'error'; message: string } | null;
 
@@ -13,9 +14,19 @@ type FormData = {
 
 const contactDetails = [
     {
-        label: 'Call our team',
-        value: '+92-315-5814609',
-        href: 'tel:+923155814609',
+        label: CONTACT_PHONES[0].label,
+        value: CONTACT_PHONES[0].display,
+        href: CONTACT_PHONES[0].href,
+        icon: (
+            <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m5 4 3.5-.8L11 7l-2 2a15 15 0 0 0 6 6l2-2 3.8 2.5L20 19c-.3 1-1.3 1.5-2.3 1.2A18 18 0 0 1 3.8 6.3C3.5 5.3 4 4.3 5 4Z" />
+            </svg>
+        ),
+    },
+    {
+        label: CONTACT_PHONES[1].label,
+        value: CONTACT_PHONES[1].display,
+        href: CONTACT_PHONES[1].href,
         icon: (
             <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m5 4 3.5-.8L11 7l-2 2a15 15 0 0 0 6 6l2-2 3.8 2.5L20 19c-.3 1-1.3 1.5-2.3 1.2A18 18 0 0 1 3.8 6.3C3.5 5.3 4 4.3 5 4Z" />
@@ -24,8 +35,8 @@ const contactDetails = [
     },
     {
         label: 'Email us',
-        value: 'rizwan@gmail.com',
-        href: 'mailto:rizwan@gmail.com',
+        value: CONTACT_EMAIL,
+        href: `mailto:${CONTACT_EMAIL}`,
         icon: (
             <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
                 <rect x="3" y="5" width="18" height="14" rx="2" />

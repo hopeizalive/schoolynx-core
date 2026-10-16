@@ -31,7 +31,7 @@ export const Hero = () => {
             All-in-One
           </span>
 
-          <h1 className="mb-6 text-[2.7rem] font-bold leading-[1.04] tracking-[-0.05em] text-[#172d50] sm:text-6xl lg:text-[3.8rem] xl:text-[4.4rem]">
+          <h1 className="mb-6 text-[2.25rem] font-bold leading-[1.08] tracking-[-0.04em] text-[#172d50] sm:text-5xl lg:text-[3.4rem] xl:text-[3.8rem]">
             College and School
             <span className="mt-2 block text-[#ff706b]">Management Software</span>
           </h1>

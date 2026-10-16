@@ -59,7 +59,7 @@ const Services = () => (
           <span className="inline-flex rounded-xl bg-[#f4473e] px-3 py-2 text-sm font-semibold text-white sm:text-base">
             All-in-One
           </span>
-          <h1 className="mx-auto mt-5 max-w-2xl text-4xl font-bold leading-[1.12] tracking-tight text-[#1a2d52] sm:text-5xl lg:mx-0 lg:text-[3.15rem]">
+          <h1 className="mx-auto mt-5 max-w-2xl text-3xl font-bold leading-[1.12] tracking-tight text-[#1a2d52] sm:text-4xl lg:mx-0 lg:text-[2.75rem]">
             College and School Management Software
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#1a2d52] sm:text-lg sm:leading-8 lg:mx-0">
