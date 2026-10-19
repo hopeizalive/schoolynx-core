@@ -1,0 +1,17 @@
+import Script from "next/script";
+
+export default function TawkChat() {
+  const propertyId = process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID;
+  const widgetId = process.env.NEXT_PUBLIC_TAWK_WIDGET_ID;
+
+  if (!propertyId || !widgetId) {
+    return null;
+  }
+
+  return (
+    <Script
+      src={`https://embed.tawk.to/${propertyId}/${widgetId}`}
+      strategy="afterInteractive"
+    />
+  );
+}
