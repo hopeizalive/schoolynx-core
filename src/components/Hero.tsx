@@ -28,11 +28,11 @@ export const Hero = () => {
         <div className="relative z-10 mx-auto w-full max-w-[610px] text-center lg:mx-0 lg:text-left">
           <span className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-[#172d50]/10 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.17em] text-[#52627c] shadow-sm sm:text-sm">
             <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff6b66] shadow-[0_0_14px_rgba(255,107,102,0.75)]" />
-            All-in-One
+            School ERP Platform
           </span>
 
           <h1 className="mb-6 text-[2.25rem] font-bold leading-[1.08] tracking-[-0.04em] text-[#172d50] sm:text-5xl lg:text-[3.4rem] xl:text-[3.8rem]">
-            College and School
+            All-in-One School
             <span className="mt-2 block text-[#ff706b]">Management Software</span>
           </h1>
 
