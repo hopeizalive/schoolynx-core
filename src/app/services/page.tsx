@@ -60,7 +60,7 @@ const Services = () => (
             All-in-One
           </span>
           <h1 className="mx-auto mt-5 max-w-2xl text-3xl font-bold leading-[1.12] tracking-tight text-[#1a2d52] sm:text-4xl lg:mx-0 lg:text-[2.75rem]">
-            College and School Management Software
+            All-in-One School Management Software
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#1a2d52] sm:text-lg sm:leading-8 lg:mx-0">
             <strong className="font-bold">

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { CONTACT_EMAIL, CONTACT_PHONES } from '@/lib/contact-info';
 
-type ResultType = { type: 'success' | 'error'; message: string } | null;
+type ResultType = { type: 'success' | 'error'; message: string; emailHref?: string } | null;
 
 type FormData = {
     fullName: string;
@@ -13,26 +13,6 @@ type FormData = {
 };
 
 const contactDetails = [
-    {
-        label: CONTACT_PHONES[0].label,
-        value: CONTACT_PHONES[0].display,
-        href: CONTACT_PHONES[0].href,
-        icon: (
-            <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m5 4 3.5-.8L11 7l-2 2a15 15 0 0 0 6 6l2-2 3.8 2.5L20 19c-.3 1-1.3 1.5-2.3 1.2A18 18 0 0 1 3.8 6.3C3.5 5.3 4 4.3 5 4Z" />
-            </svg>
-        ),
-    },
-    {
-        label: CONTACT_PHONES[1].label,
-        value: CONTACT_PHONES[1].display,
-        href: CONTACT_PHONES[1].href,
-        icon: (
-            <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m5 4 3.5-.8L11 7l-2 2a15 15 0 0 0 6 6l2-2 3.8 2.5L20 19c-.3 1-1.3 1.5-2.3 1.2A18 18 0 0 1 3.8 6.3C3.5 5.3 4 4.3 5 4Z" />
-            </svg>
-        ),
-    },
     {
         label: 'Email us',
         value: CONTACT_EMAIL,
@@ -77,6 +57,19 @@ export default function ContactPage() {
             if (data.success) {
                 setResult({ type: 'success', message: 'Your message has been sent! We will be in touch soon.' });
                 setForm({ fullName: '', phoneNumber: '', whatsapp: '', email: '' });
+            } else if (typeof data.error === 'string' && data.error.includes('Mail is not configured')) {
+                const emailBody = [
+                    `Full name: ${form.fullName}`,
+                    `Email: ${form.email}`,
+                    `Phone number: ${form.phoneNumber}`,
+                    `WhatsApp: ${form.whatsapp || 'Not provided'}`,
+                ].join('\n');
+                const emailHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('New Contact Form Submission')}&body=${encodeURIComponent(emailBody)}`;
+                setResult({
+                    type: 'error',
+                    message: 'Server par email setup nahin hai. Apna message email ke zariye bhejne ke liye neeche click karein.',
+                    emailHref,
+                });
             } else {
                 setResult({ type: 'error', message: data.message || 'Something went wrong.' });
             }
@@ -224,6 +217,14 @@ export default function ContactPage() {
                                     }`}
                                 >
                                     {result.message}
+                                    {result.emailHref && (
+                                        <a
+                                            href={result.emailHref}
+                                            className="mt-3 block font-bold underline underline-offset-2"
+                                        >
+                                            Email ke zariye bhejein
+                                        </a>
+                                    )}
                                 </div>
                             )}
                         </form>
@@ -244,6 +245,27 @@ export default function ContactPage() {
                         </p>
 
                         <div className="mt-8 space-y-5">
+                            <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.06] p-4">
+                                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#ff8279]">
+                                    <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="m5 4 3.5-.8L11 7l-2 2a15 15 0 0 0 6 6l2-2 3.8 2.5L20 19c-.3 1-1.3 1.5-2.3 1.2A18 18 0 0 1 3.8 6.3C3.5 5.3 4 4.3 5 4Z" />
+                                    </svg>
+                                </span>
+                                <span className="min-w-0">
+                                    <span className="block text-xs font-medium text-blue-100/60">Call our team</span>
+                                    <span className="mt-1 flex flex-wrap gap-x-3 text-sm font-semibold text-white">
+                                        {CONTACT_PHONES.map((phone) => (
+                                            <a
+                                                key={phone.href}
+                                                href={phone.href}
+                                                className="break-all transition-colors hover:text-[#ffaaa4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff8279]"
+                                            >
+                                                {phone.display}
+                                            </a>
+                                        ))}
+                                    </span>
+                                </span>
+                            </div>
                             {contactDetails.map((detail) => (
                                 <a
                                     key={detail.label}
