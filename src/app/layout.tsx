@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import TawkChat from "@/components/TawkChat";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <SmoothScroll />
+        <TawkChat />
         <Navbar />
         <Suspense fallback={<Loading />}>
           <main>
